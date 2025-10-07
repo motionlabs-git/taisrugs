@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono, Shrikhand } from 'next/font/google'
 import './globals.css'
+import localFont from 'next/font/local'
 import Navigation from '@/_components/Layout/Navigation/Navigation'
 import Footer from '@/_components/Layout/Footer/Footer'
 import ReactLenis from 'lenis/react'
@@ -21,6 +22,11 @@ const shrikHand = Shrikhand({
     // subsets: ['latin'],
 })
 
+const Daffiys = localFont({
+    src: '../_assets/fonts/SuperMatcha.ttf',
+    variable: '--daffiys',
+})
+
 export const metadata: Metadata = {
     title: {
         default: 'Domů | Tais Rugs',
@@ -38,11 +44,11 @@ export default function RootLayout({
         <html lang='en'>
             <ReactLenis root options={{ lerp: 0.1, duration: 1.5 }}>
                 <body
-                    className={`${geistSans.variable} ${geistMono.variable} ${shrikHand.className} antialiased flex flex-col items-center min-h-screen justify-between`}
+                    className={`${geistSans.variable} ${geistMono.className} ${shrikHand.variable} ${Daffiys.variable} antialiased flex flex-col items-center min-h-screen justify-between px-4`}
                 >
                     <Navigation></Navigation>
 
-                    <main className='max-w-[1280px] w-full flex-1 flex justify-center'>
+                    <main className='max-w-[1376px] w-full pt-28 flex-1 flex justify-center'>
                         {children}
                     </main>
 

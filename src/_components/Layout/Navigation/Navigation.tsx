@@ -1,43 +1,43 @@
 'use client'
 import React from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
+import { FiShoppingCart } from 'react-icons/fi'
+import Cart from '../Cart/Cart'
 
 const Navigation = () => {
     return (
-        <header className='w-full flex justify-center py-4'>
-            <nav className='flex flex-col items-center'>
-                <Link href={'/'} aria-label='Logo' className=''>
-                    <Image
-                        src={'/logo.png'}
-                        alt={'Logo'}
-                        width={300}
-                        height={300}
-                        className='w-32 hover:scale-95 hover:-rotate-12 duration-300'
-                    ></Image>
-                </Link>
-
-                <div className='flex gap-4 items-center mt-4'>
+        <header className='fixed top-0 z-50 w-full flex justify-center py-4'>
+            <Cart></Cart>
+            <nav className='flex max-w-[1376px] w-full justify-between items-center bg-white border border-black/30 shadow-md px-6 py-6 rounded-xl'>
+                <div className='flex gap-4 items-center'>
                     <Link href={'/'} aria-label=''>
-                        <span>Domů</span>
+                        <span className='font-bold'>Domů</span>
                     </Link>
 
-                    <Link href={'/'} aria-label=''>
+                    <Link className='font-bold' href={'/'} aria-label=''>
                         <span>Koberec na zakázku</span>
                     </Link>
 
-                    <Link href={'/'} aria-label=''>
+                    <Link className='font-bold' href={'/'} aria-label=''>
                         <span>Kurzy</span>
                     </Link>
 
-                    <Link href={'/'} aria-label=''>
+                    <Link className='font-bold' href={'/'} aria-label=''>
                         <span>Eshop</span>
                     </Link>
 
-                    <Link href={'/'} aria-label=''>
+                    <Link className='font-bold' href={'/'} aria-label=''>
                         <span>Kontakt</span>
                     </Link>
                 </div>
+
+                <button
+                    type='button'
+                    aria-label='Košík'
+                    className='flex gap-2 items-center cursor-pointer'
+                >
+                    <FiShoppingCart></FiShoppingCart> Košík (0)
+                </button>
             </nav>
         </header>
     )
