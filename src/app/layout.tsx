@@ -1,30 +1,25 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono, Shrikhand } from 'next/font/google'
+import { Geist_Mono, Poppins } from 'next/font/google'
 import './globals.css'
 import localFont from 'next/font/local'
 import Navigation from '@/_components/Layout/Navigation/Navigation'
 import Footer from '@/_components/Layout/Footer/Footer'
 import ReactLenis from 'lenis/react'
 
-const geistSans = Geist({
-    variable: '--font-geist-sans',
-    subsets: ['latin'],
-})
-
 const geistMono = Geist_Mono({
     variable: '--font-geist-mono',
     subsets: ['latin'],
 })
 
-const shrikHand = Shrikhand({
+const poppins = Poppins({
+    variable: '--font-poppins',
     weight: ['400'],
-    variable: '--font-shrikhand',
-    // subsets: ['latin'],
+    subsets: ['latin'],
 })
 
 const Daffiys = localFont({
     src: '../_assets/fonts/SuperMatcha.ttf',
-    variable: '--daffiys',
+    variable: '--font-daffiys',
 })
 
 export const metadata: Metadata = {
@@ -44,19 +39,19 @@ export default function RootLayout({
         <html lang='en'>
             <ReactLenis root options={{ lerp: 0.1, duration: 1.5 }}>
                 <body
-                    className={`${geistSans.variable} ${geistMono.className} ${shrikHand.variable} ${Daffiys.variable} antialiased flex flex-col items-center min-h-screen justify-between px-4`}
+                    className={`${geistMono.variable} ${poppins.className}  ${Daffiys.variable} antialiased flex flex-col items-center min-h-screen justify-between px-4`}
                 >
-                    <div className='w-full h-[100dvh] flex justify-center items-center'>
+                    {/* <div className='w-full h-[100dvh] flex justify-center items-center'>
                         <h1>In progress...</h1>
-                    </div>
+                    </div> */}
 
-                    {/* <Navigation></Navigation>
+                    <Navigation></Navigation>
 
                     <main className='max-w-[1376px] w-full pt-28 flex-1 flex justify-center'>
                         {children}
                     </main>
 
-                    <Footer></Footer> */}
+                    <Footer></Footer>
                 </body>
             </ReactLenis>
         </html>

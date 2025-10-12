@@ -1,7 +1,12 @@
+import ContactUs from '@/_components/Sections/ContactUs'
 import React from 'react'
 
 const Kontakt = () => {
-    return <div>Kontakt</div>
+    return (
+        <div className='w-full'>
+            <ContactUs></ContactUs>
+        </div>
+    )
 }
 
 export default Kontakt

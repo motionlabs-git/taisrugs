@@ -2,13 +2,14 @@
 
 :root {
     --primary: #ffe390;
-    --foreground: #171717;
 }
 
 @theme inline {
+    /* COLORS */
     --color-primary: var(--primary);
 
-    --font-sans: var(--font-geist-sans);
+    /* FONTS */
+    --font-daffiys: var(--font-daffiys);
     --font-mono: var(--font-geist-mono);
 }
 
