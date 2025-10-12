@@ -46,13 +46,17 @@ export default function RootLayout({
                 <body
                     className={`${geistSans.variable} ${geistMono.className} ${shrikHand.variable} ${Daffiys.variable} antialiased flex flex-col items-center min-h-screen justify-between px-4`}
                 >
-                    <Navigation></Navigation>
+                    <div className='w-full h-[100dvh] flex justify-center items-center'>
+                        <h1>In progress...</h1>
+                    </div>
+
+                    {/* <Navigation></Navigation>
 
                     <main className='max-w-[1376px] w-full pt-28 flex-1 flex justify-center'>
                         {children}
                     </main>
 
-                    <Footer></Footer>
+                    <Footer></Footer> */}
                 </body>
             </ReactLenis>
         </html>
