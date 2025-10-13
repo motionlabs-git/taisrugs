@@ -16,7 +16,7 @@ const NavLink = ({ text, link }: { text: string; link: string }) => {
                             <span
                                 className='inline-block group-hover:-translate-y-[1.25em] duration-300'
                                 style={{ transitionDelay: `${delay}s` }}
-                                key={letter}
+                                key={i + letter}
                             >
                                 {letter}
                             </span>
@@ -31,7 +31,7 @@ const NavLink = ({ text, link }: { text: string; link: string }) => {
                             <span
                                 className='inline-block translate-y-[1.25em] group-hover:translate-y-0 duration-300'
                                 style={{ transitionDelay: `${delay}s` }}
-                                key={letter}
+                                key={i + letter}
                             >
                                 {letter}
                             </span>

@@ -43,7 +43,7 @@ export default function RootLayout({
                 >
                     <Navigation></Navigation>
 
-                    <main className='max-w-[1376px] w-full pt-28 flex-1 flex justify-center'>
+                    <main className='w-full flex-1 flex justify-center'>
                         {children}
                     </main>
 
