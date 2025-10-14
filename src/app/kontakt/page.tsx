@@ -1,4 +1,4 @@
-import ContactUs from '@/_components/Sections/ContactUs'
+import ContactUs from '@/components/Sections/ContactUs'
 import React from 'react'
 
 const Kontakt = () => {

@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { Geist_Mono, Poppins } from 'next/font/google'
 import './globals.css'
 import localFont from 'next/font/local'
-import Navigation from '@/_components/Layout/Navigation/Navigation'
-import Footer from '@/_components/Layout/Footer/Footer'
+import Navigation from '@/components/Layout/Navigation/Navigation'
+import Footer from '@/components/Layout/Footer/Footer'
 import ReactLenis from 'lenis/react'
 
 const geistMono = Geist_Mono({
@@ -18,7 +18,7 @@ const poppins = Poppins({
 })
 
 const Daffiys = localFont({
-    src: '../_assets/fonts/SuperMatcha.ttf',
+    src: '../assets/fonts/SuperMatcha.ttf',
     variable: '--font-daffiys',
 })
 
