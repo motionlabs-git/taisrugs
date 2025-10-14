@@ -34,7 +34,7 @@ const Navigation = () => {
                     cartTl.reverse()
                 }}
             ></Cart>
-            <nav className='flex items-center justify-between w-full gap-4'>
+            <nav className='flex items-center justify-between w-full gap-4 '>
                 <Image
                     src={'/logo.png'}
                     alt={'logo'}
@@ -43,11 +43,18 @@ const Navigation = () => {
                     className='w-20'
                 ></Image>
 
-                <div className='flex gap-4 items-center  rounded-xl'>
-                    <NavLink text={'Domů'} link={'/'}></NavLink>
+                <div className='flex gap-2 items-center bg-gray-500/20 rounded-full p-1.5 backdrop-blur-[2px] shadow-md'>
+                    <Link
+                        className='flex group items-center px-4 py-2 rounded-full bg-black  text-white hover:text-black hover:bg-primary duration-200'
+                        href={'/'}
+                        aria-label=''
+                    >
+                        <div className='w-0 group-hover:w-2 group-hover:mr-2 duration-200 aspect-square bg-gray-800/50 rounded-full'></div>
+                        <span>Domů</span>
+                    </Link>
 
                     <Link
-                        className='flex group items-center px-4 py-2 rounded-full bg-gray-800/10 backdrop-blur-sm text-black hover:bg-primary duration-200'
+                        className='flex group items-center px-4 py-2 rounded-full bg-black text-white hover:text-black hover:bg-primary duration-200'
                         href={'/'}
                         aria-label=''
                     >
@@ -56,12 +63,12 @@ const Navigation = () => {
                     </Link>
 
                     <Link
-                        className='relative group px-4 py-2 rounded-full bg-black text-white backdrop-blur-sm hover:text-black hover:bg-primary duration-200'
+                        className='flex group items-center px-4 py-2 rounded-full bg-black text-white hover:text-black hover:bg-primary duration-200'
                         href={'/'}
                         aria-label=''
                     >
-                        <div className='absolute bottom-0 right-0 w-0 group-hover:w-2 group-hover:mr-2 duration-200 aspect-square bg-black rounded-full'></div>
-                        <span>Koberec na zakázku</span>
+                        <div className='w-0 group-hover:w-2 group-hover:mr-2 duration-200 aspect-square bg-gray-800/50 rounded-full'></div>
+                        <span>Kurzy</span>
                     </Link>
 
                     <Link
@@ -70,46 +77,24 @@ const Navigation = () => {
                         aria-label=''
                     >
                         <div className='absolute bottom-0 right-0 w-0 group-hover:w-2 group-hover:mr-2 duration-200 aspect-square bg-black rounded-full'></div>
-                        <span>Kurzy</span>
+                        <span>Koberec na zakázku</span>
                     </Link>
-
-                    {/* <Link className='font-bold' href={'/'} aria-label=''>
-                        <span>Kurzy</span>
-                    </Link>
-
-                    <Link className='font-bold' href={'/'} aria-label=''>
-                        <span>Eshop</span>
-                    </Link>
-
-                    <Link className='font-bold' href={'/'} aria-label=''>
-                        <span>Kontakt</span>
-                    </Link> */}
                 </div>
 
                 <button
                     type='button'
                     aria-label='Košík'
-                    className='flex group justify-center items-center cursor-pointer border h-12 w-auto aspect-square border-black/30 rounded-lg shadow-md'
+                    className='relative group cursor-pointer rounded-full shadow-md hover:mr-[3px] duration-200 hover:-ml-1'
                     onClick={() => cartTl.play()}
                 >
-                    <FiShoppingCart
-                        className='group-hover:-rotate-6 group-hover:-translate-0.5 duration-300'
-                        size={18}
-                    ></FiShoppingCart>
-                </button>
+                    <div className='relative flex gap-2 items-center rounded-full px-4 py-2  bg-primary text-black hover:bg-primary hover:text-black shadow-[-3px_3px_black] group-hover:shadow-[0px_0px] duration-200 group-hover:mt-[3px]'>
+                        <FiShoppingCart
+                            className=' duration-300'
+                            size={16}
+                        ></FiShoppingCart>
 
-                <button
-                    type='button'
-                    aria-label='Košík'
-                    className='flex group justify-center gap-2 items-center cursor-pointer rounded-full bg-black text-white px-4 py-2 shadow-md'
-                    onClick={() => cartTl.play()}
-                >
-                    <FiShoppingCart
-                        className='group-hover:-rotate-6 group-hover:-translate-0.5 duration-300'
-                        size={16}
-                    ></FiShoppingCart>
-
-                    <span>Košík (0)</span>
+                        <span>Košík</span>
+                    </div>
                 </button>
             </nav>
         </header>
