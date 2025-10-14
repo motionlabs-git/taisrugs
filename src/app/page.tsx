@@ -1,7 +1,11 @@
-import About from '@/_components/Sections/Home/About'
-import Hero from '@/_components/Sections/Home/Hero'
+import About from '@/components/Sections/Home/About'
+import Hero from '@/components/Sections/Home/Hero'
+import { getFavoriteProducts } from '@/utils/shopify/products'
 
-export default function Home() {
+export default async function Home() {
+    const products = await getFavoriteProducts()
+    console.log(products)
+
     return (
         <div className='w-full'>
             <Hero></Hero>
