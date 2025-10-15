@@ -4,8 +4,7 @@ import Link from 'next/link'
 import { FiShoppingCart } from 'react-icons/fi'
 import Cart from '../Cart/Cart'
 import gsap from 'gsap'
-import NavLink from './NavLink'
-import Image from 'next/image'
+import SpinningLogo from './SpinningLogo'
 
 const Navigation = () => {
     const cartTl = gsap.timeline({
@@ -35,13 +34,7 @@ const Navigation = () => {
                 }}
             ></Cart>
             <nav className='flex items-center justify-between w-full gap-4 '>
-                <Image
-                    src={'/logo.png'}
-                    alt={'logo'}
-                    width={200}
-                    height={200}
-                    className='w-20'
-                ></Image>
+                <SpinningLogo />
 
                 <div className='flex gap-2 items-center bg-gray-500/20 rounded-full p-1.5 backdrop-blur-[2px] shadow-md'>
                     <Link
@@ -54,12 +47,13 @@ const Navigation = () => {
                     </Link>
 
                     <Link
-                        className='flex group items-center px-4 py-2 rounded-full bg-black text-white hover:text-black hover:bg-primary duration-200'
+                        className='relative flex group items-center px-4 py-2 rounded-full bg-black text-white hover:text-black duration-200'
                         href={'/'}
                         aria-label=''
                     >
-                        <div className='w-0 group-hover:w-2 group-hover:mr-2 duration-200 aspect-square bg-gray-800/50 rounded-full'></div>
-                        <span>Koberec na zakázku</span>
+                        <div className='absolute w-0 h-full top-0 left-0 bg-primary duration-200 group-hover:left-[-1px] group-hover:w-[calc(100%+2px)] rounded-full'></div>
+                        <div className='relative w-0 group-hover:w-2 group-hover:mr-2 duration-200 aspect-square bg-gray-800/50 rounded-full'></div>
+                        <span className='relative'>Koberec na zakázku</span>
                     </Link>
 
                     <Link
@@ -84,7 +78,7 @@ const Navigation = () => {
                 <button
                     type='button'
                     aria-label='Košík'
-                    className='relative group cursor-pointer rounded-full shadow-md hover:mr-[3px] duration-200 hover:-ml-1'
+                    className='relative group cursor-pointer rounded-full shadow-md hover:mr-[4px] duration-200 hover:-ml-1'
                     onClick={() => cartTl.play()}
                 >
                     <div className='relative flex gap-2 items-center rounded-full px-4 py-2  bg-primary text-black hover:bg-primary hover:text-black shadow-[-3px_3px_black] group-hover:shadow-[0px_0px] duration-200 group-hover:mt-[3px]'>

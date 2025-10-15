@@ -39,11 +39,11 @@ export default function RootLayout({
         <html lang='en'>
             <ReactLenis root options={{ lerp: 0.1, duration: 1.5 }}>
                 <body
-                    className={`${geistMono.variable} ${poppins.className}  ${Daffiys.variable} antialiased flex flex-col items-center min-h-screen justify-between px-4`}
+                    className={`${geistMono.variable} ${poppins.className}  ${Daffiys.variable} antialiased flex flex-col items-center min-h-screen justify-between`}
                 >
                     <Navigation></Navigation>
 
-                    <main className='w-full flex-1 flex justify-center'>
+                    <main className='w-full flex-1 flex justify-center z-10'>
                         {children}
                     </main>
 
