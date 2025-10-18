@@ -1,15 +1,9 @@
 import type { Metadata } from 'next'
-import { Geist_Mono, Poppins } from 'next/font/google'
+import { Poppins, Lilita_One } from 'next/font/google'
 import './globals.css'
-import localFont from 'next/font/local'
 import Navigation from '@/components/Layout/Navigation/Navigation'
 import Footer from '@/components/Layout/Footer/Footer'
 import ReactLenis from 'lenis/react'
-
-const geistMono = Geist_Mono({
-    variable: '--font-geist-mono',
-    subsets: ['latin'],
-})
 
 const poppins = Poppins({
     variable: '--font-poppins',
@@ -17,9 +11,10 @@ const poppins = Poppins({
     subsets: ['latin'],
 })
 
-const Daffiys = localFont({
-    src: '../assets/fonts/SuperMatcha.ttf',
-    variable: '--font-daffiys',
+const archivo = Lilita_One({
+    variable: '--font-archivo',
+    weight: ['400'],
+    subsets: ['latin'],
 })
 
 export const metadata: Metadata = {
@@ -39,7 +34,7 @@ export default function RootLayout({
         <html lang='en'>
             <ReactLenis root options={{ lerp: 0.1, duration: 1.5 }}>
                 <body
-                    className={`${geistMono.variable} ${poppins.className}  ${Daffiys.variable} antialiased flex flex-col items-center min-h-screen justify-between`}
+                    className={`${poppins.className}  ${archivo.variable} antialiased flex flex-col items-center min-h-screen justify-between`}
                 >
                     <Navigation></Navigation>
 
