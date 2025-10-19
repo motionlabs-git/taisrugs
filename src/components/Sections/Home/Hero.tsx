@@ -3,7 +3,7 @@ import React from 'react'
 
 const Hero = () => {
     return (
-        <div className='relative h-[100dvh] flex justify-center items-center'>
+        <div className='relative w-full h-[100dvh] flex justify-center items-center'>
             <div className='absolute z-10'>
                 <h1 className='group relative font-archivo text-[5vw] text-primary font-bold'>
                     <span className='absolute top-0 left-0 translate-y-2 -translate-x-2 text-violet-400 group-hover:translate-y-3 group-hover:-translate-x-3 duration-200'>

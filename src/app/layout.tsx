@@ -34,7 +34,7 @@ export default function RootLayout({
         <html lang='cs'>
             <ReactLenis root options={{ lerp: 0.1, duration: 1.5 }}>
                 <body
-                    className={`${poppins.className}  ${archivo.variable} antialiased flex flex-col items-center min-h-screen justify-between`}
+                    className={`${poppins.className}  ${archivo.variable} antialiased w-full flex flex-col items-center min-h-screen justify-between overflow-x-hidden`}
                 >
                     <Navigation></Navigation>
 
