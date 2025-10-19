@@ -1,9 +1,13 @@
 import React from 'react'
 import ProductCard from './_components/ProductCard'
-import { getAllProducts } from '@/utils/shopify/products'
+import { getAllProducts } from '@/utils/shopify/getAllProducts'
+import { getProduct } from '@/utils/shopify/getProduct'
 
 const Eshop = async () => {
     const products = await getAllProducts()
+    console.log('products', products)
+
+    const product = await getProduct('test-produkt-1')
 
     return (
         <div className='pageWrapper'>

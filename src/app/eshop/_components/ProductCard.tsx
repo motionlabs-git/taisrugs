@@ -1,30 +1,12 @@
-'use client'
-
-import React, { useEffect, useState } from 'react'
-import { ICollectionProduct, IProductVariant } from '@/types/product'
-import { axiosClient } from '@/utils/client/axiosClient'
+import { IProductQuery } from '@/utils/shopify/productQuery'
 import Image from 'next/image'
 
 interface IProps {
-    product: ICollectionProduct
+    product: IProductQuery
 }
 
 const ProductCard: React.FC<IProps> = ({ product }) => {
-    const [loading, setLoading] = useState(true)
-    const [productVariant, setProductVariant] =
-        useState<null | IProductVariant>(null)
-
-    useEffect(() => {
-        if (!product.id) return
-
-        axiosClient
-            .get(`/products/${product.id}/variants`)
-            .then((response) => setProductVariant(response.data))
-            .catch(() => setProductVariant(null))
-            .finally(() => setLoading(false))
-    }, [product.id])
-
-    const image = product.images[0]
+    const image = product.images.edges[0] ? product.images.edges[0].node : null
 
     return (
         <div className='w-full'>
@@ -32,7 +14,7 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
                 {image && (
                     <Image
                         src={image.src}
-                        alt={image.alt ?? product.title}
+                        alt={image.altText ?? product.title}
                         width={1000}
                         height={1000}
                         className='w-full h-full object-cover'
@@ -42,8 +24,8 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
 
             <div className='mt-4'>
                 <h2 className='text-2xl font-bold'>{product.title}</h2>
-
-                {productVariant && <p>{productVariant.price}</p>}
+                {product.priceRangeV2.minVariantPrice.amount}{' '}
+                {product.priceRangeV2.minVariantPrice.currencyCode}
             </div>
         </div>
     )
