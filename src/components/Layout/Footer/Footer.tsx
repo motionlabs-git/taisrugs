@@ -9,10 +9,10 @@ const Footer = () => {
     useEffect(() => {
         gsap.to('#footer-body', {
             scrollTrigger: {
-                trigger: '#footer',
-                scrub: true,
-                start: 'top bottom',
-                end: 'bottom bottom',
+                trigger: '#footer-body',
+                scrub: 0.5,
+                start: 'top+=100% bottom',
+                end: 'bottom+=100% bottom',
             },
             translateY: 0,
         })
@@ -23,7 +23,7 @@ const Footer = () => {
             id='footer'
             className='w-full text-white bg-radial-[at_80%80%] from-zinc-950 to-zinc-900 to-75%'
         >
-            <Contact></Contact>
+            <Contact />
 
             <div
                 id='footer-body'

@@ -12,7 +12,7 @@ const Cart = ({ handleCloseCart }: { handleCloseCart: () => void }) => {
         >
             <aside
                 id='cartAside'
-                className='fixed -right-1/3 top-0 bg-white h-screen w-1/3 rounded-l-3xl border-1 border-black/30 tra border-r-none p-10'
+                className='fixed -right-full md:-right-1/3 top-0 bg-white h-screen w-2/3 md:w-1/3 rounded-l-3xl border-1 border-black/30 tra border-r-none p-10'
             >
                 <div className='flex justify-between items-center'>
                     <h2 className='text-xl'>Košík</h2>

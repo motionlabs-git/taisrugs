@@ -40,12 +40,18 @@ const NavLink = ({ text, link }: { text: string; link: string }) => {
 
     return (
         <Link
-            className='relative flex group items-center px-4 py-2 rounded-full bg-black text-white hover:!text-black duration-200 overflow-hidden'
+            className={`relative flex group items-center px-4 py-2 w-fit rounded-full bg-black text-white hover:!text-black duration-200 overflow-hidden ${
+                path === link && '!text-black'
+            }`}
             href={link}
             aria-label=''
             onClick={(e) => routeTo(e)}
         >
-            <div className='absolute w-0 h-full top-0 left-0 bg-primary duration-200 group-hover:left-[-1px] group-hover:w-[calc(100%+2px)] rounded-full'></div>
+            <div
+                className={`absolute w-0 h-full top-0 left-0 bg-primary duration-200 group-hover:left-[-1px] group-hover:w-[calc(100%+2px)] rounded-full ${
+                    path === link && 'w-full'
+                }`}
+            ></div>
 
             <span className='relative text-nowrap'>{text}</span>
             <FiArrowRightCircle
