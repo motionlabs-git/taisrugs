@@ -1,9 +1,9 @@
-import { shopifyAxios } from './axiosClient'
+import { axiosShopify } from './axiosShopify'
 import { ICreateOrderItem } from '@/types/order'
 
 export async function createOrder(item: ICreateOrderItem) {
     try {
-        const response = await shopifyAxios.post('/orders.json', {
+        const response = await axiosShopify.post('/orders.json', {
             order: { line_items: [item] },
         })
 

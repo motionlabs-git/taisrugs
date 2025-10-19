@@ -16,18 +16,8 @@ const Footer = () => {
     }, [])
 
     return (
-        <footer id='footer' className=' w-full z-0'>
+        <footer id='footer' className='w-full z-0'>
             <div id='footer-body' className='-translate-y-80'>
-                <h1>Footer footer</h1>
-                <h1>Footer footer</h1>
-                <h1>Footer footer</h1>
-                <h1>Footer footer</h1>
-                <h1>Footer footer</h1>
-                <h1>Footer footer</h1>
-                <h1>Footer footer</h1>
-
-                <h1>Footer footer</h1>
-                <h1>Footer footer</h1>
                 <h1>Footer footer</h1>
             </div>
         </footer>
