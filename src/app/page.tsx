@@ -6,7 +6,7 @@ import TransitionProvider from '@/components/Sections/Home/TransitionProvider'
 
 export default function Home() {
     return (
-        <div className=''>
+        <div className='w-full'>
             <Hero></Hero>
 
             <TransitionProvider>
