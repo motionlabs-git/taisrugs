@@ -29,7 +29,7 @@ const Navigation = () => {
 
     return (
         <header className='fixed top-0 z-50 w-full flex justify-center p-4'>
-            <PageTransition></PageTransition>
+            {/* <PageTransition></PageTransition> */}
 
             <Cart
                 handleCloseCart={() => {

@@ -11,7 +11,6 @@ const FavouriteProducts = () => {
                 trigger: '#favouriteProducts',
                 start: 'top top',
                 end: 'bottom top',
-                markers: true,
                 scrub: 1,
             },
             translateX: '-75%',
@@ -47,7 +46,7 @@ const FavouriteProducts = () => {
                 <button
                     type='button'
                     aria-label='Vidět více'
-                    className='invert grayscale-100 self-center brightness-100  relative group mt-8 w-fit h-fit items-center rounded-full border border-white hover:border-primary duration-200  cursor-pointer'
+                    className='invert grayscale-100 self-center brightness-100 relative group mt-8 w-fit h-fit items-center rounded-full border border-white hover:border-primary duration-200  cursor-pointer'
                 >
                     <div className='w-full h-full relative flex items-center gap-4 group-hover:gap-6  duration-200 px-10 py-4 overflow-hidden rounded-full text-white group-hover:text-black'>
                         <div className='absolute top-0 left-0 w-0 group-hover:w-full h-full rounded-full bg-primary duration-200'></div>

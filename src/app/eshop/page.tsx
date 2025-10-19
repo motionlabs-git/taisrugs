@@ -42,7 +42,7 @@ const products = [
 
 const Eshop = () => {
     return (
-        <div className='w-full'>
+        <div className='pageWrapper'>
             <div className='grid grid-cols-[repeat(auto-fill,minmax(40rem,2fr))] gap-4 mt'>
                 {products.map((product, i) => {
                     return <ProductCard key={i} product={product}></ProductCard>

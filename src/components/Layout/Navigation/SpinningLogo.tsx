@@ -37,7 +37,7 @@ const SpinningLogo = () => {
         <div ref={logoRef} id='spinning-logo' className='w-20'>
             <Link href={'/'} className='w-full h-full'>
                 <Image
-                    src={'/logo.png'}
+                    src={'/LogoSVG.svg'}
                     alt={'logo'}
                     width={200}
                     height={200}

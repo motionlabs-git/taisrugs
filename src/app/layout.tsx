@@ -31,7 +31,7 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html lang='en'>
+        <html lang='cs'>
             <ReactLenis root options={{ lerp: 0.1, duration: 1.5 }}>
                 <body
                     className={`${poppins.className}  ${archivo.variable} antialiased flex flex-col items-center min-h-screen justify-between`}

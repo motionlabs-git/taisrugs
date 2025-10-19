@@ -2,7 +2,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import Image from 'next/image'
+
 import Input from '../Inputs/Input'
 
 const FormSchema = z.object({
@@ -11,7 +11,7 @@ const FormSchema = z.object({
 
 type FormType = z.infer<typeof FormSchema>
 
-export default function ContactUS() {
+export default function ContactForm() {
     const {
         register,
         handleSubmit,
@@ -29,24 +29,17 @@ export default function ContactUS() {
 
     return (
         /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-        <section className='h-screen flex w-full gap-8'>
-            <div className='flex-1'>
-                <h1 className=''>Přeješ si kobereček na zakázku?</h1>
-                <Image
-                    src={'/images/contact-us.png'}
-                    alt={'Contact us image'}
-                    width={500}
-                    height={500}
-                ></Image>
-            </div>
 
-            <form className='flex-1' onSubmit={handleSubmit(onSubmit)}>
-                <Input></Input>
+        <form
+            className='flex-1 p-10 rounded-3xl border border-black  shadow-[-3px_3px_black]'
+            onSubmit={handleSubmit(onSubmit)}
+        >
+            <Input></Input>
+            <Input></Input>
 
-                {errors.name && <p>This field is required</p>}
+            {errors.name && <p>This field is required</p>}
 
-                <input type='submit' />
-            </form>
-        </section>
+            <input type='submit' />
+        </form>
     )
 }

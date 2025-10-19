@@ -1,15 +1,16 @@
 'use client'
 import React, { useEffect } from 'react'
 import gsap from 'gsap'
-import Image from 'next/image'
 import Link from 'next/link'
+import Contact from '@/components/Layout/Footer/Contact'
+import FooterHeading from '../../UI/ButtonHeading'
 
 const Footer = () => {
     useEffect(() => {
         gsap.to('#footer-body', {
             scrollTrigger: {
                 trigger: '#footer',
-                scrub: 1,
+                scrub: true,
                 start: 'top bottom',
                 end: 'bottom bottom',
             },
@@ -20,28 +21,46 @@ const Footer = () => {
     return (
         <footer
             id='footer'
-            className='w-full p-10 z-0 text-white bg-radial-[at_80%80%] from-zinc-950 to-zinc-900 to-75% '
+            className='w-full text-white bg-radial-[at_80%80%] from-zinc-950 to-zinc-900 to-75%'
         >
-            <div id='footer-body' className='-translate-y-80 flex'>
-                <Link href={'/'}>
-                    <Image
-                        src={'/logo.png'}
-                        alt={'Logo'}
-                        width={300}
-                        height={300}
-                        className='w-32'
-                    ></Image>
-                </Link>
-                <h1>Footer footer</h1>
-                <h1>Footer footer</h1>
-                <h1>Footer footer</h1>
-                <h1>Footer footer</h1>
-                <h1>Footer footer</h1>
-                <h1>Footer footer</h1>
+            <Contact></Contact>
 
-                <h1>Footer footer</h1>
-                <h1>Footer footer</h1>
-                <h1>Footer footer</h1>
+            <div
+                id='footer-body'
+                className='p-10 -translate-y-full z-0 flex justify-between gap-8'
+            >
+                <div className='flex flex-2 flex-col'>
+                    <h2 className='text-[6vw] font-archivo'>Tais rugs.</h2>
+
+                    <p className=''>Ručně vytvářené koberce</p>
+                </div>
+
+                <div className='flex-1'>
+                    <FooterHeading text={'Odkazy'}></FooterHeading>
+
+                    <ul className='mt-4'>
+                        <li>
+                            <Link href={'/'}>Domů</Link>
+                        </li>
+                        <li>
+                            <Link href={'/'}>Koberce na zakázku</Link>
+                        </li>
+                        <li>
+                            <Link href={'/'}>Eshop</Link>
+                        </li>
+                        <li>
+                            <Link href={'/'}>Kurzy</Link>
+                        </li>
+                        <li>
+                            <Link href={'/'}>Kontakt</Link>
+                        </li>
+                    </ul>
+                </div>
+                <div className='flex-1'>
+                    <FooterHeading text={'Kontakt'}></FooterHeading>
+
+                    <ul className='mt-4'></ul>
+                </div>
             </div>
         </footer>
     )

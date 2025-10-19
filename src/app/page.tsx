@@ -1,5 +1,5 @@
-import About from '@/components/Sections/Home/About'
-import Contact from '@/components/Sections/Home/Contact'
+import About from '@/components/Sections/Home/About/About'
+
 import FavouriteProducts from '@/components/Sections/Home/FavoutiteProducts/FavouriteProducts'
 import Hero from '@/components/Sections/Home/Hero'
 import TransitionProvider from '@/components/Sections/Home/TransitionProvider'
@@ -10,7 +10,7 @@ export default async function Home() {
     // console.log(products)
 
     return (
-        <div className='w-full'>
+        <div className=''>
             <Hero></Hero>
 
             <TransitionProvider>
@@ -19,7 +19,6 @@ export default async function Home() {
                     <FavouriteProducts />
                 </>
             </TransitionProvider>
-            <Contact />
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const KoberecNaZakazku = () => {
-    return <div>KoberceNaZakazku</div>
+    return <div className='pageWrapper'>KoberceNaZakazku</div>
 }
 
 export default KoberecNaZakazku

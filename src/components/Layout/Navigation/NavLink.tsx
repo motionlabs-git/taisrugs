@@ -11,29 +11,31 @@ const NavLink = ({ text, link }: { text: string; link: string }) => {
     const routeTo = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         e.preventDefault()
 
-        if (link === path) {
-            router.refresh()
-        } else {
-            gsap.timeline()
-                .to(
-                    '#pageTransition',
-                    {
-                        height: '100vh',
-                        duration: 0.3,
-                        ease: 'power1.inOut',
-                        onComplete: () => {
-                            router.push(link)
-                        },
-                    },
-                    '<'
-                )
-                .to('#transitionLogo', {
-                    scale: 1,
-                    rotate: 180,
-                    duration: 1,
-                    ease: 'power1.in',
-                })
-        }
+        router.push(link)
+
+        // if (link === path) {
+        //     router.refresh()
+        // } else {
+        //     gsap.timeline()
+        //         .to(
+        //             '#pageTransition',
+        //             {
+        //                 height: '100vh',
+        //                 duration: 0.3,
+        //                 ease: 'power1.inOut',
+        //                 onComplete: () => {
+        //                     router.push(link)
+        //                 },
+        //             },
+        //             '<'
+        //         )
+        //         .to('#transitionLogo', {
+        //             scale: 1,
+        //             rotate: 180,
+        //             duration: 1,
+        //             ease: 'power1.in',
+        //         })
+        // }
     }
 
     return (
@@ -45,7 +47,7 @@ const NavLink = ({ text, link }: { text: string; link: string }) => {
         >
             <div className='absolute w-0 h-full top-0 left-0 bg-primary duration-200 group-hover:left-[-1px] group-hover:w-[calc(100%+2px)] rounded-full'></div>
 
-            <span className='relative'>{text}</span>
+            <span className='relative text-nowrap'>{text}</span>
             <FiArrowRightCircle
                 size={16}
                 className='relative w-0 group-hover:w-6 duration-200'
