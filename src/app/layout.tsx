@@ -4,6 +4,7 @@ import './globals.css'
 import Navigation from '@/components/Layout/Navigation/Navigation'
 import Footer from '@/components/Layout/Footer/Footer'
 import ReactLenis from 'lenis/react'
+import GsapProvider from '@/components/Layout/GsapProvider'
 
 const poppins = Poppins({
     variable: '--font-poppins',
@@ -32,19 +33,21 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='cs'>
-            <ReactLenis root options={{ lerp: 0.1, duration: 1.5 }}>
-                <body
-                    className={`${poppins.className}  ${archivo.variable} antialiased w-full flex flex-col items-center min-h-screen justify-between overflow-x-hidden`}
-                >
-                    <Navigation></Navigation>
+            <GsapProvider>
+                <ReactLenis root options={{ lerp: 0.1, duration: 1.5 }}>
+                    <body
+                        className={`${poppins.className}  ${archivo.variable} antialiased w-full flex flex-col items-center min-h-screen justify-between overflow-x-hidden`}
+                    >
+                        <Navigation></Navigation>
 
-                    <main className='w-full flex-1 flex justify-center z-10'>
-                        {children}
-                    </main>
+                        <main className='w-full flex-1 flex justify-center z-10'>
+                            {children}
+                        </main>
 
-                    <Footer></Footer>
-                </body>
-            </ReactLenis>
+                        <Footer></Footer>
+                    </body>
+                </ReactLenis>
+            </GsapProvider>
         </html>
     )
 }

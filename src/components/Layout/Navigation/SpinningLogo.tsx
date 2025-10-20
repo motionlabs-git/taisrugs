@@ -2,11 +2,8 @@ import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import gsap from 'gsap'
-import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 
 const SpinningLogo = () => {
-    gsap.registerPlugin(ScrollTrigger)
-
     const logoRef = useRef<HTMLDivElement>(null)
     const rotation = useRef(0)
     const velocity = useRef(0)
