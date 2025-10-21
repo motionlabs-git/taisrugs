@@ -13,14 +13,14 @@ const GsapProvider = ({ children }: { children: React.ReactNode }) => {
             ScrollTrigger.refresh()
         })
 
-        if (typeof window !== 'undefined') {
-            const ua = navigator.userAgent.toLowerCase()
-            const isInstagram = ua.includes('instagram')
+        // if (typeof window !== 'undefined') {
+        //     const ua = navigator.userAgent.toLowerCase()
+        //     const isInstagram = ua.includes('instagram')
 
-            if (isInstagram) {
-                ScrollTrigger.normalizeScroll(true)
-            }
-        }
+        //     if (isInstagram) {
+        //     }
+        // }
+        ScrollTrigger.normalizeScroll(true)
 
         return () =>
             window.removeEventListener('resize', () => ScrollTrigger.refresh)

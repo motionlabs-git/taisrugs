@@ -31,14 +31,18 @@ const SpinningLogo = () => {
     }, [])
 
     return (
-        <div ref={logoRef} id='spinning-logo' className='w-16 md:w-20'>
+        <div
+            ref={logoRef}
+            id='spinning-logo'
+            className='block w-16 min-w-16 md:w-20'
+        >
             <Link href={'/'} className='w-full h-full'>
                 <Image
                     src={'/LogoSVG.svg'}
                     alt={'logo'}
                     width={200}
                     height={200}
-                    className='w-full h-full'
+                    className='w-full h-full '
                 />
             </Link>
         </div>

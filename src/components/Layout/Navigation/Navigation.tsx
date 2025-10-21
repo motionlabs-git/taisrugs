@@ -45,7 +45,7 @@ const Navigation = () => {
 
     return (
         <header className='fixed top-0 z-50 w-full flex justify-center p-4'>
-            {/* <PageTransition></PageTransition> */}
+            <PageTransition></PageTransition>
 
             <MobileNavigation isOpened={isMobileNavOpened} />
 
@@ -76,7 +76,7 @@ const Navigation = () => {
                     <button
                         type='button'
                         aria-label='Košík'
-                        className='relative group cursor-pointer rounded-full shadow-md md:hover:mr-[4px] duration-200 md:hover:-ml-1'
+                        className='relative group cursor-pointer rounded-full shadow-md md:hover:mr-[4px] duration-200 md:hover:-ml-1 select-none'
                         onClick={() => cartTl.play()}
                     >
                         <div className='relative flex gap-2 items-center rounded-full px-4 py-2  bg-primary text-black md:hover:bg-primary md:hover:text-black shadow-[-3px_3px_black] md:group-hover:shadow-[0px_0px] duration-200 md:group-hover:mt-[3px]'>

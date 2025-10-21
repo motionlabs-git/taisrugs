@@ -27,7 +27,7 @@ const Footer = () => {
 
             <div
                 id='footer-body'
-                className='p-10 -translate-y-full z-0 flex justify-between gap-8'
+                className='p-10 -translate-y-full z-0 flex flex-col md:flex-row justify-between gap-8'
             >
                 <div className='flex flex-2 flex-col'>
                     <h2 className='text-[6vw] font-archivo'>Tais rugs.</h2>

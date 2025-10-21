@@ -44,7 +44,7 @@ const AboutGallery = () => {
     // }, [])
 
     return (
-        <div className='flex self-center  flex-2 gap-8 items-center h-fit'>
+        <div className='flex md:self-center md:flex-2 gap-8 items-center h-fit w-full'>
             <button
                 type='button'
                 aria-label='Předchozí obrázek'

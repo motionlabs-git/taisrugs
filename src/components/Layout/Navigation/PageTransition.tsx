@@ -2,44 +2,40 @@ import React, { useEffect } from 'react'
 import gsap from 'gsap'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
+import LogoShape from '../../../../public/LogoShape'
+import CustomEase from 'gsap/CustomEase'
 
 const PageTransition = () => {
     const path = usePathname()
 
-    // useEffect(() => {
-    //     gsap.timeline()
-    //         .to('#transitionLogo', {
-    //             scale: 0,
-    //             rotate: '-180deg',
-    //             duration: 1,
-    //             ease: 'power1.out',
-    //             delay: 0.5,
-    //         })
-    //         .to(
-    //             '#pageTransition',
-    //             {
-    //                 delay: 1,
-    //                 height: '0',
-    //                 duration: 0.3,
-    //                 ease: 'power1.inOut',
-    //             },
-    //             '<'
-    //         )
-    // }, [path])
+    useEffect(() => {
+        gsap.timeline()
+
+            // .to('#transitionLogo', {
+            //     scale: 10,
+            //     rotate: '-180deg',
+            //     duration: 1,
+
+            //     delay: 0.5,
+            // })
+            .to(
+                '#pageTransition',
+                {
+                    delay: 1,
+                    height: 0,
+                    duration: 0.3,
+                    ease: 'power1.inOut',
+                },
+                '<'
+            )
+    }, [path])
 
     return (
         <div
             id='pageTransition'
-            className='fixed z-50 top-0 left-0 w-screen h-screen flex items-center justify-center bg-black'
+            className='fixed z-50 top-0 left-0 w-screen h-screen flex items-center justify-center bg-black overflow-hidden'
         >
-            <Image
-                src={'/LogoSVG.svg'}
-                alt={'Logo'}
-                width={140}
-                height={140}
-                className='rotate-180'
-                id='transitionLogo'
-            ></Image>
+            {/* <LogoShape id='transitionLogo' className='w-40 text-gray-700' /> */}
         </div>
     )
 }

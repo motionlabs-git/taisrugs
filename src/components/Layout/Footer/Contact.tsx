@@ -6,14 +6,17 @@ import LogoShape from '../../../../public/LogoShape'
 const Contact = () => {
     return (
         <section className='rounded-b-3xl relative bg-white z-20 py-40 items-center flex justify-center overflow-hidden'>
-            <LogoShape className='text-transparent stroke-2 stroke-gray-400 w-[20vw] absolute'></LogoShape>
-            <LogoShape className='text-transparent stroke-2 stroke-gray-400 w-[20vw] absolute scale-110'></LogoShape>
-            <LogoShape className='text-transparent stroke-2 stroke-gray-400 w-[20vw] absolute scale-120'></LogoShape>
+            <LogoShape className='text-transparent stroke-2 stroke-gray-400 w-[50vw] md:w-[20vw] absolute'></LogoShape>
+            <LogoShape className='text-transparent stroke-2 stroke-gray-400  w-[50vw] md:w-[20vw] absolute scale-110'></LogoShape>
+            <LogoShape className='text-transparent stroke-2 stroke-gray-400  w-[50vw] md:w-[20vw] absolute scale-120'></LogoShape>
+
             <div className='relative flex flex-col gap-2 justify-center items-center'>
-                <p className='text-gray-600 text-sm'>KONTAKT</p>
+                <p className='text-gray-600 text-sm '>KONTAKT</p>
 
                 <Link href={'mailto:'} className='text-black'>
-                    <h1 className='font-archivo text-8xl'>taisrugs@email.cz</h1>
+                    <h1 className='font-archivo text-[10vw] md:text-[6vw]'>
+                        taisrugs@email.cz
+                    </h1>
                 </Link>
 
                 <Link
@@ -21,7 +24,7 @@ const Contact = () => {
                     target='_blank'
                     type='button'
                     aria-label='Vidět více'
-                    className='invert grayscale-100  brightness-100 relative group mt-8 w-fit h-fit items-center rounded-full border border-white hover:border-primary duration-200  cursor-pointer'
+                    className='invert grayscale-100 brightness-100 relative group w-fit h-fit items-center rounded-full border border-white hover:border-primary duration-200  cursor-pointer'
                 >
                     <div className='w-full h-full relative flex items-center gap-4 group-hover:gap-6  duration-200 px-10 py-4 overflow-hidden rounded-full text-white group-hover:text-black'>
                         <div className='absolute top-0 left-0 w-0 group-hover:w-full h-full rounded-full bg-primary duration-200'></div>

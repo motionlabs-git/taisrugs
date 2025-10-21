@@ -13,29 +13,23 @@ const NavLink = ({ text, link }: { text: string; link: string }) => {
 
         router.push(link)
 
-        // if (link === path) {
-        //     router.refresh()
-        // } else {
-        //     gsap.timeline()
-        //         .to(
-        //             '#pageTransition',
-        //             {
-        //                 height: '100vh',
-        //                 duration: 0.3,
-        //                 ease: 'power1.inOut',
-        //                 onComplete: () => {
-        //                     router.push(link)
-        //                 },
-        //             },
-        //             '<'
-        //         )
-        //         .to('#transitionLogo', {
-        //             scale: 1,
-        //             rotate: 180,
-        //             duration: 1,
-        //             ease: 'power1.in',
-        //         })
-        // }
+        if (link === path) {
+            router.refresh()
+        } else {
+            gsap.timeline()
+            .to(
+                '#pageTransition',
+                {
+                    height: '100vh',
+                    duration: 0.3,
+                    ease: 'power1.inOut',
+                    onComplete: () => {
+                        router.push(link)
+                    },
+                },
+                '<'
+            )
+        }
     }
 
     return (
