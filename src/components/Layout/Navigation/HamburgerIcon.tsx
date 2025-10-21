@@ -20,6 +20,8 @@ const HamburgerIcon = ({
             onMouseDownCapture={() => setIsPressed(true)}
             onMouseLeave={() => setIsPressed(false)}
             onMouseUpCapture={() => setIsPressed(false)}
+            onTouchStartCapture={() => setIsPressed(true)}
+            onTouchEndCapture={() => setIsPressed(false)}
         >
             <div className='w-1 aspect-square bg-white rounded-full pointer-events-none'></div>
             <div className='w-1 aspect-square bg-white rounded-full pointer-events-none'></div>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Poppins, Lilita_One } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 import Navigation from '@/components/Layout/Navigation/Navigation'
 import Footer from '@/components/Layout/Footer/Footer'
@@ -16,6 +17,11 @@ const archivo = Lilita_One({
     variable: '--font-archivo',
     weight: ['400'],
     subsets: ['latin'],
+})
+
+const superVibes = localFont({
+    src: '../assets/fonts/SuperVibes.otf',
+    variable: '--font-superVibes',
 })
 
 export const metadata: Metadata = {
@@ -36,7 +42,7 @@ export default function RootLayout({
             <GsapProvider>
                 <ReactLenis root options={{ lerp: 0.1, duration: 1.5 }}>
                     <body
-                        className={`${poppins.className}  ${archivo.variable} antialiased w-full flex flex-col items-center min-h-screen justify-between overflow-x-hidden`}
+                        className={`${poppins.className} ${archivo.variable} ${superVibes.variable} antialiased w-full flex flex-col items-center min-h-screen justify-between overflow-x-hidden`}
                     >
                         <Navigation></Navigation>
 
