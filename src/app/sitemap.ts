@@ -3,9 +3,9 @@ import { MetadataRoute } from 'next'
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://taisrugs.cz'
 
-    // const products = products.map((project) => {
+    // const products = products.map((product) => {
     //     return {
-    //         url: `${baseUrl}/projects/${project.slug}`,
+    //         url: `${baseUrl}/products/${product.slug}`,
     //         lastModified: new Date(),
     //         changeFrequency: 'monthly' as ChangeFrequencyType,
     //         priority: 0.7,
@@ -16,14 +16,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
         {
             url: baseUrl,
             lastModified: new Date(),
-            changeFrequency: 'yearly',
+            changeFrequency: 'monthly',
             priority: 1,
         },
         {
             url: `${baseUrl}/koberce-na-zakazku`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
-            priority: 0.8,
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/koberec-na-zakazku`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/eshop`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/kurzy`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/kontakt`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.9,
         },
         // ...products,
     ]

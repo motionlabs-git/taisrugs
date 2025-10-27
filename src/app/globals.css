@@ -22,7 +22,7 @@ a {
 }
 
 .pageWrapper {
-    @apply pt-32 w-full px-10;
+    @apply pt-32 w-full px-4 sm:px-10;
 }
 
 /* Button */

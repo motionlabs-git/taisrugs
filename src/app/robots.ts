@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/private/',
         },
-        sitemap: 'https://motionlabs.cz/sitemap.xml',
+        sitemap: 'https://taisrugs.cz/sitemap.xml',
     }
 }
