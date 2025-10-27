@@ -20,7 +20,7 @@ const archivo = Lilita_One({
 })
 
 const superVibes = localFont({
-    src: '../assets/fonts/SuperVibes.otf',
+    src: '../assets/fonts/SuperSunday.ttf',
     variable: '--font-superVibes',
 })
 

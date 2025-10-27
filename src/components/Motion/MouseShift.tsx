@@ -22,10 +22,11 @@ const MouseShift: React.FC<IProps> = ({ children, scale, ...rest }) => {
     })
 
     const animateBg = (x: number, y: number) => {
-        gsap.set(shiftRef.current, {
-            x,
-            y,
-        })
+        if (shiftRef.current)
+            gsap.set(shiftRef.current, {
+                x,
+                y,
+            })
     }
 
     useEffect(() => {

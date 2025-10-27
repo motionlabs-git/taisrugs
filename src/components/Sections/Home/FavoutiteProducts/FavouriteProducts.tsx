@@ -21,7 +21,7 @@ const FavouriteProducts = () => {
     return (
         <section id='favouriteProducts' className='h-[300vh]'>
             <div className='md:px-24 px-4 sticky top-0 flex flex-col justify-center w-full h-[100vh] overflow-hidden'>
-                <h1 className='group relative font-archivo text-[5vw] text-primary font-bold'>
+                <h1 className='group relative font-superVibes text-[4vw] text-primary font-bold'>
                     <span className='absolute top-0 left-0 translate-y-2 -translate-x-2 text-violet-400 group-hover:translate-y-3 group-hover:-translate-x-3 duration-200'>
                         TO NEJLEPŠÍ
                     </span>

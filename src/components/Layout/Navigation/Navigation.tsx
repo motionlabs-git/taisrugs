@@ -9,6 +9,7 @@ import PageTransition from './PageTransition'
 import MobileNavigation from './MobileNavigation'
 import HamburgerIcon from './HamburgerIcon'
 import { useLenis } from 'lenis/react'
+import CartButton from './CartButton'
 
 const Navigation = () => {
     const [isMobileNavOpened, setIsMobileNavOpened] = useState(false)
@@ -45,7 +46,7 @@ const Navigation = () => {
 
     return (
         <header className='fixed top-0 z-50 w-full flex justify-center p-4'>
-            <PageTransition></PageTransition>
+            {/* <PageTransition></PageTransition> */}
 
             <MobileNavigation isOpened={isMobileNavOpened} />
 
@@ -73,21 +74,7 @@ const Navigation = () => {
                 </div>
 
                 <div className='z-40 flex gap-4'>
-                    <button
-                        type='button'
-                        aria-label='Košík'
-                        className='relative group cursor-pointer rounded-full shadow-md md:hover:mr-[4px] duration-200 md:hover:-ml-1 select-none'
-                        onClick={() => cartTl.play()}
-                    >
-                        <div className='relative flex gap-2 items-center rounded-full px-4 py-2  bg-primary text-black md:hover:bg-primary md:hover:text-black shadow-[-3px_3px_black] md:group-hover:shadow-[0px_0px] duration-200 md:group-hover:mt-[3px]'>
-                            <FiShoppingCart
-                                className=' duration-300'
-                                size={16}
-                            ></FiShoppingCart>
-
-                            <span>Košík</span>
-                        </div>
-                    </button>
+                    <CartButton handleClick={() => cartTl.play()}></CartButton>
 
                     <HamburgerIcon
                         isMobileNavOpened={isMobileNavOpened}

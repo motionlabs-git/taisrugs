@@ -12,7 +12,7 @@ const FavProductCard = () => {
                 height={500}
                 className='w-full h-full object-cover group-hover:scale-[1.08] group-hover:rotate-3 duration-400'
             ></Image>
-            <p className='absolute bottom-4 left-4 flex gap-2 group-hover:gap-4 duration-200 items-center font-archivo text-4xl'>
+            <p className='absolute bottom-4 left-4 flex gap-2 group-hover:gap-4 duration-200 items-center font-superVibes text-4xl'>
                 <span>Title</span>
                 <FiArrowRightCircle
                     size={28}

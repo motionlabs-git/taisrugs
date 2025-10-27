@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import gsap from 'gsap'
@@ -15,21 +15,19 @@ const SpinningLogo = () => {
                 start: 'top top',
                 scrub: true,
 
-                onLeaveBack: () => {
-                    gsap.to(logoRef.current, {
-                        rotate: '0deg',
-                        ease: 'power3.out',
-                        duration: 0.4,
-                    })
-                },
+                // onLeaveBack: () => {
+                //     gsap.to(logoRef.current, {
+                //         rotate: '0deg',
+                //         ease: 'power3.out',
+                //         duration: 0.4,
+                //     })
+                // },
 
                 onUpdate: (self) => {
                     const newVelocity = self.getVelocity() / 200
                     velocity.current = gsap.utils.clamp(-10, 10, newVelocity)
 
                     rotation.current += velocity.current
-
-                    console.log(self)
 
                     gsap.to(logoRef.current, {
                         rotate: rotation.current,

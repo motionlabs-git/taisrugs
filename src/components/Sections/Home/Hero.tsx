@@ -6,18 +6,20 @@ const Hero = () => {
     return (
         <div className='relative w-full h-[100dvh] flex justify-center items-center'>
             <div className='absolute z-10'>
-                <h1 className='group relative font-superVibes text-[4vw] text-primary font-bold'>
-                    <span className='absolute top-0 left-0 translate-y-2 -translate-x-2 text-violet-400 group-hover:translate-y-3 group-hover:-translate-x-3 duration-200'>
-                        Tais Rugs
-                    </span>
-                    <span className='absolute top-0 left-0 translate-y-1 -translate-x-1 text-green-400 group-hover:translate-y-2 group-hover:-translate-x-2 duration-200'>
-                        Tais Rugs
-                    </span>
-                    <span className='absolute top-0 left-0 text-primary group-hover:translate-y-1 group-hover:-translate-x-1 duration-200'>
-                        Tais Rugs
-                    </span>
-                    <span className='relative text-black'>Tais Rugs</span>
-                </h1>
+                {/* <h1 className='group relative font-superVibes text-[4vw] text-primary font-bold'>
+                        <span className='absolute top-0 left-0 translate-y-2 -translate-x-2 text-violet-400 group-hover:translate-y-3 group-hover:-translate-x-3 duration-200'>
+                            Tais Rugsěšččšřáú
+                        </span>
+                        <span className='absolute top-0 left-0 translate-y-1 -translate-x-1 text-green-400 group-hover:translate-y-2 group-hover:-translate-x-2 duration-200'>
+                            Tais Rugsěšččšřáú
+                        </span>
+                        <span className='absolute top-0 left-0 text-primary group-hover:translate-y-1 group-hover:-translate-x-1 duration-200'>
+                            Tais Rugsěšččšřáú
+                        </span>
+                        <span className='relative text-black'>
+                            Tais Rugsěšččšřáú
+                        </span>
+                    </h1> */}
                 <h1 className='group relative font-superVibes text-[4vw] text-primary font-bold'>
                     <span className='absolute top-0 left-0 translate-y-2 -translate-x-2 text-violet-400 group-hover:translate-y-3 group-hover:-translate-x-3 duration-200'>
                         Transform your space
@@ -25,7 +27,7 @@ const Hero = () => {
                     <span className='absolute top-0 left-0 translate-y-1 -translate-x-1 text-green-400 group-hover:translate-y-2 group-hover:-translate-x-2 duration-200'>
                         Transform your space
                     </span>
-                    <span className='absolute top-0 left-0 text-primary group-hover:translate-y-1 group-hover:-translate-x-1 duration-200'>
+                    <span className='absolute top-0 left-0 text-blue-400 group-hover:translate-y-1 group-hover:-translate-x-1 duration-200'>
                         Transform your space
                     </span>
                     <span className='relative text-black'>

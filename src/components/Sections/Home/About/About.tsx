@@ -20,7 +20,10 @@ const About = () => {
                         cum, ex dolor autem, illum sint doloremque sequi saepe a
                         eum ullam? Expedita nemo sit minus?
                     </p>
-                    <WiggleButton text={'Přejít do obchodu'}></WiggleButton>
+                    <WiggleButton
+                        text={'Přejít do obchodu'}
+                        className='invert grayscale-100 mt-8'
+                    ></WiggleButton>
                 </div>
             </div>
 

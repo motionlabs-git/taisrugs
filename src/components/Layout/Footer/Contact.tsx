@@ -5,7 +5,7 @@ import LogoShape from '../../../../public/LogoShape'
 
 const Contact = () => {
     return (
-        <section className='rounded-b-3xl relative bg-white z-20 py-40 items-center flex justify-center overflow-hidden'>
+        <section className='rounded-b-3xl w-full relative bg-white z-20 py-40 items-center flex justify-center overflow-hidden'>
             <LogoShape className='text-transparent stroke-2 stroke-gray-400 w-[50vw] md:w-[20vw] absolute'></LogoShape>
             <LogoShape className='text-transparent stroke-2 stroke-gray-400  w-[50vw] md:w-[20vw] absolute scale-110'></LogoShape>
             <LogoShape className='text-transparent stroke-2 stroke-gray-400  w-[50vw] md:w-[20vw] absolute scale-120'></LogoShape>
@@ -14,7 +14,7 @@ const Contact = () => {
                 <p className='text-gray-600 text-sm '>KONTAKT</p>
 
                 <Link href={'mailto:'} className='text-black'>
-                    <h1 className='font-archivo text-[10vw] md:text-[6vw]'>
+                    <h1 className='font-archivo  text-[10vw] md:text-[6vw]'>
                         taisrugs@email.cz
                     </h1>
                 </Link>

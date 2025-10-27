@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import Image from 'next/image'
+import AboutGalleryButton from './AboutGalleryButton'
 
 const galleryImages = [
     '/images/rug1.jpg',
@@ -45,14 +46,18 @@ const AboutGallery = () => {
 
     return (
         <div className='flex md:self-center md:flex-2 gap-8 items-center h-fit w-full'>
-            <button
+            {/* <button
                 type='button'
                 aria-label='Předchozí obrázek'
-                className='w-12 h-auto aspect-square flex justify-center items-center bg-white text-black rounded-full'
+                className='w-12 h-auto aspect-square flex justify-center items-center bg-white text-black rounded-full shadow-[-3px_3px_white]'
                 onClick={prevImage}
             >
                 <FiChevronLeft size={24} className='pr-0.5'></FiChevronLeft>
-            </button>
+            </button> */}
+
+            <AboutGalleryButton handleClick={prevImage}>
+                <FiChevronLeft size={24} className='pr-0.5'></FiChevronLeft>
+            </AboutGalleryButton>
 
             <div className='relative w-full aspect-[4/5]'>
                 {galleryImages.slice(0, activeImage).map((img, index) => {
@@ -76,14 +81,9 @@ const AboutGallery = () => {
                 })}
             </div>
 
-            <button
-                type='button'
-                aria-label='Předchozí obrázek'
-                className='w-12 h-auto aspect-square flex justify-center items-center bg-white text-black rounded-full'
-                onClick={nextImage}
-            >
+            <AboutGalleryButton handleClick={nextImage}>
                 <FiChevronRight size={24} className='pl-0.5'></FiChevronRight>
-            </button>
+            </AboutGalleryButton>
         </div>
     )
 }

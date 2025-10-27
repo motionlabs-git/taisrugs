@@ -16,8 +16,7 @@ const NavLink = ({ text, link }: { text: string; link: string }) => {
         if (link === path) {
             router.refresh()
         } else {
-            gsap.timeline()
-            .to(
+            gsap.timeline().to(
                 '#pageTransition',
                 {
                     height: '100vh',
@@ -34,7 +33,7 @@ const NavLink = ({ text, link }: { text: string; link: string }) => {
 
     return (
         <Link
-            className={`relative flex group items-center px-4 py-2 w-fit rounded-full bg-black text-white hover:!text-black duration-200 overflow-hidden ${
+            className={`relative flex group items-center px-4 py-2 w-fit rounded-full  text-white hover:!text-black overflow-hidden duration-200 ${
                 path === link && '!text-black'
             }`}
             href={link}
@@ -42,8 +41,16 @@ const NavLink = ({ text, link }: { text: string; link: string }) => {
             onClick={(e) => routeTo(e)}
         >
             <div
-                className={`absolute w-0 h-full top-0 left-0 bg-primary duration-200 group-hover:left-[-1px] group-hover:w-[calc(100%+2px)] rounded-full ${
-                    path === link && 'w-full'
+                className={`absolute left-0 top-0 w-full h-full bg-black rounded-full duration-300 group-hover:delay-200 group-hover:bg-transparent ${
+                    path === link && 'bg-transparent'
+                } `}
+            ></div>
+
+            <div
+                className={`absolute inset-0 origin-left bg-primary rounded-full transition-transform duration-300 ease-in-out transform ${
+                    path === link
+                        ? 'scale-x-100'
+                        : 'scale-x-0 group-hover:scale-x-100'
                 }`}
             ></div>
 

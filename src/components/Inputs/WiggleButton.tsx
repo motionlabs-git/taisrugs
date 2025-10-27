@@ -7,12 +7,14 @@ const WiggleButton = ({
     target,
     scrollTo,
     className,
+    wiggleTextDeny,
 }: {
     text: string
     link?: string
     target?: string
     className?: string
     scrollTo?: boolean
+    wiggleTextDeny?: boolean
 }) => {
     return (
         <button
@@ -30,17 +32,20 @@ const WiggleButton = ({
 
                 <span className=' relative text-nowrap'>{text}</span>
             </div>
+            {!wiggleTextDeny && (
+                <>
+                    <span className='btnClickText1 absolute -top-8 right-10 pointer-events-none select-none text-sm text-primary opacity-0 group-hover:opacity-100 duration-200'>
+                        *klik
+                    </span>
+                    <span className='btnClickText2 absolute -bottom-4 -right-12 pointer-events-none select-none text-sm text-primary opacity-0 group-hover:opacity-100 duration-200 delay-400'>
+                        *tap
+                    </span>
 
-            <span className='btnClickText1 absolute -top-8 right-10 pointer-events-none select-none text-sm text-primary opacity-0 group-hover:opacity-100 duration-200'>
-                *klik
-            </span>
-            <span className='btnClickText2 absolute -bottom-4 -right-12 pointer-events-none select-none text-sm text-primary opacity-0 group-hover:opacity-100 duration-200 delay-400'>
-                *tap
-            </span>
-
-            <span className='btnClickText3 absolute -bottom-10 -left-12 pointer-events-none select-none text-sm text-primary opacity-0 group-hover:opacity-100 duration-200 delay-200'>
-                *klik
-            </span>
+                    <span className='btnClickText3 absolute -bottom-10 -left-12 pointer-events-none select-none text-sm text-primary opacity-0 group-hover:opacity-100 duration-200 delay-200'>
+                        *klik
+                    </span>
+                </>
+            )}
         </button>
     )
 }

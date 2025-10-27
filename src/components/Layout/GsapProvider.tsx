@@ -2,14 +2,23 @@
 import React, { useEffect } from 'react'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
+import { usePathname } from 'next/navigation'
 
 const GsapProvider = ({ children }: { children: React.ReactNode }) => {
+    const path = usePathname()
     gsap.registerPlugin(ScrollTrigger)
 
     useEffect(() => {
-        window.addEventListener('resize', () => {
-            console.log('resized')
+        return () => {
+            ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+            ScrollTrigger.refresh()
+        }
 
+        return
+    }, [path])
+
+    useEffect(() => {
+        window.addEventListener('resize', () => {
             ScrollTrigger.refresh()
         })
 
@@ -20,6 +29,7 @@ const GsapProvider = ({ children }: { children: React.ReactNode }) => {
         //     if (isInstagram) {
         //     }
         // }
+
         ScrollTrigger.normalizeScroll(true)
 
         return () =>
