@@ -1,4 +1,6 @@
-export async function createOrder(orderData: { product_id: string }) {
-    // TODO: implement server action
-    console.log('Creating order for date:', orderData)
+import { AddToCartSchema } from '@/schemas/createOrderSchema'
+
+export async function createOrder(data: AddToCartSchema) {
+    // TODO: implement
+    console.log('data', data)
 }

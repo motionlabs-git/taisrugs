@@ -4,12 +4,19 @@ export interface IProductQuery {
     id: string
     title: string
     description: string
-    onlineStoreUrl: string
+    handle: string
     priceRangeV2: {
         minVariantPrice: {
             amount: string
             currencyCode: string
         }
+    }
+    variants: {
+        edges: Array<{
+            node: {
+                id: string
+            }
+        }>
     }
     images: {
         edges: Array<{
@@ -22,11 +29,18 @@ export const productQuery = `
     id
     title
     description
-    onlineStoreUrl
+    handle
     priceRangeV2 {
         minVariantPrice {
             amount
             currencyCode
+        }
+    }
+    variants(first: 1) {
+        edges {
+            node {
+                id
+            }
         }
     }
     images(first: 1) {
