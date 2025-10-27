@@ -1,3 +1,5 @@
+'use client'
+
 import { IProductQuery } from '@/utils/shopify/productQuery'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -12,13 +14,13 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
     return (
         <div className='w-full'>
             <div className='aspect-[4/5] w-full h-auto rounded-2xl overflow-hidden group'>
-                <Link href={''}>
+                <Link href={`/eshop/${product.handle}`}>
                     {image && (
                         <Image
                             src={image.src}
                             alt={image.altText ?? product.title}
-                            width={1000}
-                            height={1000}
+                            width={image.width}
+                            height={image.height}
                             className='w-full h-full object-cover group-hover:scale-105 duration-200 group-hover:rotate-3'
                         />
                     )}
@@ -27,7 +29,7 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
 
             <div className='mt-4'>
                 <Link
-                    href={product.onlineStoreUrl}
+                    href={`/eshop/${product.handle}`}
                     className='inline-block hover:underline hover:!text-black'
                 >
                     <h2 className='text-2xl font-bold'>{product.title}</h2>

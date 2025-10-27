@@ -13,12 +13,12 @@ export async function getProduct(slug: string) {
             '/graphql.json',
             {
                 query: `
-            {
-                productByHandle(handle: "${slug}") {
-                    ${productQuery}
-                }
-            }
-            `,
+                    {
+                        productByHandle(handle: "${slug}") {
+                            ${productQuery}
+                        }
+                    }
+                `,
             }
         )
 

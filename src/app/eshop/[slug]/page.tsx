@@ -1,6 +1,8 @@
 import { getProduct } from '@/utils/shopify/getProduct'
 import { NextPage } from 'next'
-import React from 'react'
+import { redirect } from 'next/navigation'
+import ProductPageClient from './client'
+import { cookies } from 'next/headers'
 
 interface IProps {
     params: Promise<{
@@ -12,9 +14,14 @@ const ProductPage: NextPage<IProps> = async ({ params }) => {
     const { slug } = await params
 
     const product = await getProduct(slug)
-    console.log('product', product)
+    if (!product) {
+        return redirect('/eshop')
+    }
 
-    return <div>Product page</div>
+    const cookieStore = await cookies()
+    const orderId = cookieStore.get('orderId')?.value
+
+    return <ProductPageClient product={product} orderId={orderId} />
 }
 
 export default ProductPage
