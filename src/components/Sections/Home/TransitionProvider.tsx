@@ -38,7 +38,7 @@ const TransitionProvider = ({ children }: { children: React.JSX.Element }) => {
     return (
         <div
             id='transitionProvider'
-            className=' text-white bg-radial-[at_80%80%] from-zinc-950 to-zinc-900 to-75% scale-90 rounded-4xl origin-center '
+            className=' text-white bg-radial-[at_80%80%] from-zinc-950 to-zinc-900 to-75% scale-90 rounded-4xl origin-top '
         >
             {children}
         </div>

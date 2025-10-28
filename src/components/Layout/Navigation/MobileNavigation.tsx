@@ -1,6 +1,5 @@
 import React from 'react'
-
-import Link from 'next/link'
+import MobileNavLink from './MobileNavLink'
 
 const MobileNavigation = ({ isOpened }: { isOpened: boolean }) => {
     return (
@@ -9,23 +8,14 @@ const MobileNavigation = ({ isOpened }: { isOpened: boolean }) => {
                 isOpened ? 'h-[100dvh]' : 'h-0'
             }`}
         >
-            <Link
-                href={'/'}
-                className='w-fit px-8 py-2 text-xl font-bold border border-white !text-white rounded-full shadow-[-3px_3px_white] text-nowrap'
-            >
-                Domů
-            </Link>
-            <Link
-                href={'/'}
-                className='w-fit px-8 py-2 text-xl font-bold border border-white !text-white rounded-full shadow-[-3px_3px_white] text-nowrap'
-            >
-                Koberečky na zakázku
-            </Link>
-
-            {/* <NavLink text={'Domů'} link={'/'}></NavLink>
-            <NavLink text={'Domů'} link={'/'}></NavLink>
-            <NavLink text={'Domů'} link={'/'}></NavLink>
-            <NavLink text={'Domů'} link={'/'}></NavLink> */}
+            <MobileNavLink text='Domů' link='/' />
+            <MobileNavLink
+                text=' Koberečky na zakázku'
+                link='/koberec-na-zakazku'
+            />
+            <MobileNavLink text=' Eshop' link='/eshop' />
+            <MobileNavLink text=' Kurzy' link='/kurzy' />
+            <MobileNavLink text=' Kontakt' link='/kontakt' />
         </div>
     )
 }

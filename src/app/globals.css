@@ -4,6 +4,12 @@
     --primary: #ffdb85;
 }
 
+::selection {
+    background: var(--color-primary);
+    color: black;
+    text-shadow: none;
+}
+
 @theme inline {
     /* COLORS */
     --color-primary: var(--primary);
@@ -14,7 +20,8 @@
     --font-superVibes: var(--font-superVibes);
 }
 
-body {
+h1 {
+    @apply text-4xl font-bold;
 }
 
 a {

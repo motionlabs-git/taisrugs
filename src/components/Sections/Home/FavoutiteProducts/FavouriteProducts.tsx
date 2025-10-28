@@ -21,32 +21,23 @@ const FavouriteProducts = () => {
     return (
         <section id='favouriteProducts' className='h-[300vh]'>
             <div className='md:px-24 px-4 sticky top-0 flex flex-col justify-center w-full h-[100vh] overflow-hidden'>
-                <h1 className='group relative font-superVibes text-[4vw] text-primary font-bold'>
-                    <span className='absolute top-0 left-0 translate-y-2 -translate-x-2 text-violet-400 group-hover:translate-y-3 group-hover:-translate-x-3 duration-200'>
-                        TO NEJLEPŠÍ
-                    </span>
-                    <span className='absolute top-0 left-0 translate-y-1 -translate-x-1 text-green-400 group-hover:translate-y-2 group-hover:-translate-x-2 duration-200'>
-                        TO NEJLEPŠÍ
-                    </span>
-                    <span className='absolute top-0 left-0 text-primary group-hover:translate-y-1 group-hover:-translate-x-1 duration-200'>
-                        TO NEJLEPŠÍ
-                    </span>
-                    <span className='relative text-black'>TO NEJLEPŠÍ</span>
-                </h1>
+                <h1 className=' font-bold text-[4vw]'>To nejlepší</h1>
 
                 <div
                     id='favProductsScroller'
-                    className='flex items-center mt-8 gap-4 w-[400%] md:w-[150%] translate-x-1/4 '
+                    className='flex items-center mt-8 gap-4 w-[400%] lg:w-[250%] xl:w-[150%] translate-x-1/4 '
                 >
                     <FavProductCard></FavProductCard>
                     <FavProductCard></FavProductCard>
                     <FavProductCard></FavProductCard>
                     <FavProductCard></FavProductCard>
                     <FavProductCard></FavProductCard>
+
                     <div className='flex-1'>
                         <WiggleButton
                             text='Přejít do obchodu'
-                            className='invert grayscale-100'
+                            className='invert grayscale-100 scale-80 sm:scale-100 text-white'
+                            link='/'
                         />
                     </div>
                 </div>

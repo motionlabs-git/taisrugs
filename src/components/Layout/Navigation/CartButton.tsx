@@ -4,13 +4,12 @@ import { FiShoppingCart } from 'react-icons/fi'
 const CartButton = ({ handleClick }: { handleClick: () => void }) => {
     const [isHovered, setIsHovered] = useState(false)
 
-    //TODO:Cart button
     return (
         <button
             type='button'
             aria-label='Košík'
             className={`relative group cursor-pointer duration-200 select-none rounded-full ${
-                isHovered ? 'pb-0 pl-0 pr-[3px]' : 'pl-[3px] pb-[3px]'
+                isHovered ? 'pb-0 pl-0 pr-[3px] pt-[3px]' : 'pl-[3px] pb-[3px]'
             }`}
             onClick={handleClick}
             onTouchStartCapture={() => setIsHovered(true)}

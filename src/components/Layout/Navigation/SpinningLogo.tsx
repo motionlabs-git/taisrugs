@@ -2,11 +2,13 @@ import React, { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import gsap from 'gsap'
+import { usePathname } from 'next/navigation'
 
 const SpinningLogo = () => {
     const logoRef = useRef<HTMLDivElement>(null)
     const rotation = useRef(0)
     const velocity = useRef(0)
+    const path = usePathname()
 
     useEffect(() => {
         gsap.to('#spinning-logo', {
@@ -37,7 +39,7 @@ const SpinningLogo = () => {
                 },
             },
         })
-    }, [])
+    }, [path])
 
     return (
         <div

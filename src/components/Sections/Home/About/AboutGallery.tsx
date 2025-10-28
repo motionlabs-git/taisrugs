@@ -45,7 +45,7 @@ const AboutGallery = () => {
     // }, [])
 
     return (
-        <div className='flex md:self-center md:flex-2 gap-8 items-center h-fit w-full'>
+        <div className='flex flex-col xl:flex-row md:flex-2 gap-8 items-center h-fit w-full self-center md:self-start lg:self-center'>
             {/* <button
                 type='button'
                 aria-label='Předchozí obrázek'
@@ -55,18 +55,21 @@ const AboutGallery = () => {
                 <FiChevronLeft size={24} className='pr-0.5'></FiChevronLeft>
             </button> */}
 
-            <AboutGalleryButton handleClick={prevImage}>
-                <FiChevronLeft size={24} className='pr-0.5'></FiChevronLeft>
+            <AboutGalleryButton
+                className='hidden xl:block'
+                handleClick={prevImage}
+            >
+                <FiChevronLeft size={24} className='pr-0.5 '></FiChevronLeft>
             </AboutGalleryButton>
 
-            <div className='relative w-full aspect-[4/5]'>
+            <div className='relative w-4/5 md:w-full aspect-[4/5]'>
                 {galleryImages.slice(0, activeImage).map((img, index) => {
                     const rotation = -12 + index * 6
 
                     return (
                         <div
                             key={index}
-                            className='opacity-0 animate-fade-in-04 absolute top-0 left-0 w-full h-full bg-green-100 rounded-2xl overflow-hidden'
+                            className='opacity-0 animate-fade-in-04 absolute top-0 left-0 w-full h-full rounded-2xl overflow-hidden'
                             style={{ rotate: `${rotation}deg` }}
                         >
                             <Image
@@ -80,10 +83,23 @@ const AboutGallery = () => {
                     )
                 })}
             </div>
-
-            <AboutGalleryButton handleClick={nextImage}>
+            <AboutGalleryButton
+                className='hidden xl:block'
+                handleClick={nextImage}
+            >
                 <FiChevronRight size={24} className='pl-0.5'></FiChevronRight>
             </AboutGalleryButton>
+            <div className='w-full flex gap-2 justify-end md:justify-center xl:hidden'>
+                <AboutGalleryButton handleClick={prevImage}>
+                    <FiChevronLeft size={24} className='pr-0.5'></FiChevronLeft>
+                </AboutGalleryButton>
+                <AboutGalleryButton handleClick={nextImage}>
+                    <FiChevronRight
+                        size={24}
+                        className='pl-0.5'
+                    ></FiChevronRight>
+                </AboutGalleryButton>
+            </div>
         </div>
     )
 }

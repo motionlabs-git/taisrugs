@@ -21,7 +21,7 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
                             alt={image.altText ?? product.title}
                             width={image.width}
                             height={image.height}
-                            className='w-full h-full object-cover group-hover:scale-105 duration-200 group-hover:rotate-3'
+                            className='w-full h-full object-cover group-hover:scale-[1.08] duration-200 group-hover:rotate-3'
                         />
                     )}
                 </Link>

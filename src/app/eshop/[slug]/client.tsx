@@ -5,6 +5,8 @@ import { IProductQuery } from '@/utils/shopify/productQuery'
 import AddToCartForm from '@/components/Forms/AddToCartForm'
 import { AddToCartSchema } from '@/schemas/createOrderSchema'
 import { createOrder } from '@/actions/order'
+import ProductGallery from '../_components/ProductGallery'
+import bgImg from '@/../public/LogoStroke.svg'
 
 interface IProps {
     product: IProductQuery
@@ -29,34 +31,66 @@ const ProductPageClient: React.FC<IProps> = ({ product, orderId }) => {
     }
 
     return (
-        <div className='pageWrapper'>
-            <h1 className='text-4xl font-bold mb-8'>{product?.title}</h1>
+        <div
+            className='pageWrapper'
+            style={{
+                backgroundImage: `url(${bgImg.src})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: '195% 16%',
+                backgroundSize: '80%',
+            }}
+        >
+            <section className='flex gap-8 pb-16'>
+                <ProductGallery />
 
-            <div className='w-1/2'>
-                {image && (
-                    <Image
-                        src={image.src}
-                        alt={image.altText ?? product.title}
-                        width={image.width}
-                        height={image.height}
-                        className='w-full h-full object-cover'
-                    />
-                )}
-            </div>
+                <div className='flex-3'>
+                    <h1 className='text-4xl font-bold mb-8'>
+                        {product?.title}
+                    </h1>
 
-            {!orderId && (
-                <AddToCartForm
-                    variantId={product.variants.edges[0].node.id}
-                    action={createOrder}
-                />
-            )}
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Asperiores rem tenetur voluptates recusandae cupiditate,
+                        iusto libero! Voluptas, aperiam corporis dolorum nemo
+                        error qui molestias amet fugit a. Fugiat, dicta omnis!
+                    </p>
 
-            {orderId && (
-                <AddToCartForm
-                    variantId={product.variants.edges[0].node.id}
-                    action={handleAddToCart}
-                />
-            )}
+                    <p>Velikost</p>
+
+                    <div className='flex items-center gap-2 justify-between mt-8'>
+                        <span className='text-lg font-bold'>
+                            {product.priceRangeV2.minVariantPrice.amount
+                                .toString()
+                                .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}{' '}
+                            Kč
+                        </span>
+                        {!orderId && (
+                            <AddToCartForm
+                                variantId={product.variants.edges[0].node.id}
+                                action={createOrder}
+                            />
+                        )}
+
+                        {orderId && (
+                            <AddToCartForm
+                                variantId={product.variants.edges[0].node.id}
+                                action={handleAddToCart}
+                            />
+                        )}
+                    </div>
+                </div>
+            </section>
+
+            <section className='py-16'>
+                <h2 className='text-2xl font-bold'>Oblíbené produkty</h2>
+                <div className='flex gap-4 mt-8'>
+                    <div className='aspect-[4/5] w-full bg-gray-300 rounded-2xl'></div>
+                    <div className='aspect-[4/5] w-full bg-gray-300 rounded-2xl'></div>
+                    <div className='aspect-[4/5] w-full bg-gray-300 rounded-2xl'></div>
+                    <div className='aspect-[4/5] w-full bg-gray-300 rounded-2xl'></div>
+                    <div className='aspect-[4/5] w-full bg-gray-300 rounded-2xl'></div>
+                </div>
+            </section>
         </div>
     )
 }

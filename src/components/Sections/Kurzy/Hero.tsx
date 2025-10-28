@@ -7,23 +7,40 @@ const Hero = () => {
     return (
         <div className='flex gap-8 min-h-screen pb-12'>
             <div className='flex-2 '>
-                <ButtonHeading text='Přijď vyrábět' invert></ButtonHeading>
+                <ButtonHeading text='Tvořívé kurzy' invert></ButtonHeading>
 
-                <h1 className='text-4xl font-bold mt-2'>Tvořivé kurzy</h1>
+                <h1 className='text-4xl font-bold mt-4'>
+                    Přijď si vyrobit kobereček
+                </h1>
+
+                <p className='mt-4 max-w-2/3'>
+                    Text o tom jak to na kurzu chodí, jak dlouho trvá atd Lorem
+                    ipsum dolor sit amet consectetur adipisicing elit. Beatae,
+                    sapiente iste quo rerum eveniet harum laborum eius corporis
+                    ab voluptates perferendis excepturi minus voluptatum
+                    repellat quos labore accusamus! Laboriosam, mollitia.
+                </p>
 
                 <p className='mt-4'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Beatae, sapiente iste quo rerum eveniet harum laborum eius
-                    corporis ab voluptates perferendis excepturi minus
-                    voluptatum repellat quos labore accusamus! Laboriosam,
-                    mollitia.
+                    Zaujal tě kurz a chceš si rezervovat místo pro sebe?
                 </p>
-                <WiggleButton
-                    text={'Zabookovat kurz'}
-                    className='invert grayscale-100 mt-8'
-                    link='#booking'
-                    scrollTo
-                />
+
+                <div className='flex gap-4 mt-8'>
+                    <WiggleButton
+                        text='Zarezervovat kurz'
+                        className='invert grayscale-100 border-white text-white'
+                        link='#booking'
+                        scrollTo
+                        wiggleTextDeny
+                    />
+                    <WiggleButton
+                        text='Koupit voucher'
+                        className='invert grayscale-100 border-white text-white'
+                        link='#vouchers'
+                        scrollTo
+                        wiggleTextDeny
+                    />
+                </div>
             </div>
 
             <div className='relative flex-1 flex -centeitemsr'>

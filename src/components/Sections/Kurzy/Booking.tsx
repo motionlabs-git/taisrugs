@@ -23,12 +23,12 @@ const Booking = () => {
                 className='w-full h-full p-10 scale-90 rounded-3xl text-white bg-radial-[at_80%80%] from-zinc-950 to-zinc-900 to-75%'
             >
                 <Image
-                    src={'/grid.svg'}
-                    alt={'grid'}
+                    src={'/images/contact-us.png'}
+                    alt={'sdf'}
                     width={500}
                     height={500}
+                    className='invert'
                 ></Image>
-                alskfjdlaksjdfljl jas dfl;ajsd l;fjasdfasdf
             </div>
         </div>
     )
