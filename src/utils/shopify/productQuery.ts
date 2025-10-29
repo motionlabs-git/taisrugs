@@ -12,16 +12,12 @@ export interface IProductQuery {
         }
     }
     variants: {
-        edges: Array<{
-            node: {
-                id: string
-            }
+        nodes: Array<{
+            id: string
         }>
     }
     images: {
-        edges: Array<{
-            node: IProductImageQuery
-        }>
+        nodes: Array<IProductImageQuery>
     }
 }
 
@@ -37,17 +33,13 @@ export const productQuery = `
         }
     }
     variants(first: 1) {
-        edges {
-            node {
-                id
-            }
+        nodes {
+            id
         }
     }
-    images(first: 1) {
-        edges {
-            node {
-                ${productImageQuery}
-            }
+    images(first: 5) {
+        nodes {
+            ${productImageQuery}
         }
     }
 `

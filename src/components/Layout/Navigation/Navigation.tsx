@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import { FiShoppingCart } from 'react-icons/fi'
 import Cart from '../Cart/Cart'
 import gsap from 'gsap'
@@ -10,9 +10,14 @@ import MobileNavigation from './MobileNavigation'
 import HamburgerIcon from './HamburgerIcon'
 import { useLenis } from 'lenis/react'
 import CartButton from './CartButton'
+import { IOrderQuery } from '@/utils/shopify/orderQuery'
 import { usePathname } from 'next/navigation'
 
-const Navigation = () => {
+interface IProps {
+    order: IOrderQuery | null
+}
+
+const Navigation: React.FC<IProps> = ({ order }) => {
     const [isMobileNavOpened, setIsMobileNavOpened] = useState(false)
     const lenis = useLenis()
     const path = usePathname()
@@ -57,10 +62,11 @@ const Navigation = () => {
             <MobileNavigation isOpened={isMobileNavOpened} />
 
             <Cart
-                cartTl={cartTl}
+                order={order}
                 handleCloseCart={() => {
                     cartTl.reverse()
                 }}
+                cartTl={cartTl}
             ></Cart>
 
             <nav className='flex items-center justify-between w-full gap-4'>

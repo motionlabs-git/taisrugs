@@ -6,6 +6,8 @@ import Navigation from '@/components/Layout/Navigation/Navigation'
 import Footer from '@/components/Layout/Footer/Footer'
 import ReactLenis from 'lenis/react'
 import GsapProvider from '@/components/Layout/GsapProvider'
+import { cookies } from 'next/headers'
+import { getOrder } from '@/utils/shopify/getOrder'
 
 const poppins = Poppins({
     variable: '--font-poppins',
@@ -51,11 +53,16 @@ export const metadata: Metadata = {
     },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode
 }>) {
+    const cookieStore = await cookies()
+    const orderId = cookieStore.get('orderId')?.value
+
+    const order = orderId ? await getOrder(orderId) : null
+
     return (
         <html lang='cs'>
             <GsapProvider>
@@ -63,7 +70,7 @@ export default function RootLayout({
                     <body
                         className={`${poppins.className} ${archivo.variable} ${superVibes.variable} antialiased w-full flex flex-col items-center min-h-screen justify-between overflow-x-hidden`}
                     >
-                        <Navigation></Navigation>
+                        <Navigation order={order}></Navigation>
 
                         <main className='w-full flex-1 flex justify-center'>
                             {children}

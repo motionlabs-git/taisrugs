@@ -1,19 +1,28 @@
 import { useRouter } from 'next/navigation'
-import React from 'react'
+import { IOrderQuery } from '@/utils/shopify/orderQuery'
+import { useOrder } from '@/utils/zustand/orderStore'
+import React, { useEffect } from 'react'
 import { FiArrowRightCircle, FiPlus } from 'react-icons/fi'
 
-const Cart = ({
-    handleCloseCart,
-    cartTl,
-}: {
+interface IProps {
+    order: IOrderQuery | null
     handleCloseCart: () => void
     cartTl: gsap.core.Timeline
-}) => {
+}
+
+const Cart: React.FC<IProps> = ({ order, handleCloseCart, cartTl }) => {
     const router = useRouter()
+
+    const { data, setData } = useOrder()
+
     const showStore = () => {
         cartTl.reverse()
-        router.push('/eshop')
+        router.push('/store')
     }
+
+    useEffect(() => {
+        setData(order)
+    }, [order, setData])
 
     return (
         <section
@@ -40,9 +49,27 @@ const Cart = ({
                     </button>
                 </div>
 
-                <div className='mt-8'>
-                    <p>Váš košík je prázdný...</p>
-                </div>
+                {!data && (
+                    <div className='mt-8'>
+                        <p>Váš košík je prázdný...</p>
+                    </div>
+                )}
+
+                {data && data.lineItems.nodes.length > 0 && (
+                    <div className='mt-8 flex flex-col gap-4'>
+                        {data.lineItems.nodes.map((item) => (
+                            <div
+                                key={item.product.id}
+                                className='flex justify-between items-center'
+                            >
+                                <div>
+                                    <p>{item.title}</p>
+                                    <p>Množství: {item.quantity}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                )}
 
                 <button
                     type='button'

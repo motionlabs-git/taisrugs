@@ -1,9 +1,6 @@
 'use client'
 
-import {
-    AddToCartSchema,
-    addToCartValidation,
-} from '@/schemas/createOrderSchema'
+import { AddToCartSchema, addToCartValidation } from '@/schemas/addToCartSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { FiArrowRightCircle, FiShoppingCart } from 'react-icons/fi'
