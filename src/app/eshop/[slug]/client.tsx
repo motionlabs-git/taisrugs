@@ -3,8 +3,9 @@
 import Image from 'next/image'
 import { IProductQuery } from '@/utils/shopify/productQuery'
 import AddToCartForm from '@/components/Forms/AddToCartForm'
-import { AddToCartSchema } from '@/schemas/createOrderSchema'
-import { createOrder } from '@/actions/order'
+import { AddToCartSchema } from '@/schemas/addToCartSchema'
+import { createOrder } from '@/actions/createOrder'
+import { axiosClient } from '@/utils/client/axiosClient'
 
 interface IProps {
     product: IProductQuery
@@ -12,20 +13,21 @@ interface IProps {
 }
 
 const ProductPageClient: React.FC<IProps> = ({ product, orderId }) => {
-    const image = product.images.edges[0] ? product.images.edges[0].node : null
+    const image = product.images.nodes[0] ? product.images.nodes[0] : null
 
     const handleAddToCart = async (data: AddToCartSchema) => {
-        console.log('orderId', orderId)
-        console.log('data', data)
+        if (!orderId) return
 
-        // axiosClient
-        //     .post(`/cart/${orderId}`, product)
-        //     .then((response) => {
-        //         console.log('Added to cart', response.data)
-        //     })
-        //     .catch((error) => {
-        //         console.error('Error adding to cart', error)
-        //     })
+        axiosClient
+            .post(`/order/add`, data)
+            .then((res) => {
+                // TODO:
+                console.log(res)
+            })
+            .catch((error) => {
+                // TODO:
+                console.error('Error adding to cart', error)
+            })
     }
 
     return (
@@ -46,14 +48,14 @@ const ProductPageClient: React.FC<IProps> = ({ product, orderId }) => {
 
             {!orderId && (
                 <AddToCartForm
-                    variantId={product.variants.edges[0].node.id}
+                    variantId={product.variants.nodes[0].id}
                     action={createOrder}
                 />
             )}
 
             {orderId && (
                 <AddToCartForm
-                    variantId={product.variants.edges[0].node.id}
+                    variantId={product.variants.nodes[0].id}
                     action={handleAddToCart}
                 />
             )}

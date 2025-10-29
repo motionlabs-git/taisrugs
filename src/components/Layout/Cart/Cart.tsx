@@ -1,8 +1,21 @@
 import WiggleButton from '@/components/Inputs/WiggleButton'
-import React from 'react'
+import { IOrderQuery } from '@/utils/shopify/orderQuery'
+import { useOrder } from '@/utils/zustand/orderStore'
+import React, { useEffect } from 'react'
 import { FiPlus } from 'react-icons/fi'
 
-const Cart = ({ handleCloseCart }: { handleCloseCart: () => void }) => {
+interface IProps {
+    order: IOrderQuery | null
+    handleCloseCart: () => void
+}
+
+const Cart: React.FC<IProps> = ({ order, handleCloseCart }) => {
+    const { data, setData } = useOrder()
+
+    useEffect(() => {
+        setData(order)
+    }, [order, setData])
+
     return (
         <section
             id='cart'
@@ -28,9 +41,27 @@ const Cart = ({ handleCloseCart }: { handleCloseCart: () => void }) => {
                     </button>
                 </div>
 
-                <div className='mt-8'>
-                    <p>Váš košík je prázdný...</p>
-                </div>
+                {!data && (
+                    <div className='mt-8'>
+                        <p>Váš košík je prázdný...</p>
+                    </div>
+                )}
+
+                {data && data.lineItems.nodes.length > 0 && (
+                    <div className='mt-8 flex flex-col gap-4'>
+                        {data.lineItems.nodes.map((item) => (
+                            <div
+                                key={item.product.id}
+                                className='flex justify-between items-center'
+                            >
+                                <div>
+                                    <p>{item.title}</p>
+                                    <p>Množství: {item.quantity}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                )}
 
                 <WiggleButton
                     text={'Prozkoumat obchod'}

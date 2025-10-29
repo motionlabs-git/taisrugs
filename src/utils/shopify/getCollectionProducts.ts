@@ -5,9 +5,7 @@ interface ICollectionProductQuery {
     data: {
         collection: {
             products: {
-                edges: Array<{
-                    node: IProductQuery
-                }>
+                nodes: Array<IProductQuery>
             }
         }
     }
@@ -22,10 +20,8 @@ export async function getCollectionProducts(id: number) {
             {
                 collection(id: "gid://shopify/Collection/${id}") {
                     products(first: 250) {
-                        edges {
-                            node {
-                                ${productQuery}
-                            }
+                        nodes {
+                            ${productQuery}
                         }
                     }
                 }
@@ -38,7 +34,7 @@ export async function getCollectionProducts(id: number) {
             return null
         }
 
-        return response.data.data.collection.products.edges
+        return response.data.data.collection.products.nodes
     } catch (error) {
         console.error('Error fetching all products:', error)
         return null

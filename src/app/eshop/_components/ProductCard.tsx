@@ -9,7 +9,7 @@ interface IProps {
 }
 
 const ProductCard: React.FC<IProps> = ({ product }) => {
-    const image = product.images.edges[0] ? product.images.edges[0].node : null
+    const image = product.images.nodes[0] ? product.images.nodes[0] : null
 
     return (
         <div className='w-full'>

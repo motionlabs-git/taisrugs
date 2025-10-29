@@ -1,5 +1,9 @@
 import { NextResponse } from 'next/server'
 
+export function HttpBadRequest() {
+    return NextResponse.json({ code: 'BAD_REQUEST' }, { status: 400 })
+}
+
 export function HttpValidationError() {
     return NextResponse.json({ code: 'VALIDATION_ERROR' }, { status: 422 })
 }
