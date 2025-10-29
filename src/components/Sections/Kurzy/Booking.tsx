@@ -20,7 +20,7 @@ const Booking = () => {
         <div id='booking' className='w-full h-screen py-12'>
             <div
                 id='booking-body'
-                className='w-full h-full p-10 scale-90 rounded-3xl text-white bg-radial-[at_80%80%] from-zinc-950 to-zinc-900 to-75%'
+                className='w-full h-full p-10 scale-80 rounded-3xl text-white bg-radial-[at_80%80%] from-zinc-950 to-zinc-900 to-75%'
             >
                 <Image
                     src={'/images/contact-us.png'}
