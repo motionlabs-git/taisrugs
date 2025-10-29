@@ -28,61 +28,6 @@ const Eshop = async () => {
                             ></ProductCard>
                         )
                     })}
-
-                {products &&
-                    products.map((product, i) => {
-                        return (
-                            <ProductCard
-                                key={i}
-                                product={product}
-                            ></ProductCard>
-                        )
-                    })}
-                {products &&
-                    products.map((product, i) => {
-                        return (
-                            <ProductCard
-                                key={i}
-                                product={product}
-                            ></ProductCard>
-                        )
-                    })}
-                {products &&
-                    products.map((product, i) => {
-                        return (
-                            <ProductCard
-                                key={i}
-                                product={product}
-                            ></ProductCard>
-                        )
-                    })}
-                {products &&
-                    products.map((product, i) => {
-                        return (
-                            <ProductCard
-                                key={i}
-                                product={product}
-                            ></ProductCard>
-                        )
-                    })}
-                {products &&
-                    products.map((product, i) => {
-                        return (
-                            <ProductCard
-                                key={i}
-                                product={product}
-                            ></ProductCard>
-                        )
-                    })}
-                {products &&
-                    products.map((product, i) => {
-                        return (
-                            <ProductCard
-                                key={i}
-                                product={product}
-                            ></ProductCard>
-                        )
-                    })}
             </div>
         </div>
     )

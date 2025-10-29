@@ -16,6 +16,8 @@ interface IProps {
 const ProductPageClient: React.FC<IProps> = ({ product, orderId }) => {
     const image = product.images.edges[0] ? product.images.edges[0].node : null
 
+    console.log(product)
+
     const handleAddToCart = async (data: AddToCartSchema) => {
         console.log('orderId', orderId)
         console.log('data', data)

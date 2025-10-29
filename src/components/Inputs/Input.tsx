@@ -2,17 +2,19 @@ import React from 'react'
 
 const Input = () => {
     return (
-        <div className='flex flex-col gap-2 w-fit'>
-            <label htmlFor='' className='font-bold'>
+        <fieldset className='flex flex-col gap-2 w-full'>
+            <label htmlFor='name' className='font-bold mt-2'>
                 Jméno
             </label>
             <input
                 type='text'
-                id=''
+                id='name'
                 placeholder='Jméno'
-                className='text-lg font-bold px-6 py-2 rounded-full border border-black shadow-[-3px_3px_black] outline-none focus:bg-red-400 duration-200'
+                className='text-lg font-bold px-6 py-2 rounded-full border border-white text-primary shadow-[-3px_3px_white] outline-none focus:border-primary focus:shadow-[-3px_3px_#ffdb85] duration-200'
             ></input>
-        </div>
+
+            <span className='text-primary text-sm text-right'>Error</span>
+        </fieldset>
     )
 }
 

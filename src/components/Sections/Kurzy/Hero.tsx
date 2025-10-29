@@ -9,9 +9,7 @@ const Hero = () => {
             <div className='flex-2 '>
                 <ButtonHeading text='Tvořívé kurzy' invert></ButtonHeading>
 
-                <h1 className='text-4xl font-bold mt-4'>
-                    Přijď si vyrobit kobereček
-                </h1>
+                <h1 className='mt-4'>Přijď si vyrobit kobereček</h1>
 
                 <p className='mt-4 max-w-2/3'>
                     Text o tom jak to na kurzu chodí, jak dlouho trvá atd Lorem

@@ -1,5 +1,3 @@
-import WiggleButton from '@/components/Inputs/WiggleButton'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { FiArrowRightCircle, FiPlus } from 'react-icons/fi'
