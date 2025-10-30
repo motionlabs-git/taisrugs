@@ -10,9 +10,14 @@ import FavouriteProductsSlider from '@/components/Sections/Eshop/FavouriteProduc
 interface IProps {
     product: IProductQuery
     orderId?: string
+    favouriteProducts: IProductQuery[] | null
 }
 
-const ProductPageClient: React.FC<IProps> = ({ product, orderId }) => {
+const ProductPageClient: React.FC<IProps> = ({
+    product,
+    orderId,
+    favouriteProducts,
+}) => {
     const handleAddToCart = async (data: AddToCartSchema) => {
         if (!orderId) return
 
@@ -74,7 +79,11 @@ const ProductPageClient: React.FC<IProps> = ({ product, orderId }) => {
                 </div>
             </section>
 
-            <FavouriteProductsSlider />
+            {favouriteProducts && (
+                <FavouriteProductsSlider
+                    favouriteProducts={favouriteProducts}
+                />
+            )}
         </div>
     )
 }

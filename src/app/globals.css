@@ -107,6 +107,5 @@ a {
     /* @apply gap-4; */
 }
 .embla__slide {
-    flex: 0 0 25%;
     min-width: 0;
 }

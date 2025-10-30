@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation'
 import ProductPageClient from './client'
 import { cookies } from 'next/headers'
 import type { Metadata, ResolvingMetadata } from 'next'
+import { getCollectionProducts } from '@/utils/shopify/getCollectionProducts'
 
 interface IProps {
     params: Promise<{
@@ -44,7 +45,15 @@ const ProductPage: NextPage<IProps> = async ({ params }) => {
     const cookieStore = await cookies()
     const orderId = cookieStore.get('orderId')?.value
 
-    return <ProductPageClient product={product} orderId={orderId} />
+    const favouriteProducts = await getCollectionProducts(502318891295)
+
+    return (
+        <ProductPageClient
+            product={product}
+            orderId={orderId}
+            favouriteProducts={favouriteProducts}
+        />
+    )
 }
 
 export default ProductPage

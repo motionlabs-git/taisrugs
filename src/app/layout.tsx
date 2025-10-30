@@ -40,8 +40,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Motionlabs - Web development',
-        description:
-            'V MotionLabs vyvíjíme weby v laboratorních podmínkách. Každý detail testujeme, dokud nevznikne výsledek, který spojuje design, výkon a smysl.',
+        description: '',
         images: '/brand/open-graph.png',
     },
     icons: {
