@@ -3,7 +3,7 @@
 import { AddToCartSchema, addToCartValidation } from '@/schemas/addToCartSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { FiArrowRightCircle, FiShoppingCart } from 'react-icons/fi'
+import { FiShoppingCart } from 'react-icons/fi'
 
 interface IProps {
     variantId: string
