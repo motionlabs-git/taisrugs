@@ -14,12 +14,7 @@ const FormSchema = z.object({
 type FormType = z.infer<typeof FormSchema>
 
 export default function ContactForm() {
-    const {
-        register,
-        handleSubmit,
-        watch,
-        formState: { errors },
-    } = useForm<FormType>({
+    const { handleSubmit, watch } = useForm<FormType>({
         defaultValues: {
             name: 'Jindra',
         },
