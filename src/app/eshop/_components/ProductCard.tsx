@@ -32,12 +32,14 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
                     href={`/eshop/${product.handle}`}
                     className='inline-block hover:underline hover:!text-black'
                 >
-                    <h2 className='text-2xl font-bold'>{product.title}</h2>
+                    <h2 className='text-lg sm:text-2xl font-bold'>
+                        {product.title}
+                    </h2>
                 </Link>
                 <span className='block'>
-                    {product.priceRangeV2.minVariantPrice.amount
-                        .toString()
-                        .replace(/\B(?=(\d{3})+(?!\d))/g, ' ')}{' '}
+                    {Math.floor(
+                        Number(product.priceRangeV2.minVariantPrice.amount)
+                    ).toLocaleString('cs-CZ')}{' '}
                     {product.priceRangeV2.minVariantPrice.currencyCode}
                 </span>
             </div>

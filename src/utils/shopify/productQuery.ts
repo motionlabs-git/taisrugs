@@ -37,7 +37,7 @@ export const productQuery = `
             id
         }
     }
-    images(first: 5) {
+    images(first: 6) {
         nodes {
             ${productImageQuery}
         }

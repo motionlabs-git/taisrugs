@@ -21,7 +21,7 @@
 }
 
 h1 {
-    @apply text-4xl font-bold;
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold;
 }
 
 a {
@@ -96,4 +96,16 @@ a {
     to {
         opacity: 100;
     }
+}
+
+/* EMBLA Carousel */
+.embla {
+    overflow: hidden;
+}
+.embla__container {
+    display: flex;
+    /* @apply gap-4; */
+}
+.embla__slide {
+    min-width: 0;
 }

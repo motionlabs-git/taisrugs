@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react'
 import gsap from 'gsap'
 import { usePathname } from 'next/navigation'
-import Image from 'next/image'
-import LogoShape from '../../../../public/LogoShape'
-import CustomEase from 'gsap/CustomEase'
 
 const PageTransition = () => {
     const path = usePathname()

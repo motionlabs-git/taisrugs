@@ -15,7 +15,7 @@ const Footer = () => {
 
             <section
                 id='footer-body'
-                className='w-full p-10 pb-4 sticky bottom-0 '
+                className='w-full px-4 sm:px-10 pt-10 pb-4 sticky bottom-0 '
             >
                 <div className='w-full flex flex-col md:flex-row justify-between gap-8'>
                     <div className='flex flex-2 flex-col'>
