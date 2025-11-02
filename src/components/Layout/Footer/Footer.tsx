@@ -9,7 +9,7 @@ const Footer = () => {
     return (
         <footer
             id='footer'
-            className='flex flex-col justify-between w-full relative h-screen text-white bg-radial-[at_80%80%] from-zinc-950 to-zinc-900 to-75% '
+            className='flex flex-col justify-between w-full relative text-white bg-radial-[at_80%80%] from-zinc-950 to-zinc-900 to-75% '
         >
             <Contact />
 

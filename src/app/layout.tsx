@@ -46,28 +46,14 @@ export const metadata: Metadata = {
     icons: {
         icon: [
             {
-                media: '(prefers-color-scheme: light)',
-                url: '/brand/favicon-dark.ico',
-                href: '/brand/favicon-dark.ico',
-            },
-            {
-                media: '(prefers-color-scheme: dark)',
-                url: '/brand/favicon-light.ico',
-                href: '/brand/favicon-light.ico',
+                url: '/favicon.ico',
+                href: '/favicon.ico',
             },
         ],
-        apple: [
-            {
-                media: '(prefers-color-scheme: light)',
-                url: '/brand/apple-touch-icon-dark.png',
-                href: '/brand/apple-touch-icon-dark.png',
-            },
-            {
-                media: '(prefers-color-scheme: dark)',
-                url: '/brand/apple-touch-icon-light.png',
-                href: '/brand/apple-touch-icon-light.png',
-            },
-        ],
+        apple: {
+            url: '/apple-touch-icon.png',
+            href: '/apple-touch-icon.png',
+        },
     },
 }
 
