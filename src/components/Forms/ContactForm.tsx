@@ -3,7 +3,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import Input from '../../Inputs/Input'
+import Input from '../Inputs/Input'
 import { FiSend } from 'react-icons/fi'
 import TextArea from '@/components/Inputs/TextArea'
 
@@ -28,7 +28,7 @@ export default function ContactForm() {
         /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
 
         <form
-            className='flex-3 p-10 rounded-3xl border border-white  shadow-[-3px_3px_white]'
+            className='flex-3 p-10 rounded-3xl border border-white  bg-radial-[at_80%80%] from-zinc-950/50 to-zinc-900 to-75% shadow-[-3px_3px_white] backdrop-blur-xs'
             onSubmit={handleSubmit(onSubmit)}
         >
             <Input></Input>

@@ -45,7 +45,7 @@ const SpinningLogo = () => {
         <div
             ref={logoRef}
             id='spinning-logo'
-            className='block w-16 min-w-16 md:w-20'
+            className='block relative w-16 min-w-16 md:w-20'
         >
             <Link href={'/'} className='w-full h-full'>
                 <Image

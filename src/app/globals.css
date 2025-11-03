@@ -2,6 +2,7 @@
 
 :root {
     --primary: #ffdb85;
+    --primaryAccent: #b99e5d;
 }
 
 ::selection {
@@ -13,6 +14,7 @@
 @theme inline {
     /* COLORS */
     --color-primary: var(--primary);
+    --color-primaryAccent: var(--primaryAccent);
 
     /* FONTS */
     --font-archivo: var(--font-archivo);
@@ -20,8 +22,14 @@
     --font-superVibes: var(--font-superVibes);
 }
 
+/*LENIS*/
+
 h1 {
     @apply text-2xl sm:text-3xl md:text-4xl font-bold;
+}
+
+h2 {
+    @apply text-lg sm:text-xl md:text-2xl font-bold;
 }
 
 a {

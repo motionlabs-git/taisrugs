@@ -6,6 +6,7 @@ import { axiosClient } from '@/utils/client/axiosClient'
 import ProductGallery from '../_components/ProductGallery'
 import bgImg from '@/../public/LogoStroke.svg'
 import FavouriteProductsSlider from '@/components/Sections/Eshop/FavouriteProductsSlider'
+import ContactUs from '@/components/Layout/Contact/ContactUs'
 
 interface IProps {
     product: IProductQuery
@@ -41,6 +42,7 @@ const ProductPageClient: React.FC<IProps> = ({
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: '195% 16%',
                 backgroundSize: '80%',
+                backgroundAttachment: 'fixed',
             }}
         >
             <section className='flex flex-col sm:flex-row gap-8 pb-16'>
@@ -84,6 +86,8 @@ const ProductPageClient: React.FC<IProps> = ({
                     favouriteProducts={favouriteProducts}
                 />
             )}
+
+            <ContactUs />
         </div>
     )
 }

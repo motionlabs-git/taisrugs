@@ -23,7 +23,7 @@ const FavouriteProductsSlider = ({
 
     return (
         <section className='py-16'>
-            <h2 className='text-2xl font-bold'>Oblíbené produkty</h2>
+            <h2>Oblíbené produkty</h2>
             <div className='embla' ref={emblaRef}>
                 <div className='mt-8 embla__container'>
                     {favouriteProducts.map((product, index) => (

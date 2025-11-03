@@ -4,10 +4,10 @@ import localFont from 'next/font/local'
 import './globals.css'
 import Navigation from '@/components/Layout/Navigation/Navigation'
 import Footer from '@/components/Layout/Footer/Footer'
-import ReactLenis from 'lenis/react'
 import GsapProvider from '@/components/Layout/GsapProvider'
 import { cookies } from 'next/headers'
 import { getOrder } from '@/utils/shopify/getOrder'
+import ReactLenis from 'lenis/react'
 
 const poppins = Poppins({
     variable: '--font-poppins',
@@ -69,10 +69,19 @@ export default async function RootLayout({
 
     return (
         <html lang='cs'>
-            <GsapProvider>
-                <ReactLenis root options={{ lerp: 0.1, duration: 1.5 }}>
+            <ReactLenis
+                root
+                options={{
+                    lerp: 0.1,
+                    duration: 1.5,
+                    autoResize: true,
+                    syncTouch: false,
+                    touchMultiplier: 0,
+                }}
+            >
+                <GsapProvider>
                     <body
-                        className={`${poppins.className} ${archivo.variable} ${superVibes.variable} antialiased w-full flex flex-col items-center min-h-screen justify-between overflow-x-hidden`}
+                        className={`${poppins.className} ${archivo.variable} ${superVibes.variable} antialiased w-full flex flex-col items-center min-h-screen justify-between overflow-hidden`}
                     >
                         <Navigation order={order}></Navigation>
 
@@ -82,8 +91,8 @@ export default async function RootLayout({
 
                         <Footer></Footer>
                     </body>
-                </ReactLenis>
-            </GsapProvider>
+                </GsapProvider>
+            </ReactLenis>
         </html>
     )
 }

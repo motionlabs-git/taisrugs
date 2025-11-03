@@ -10,12 +10,14 @@ const WiggleButton = ({
     scrollTo,
     className,
     wiggleTextDeny,
+    blank,
 }: {
     text: string
     link: string
     className?: string
     scrollTo?: boolean
     wiggleTextDeny?: boolean
+    blank?: boolean
 }) => {
     const router = useRouter()
     const lenis = useLenis()
@@ -24,7 +26,8 @@ const WiggleButton = ({
         if (scrollTo) {
             lenis?.scrollTo(link)
         } else {
-            router.push(link)
+            if (blank) window.open(link, '_blank')
+            else router.push(link)
         }
     }
 

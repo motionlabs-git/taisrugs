@@ -26,13 +26,15 @@ const Navigation: React.FC<IProps> = ({ order }) => {
     })
 
     const handleMobileNav = () => {
-        setIsMobileNavOpened((prev) => !prev)
+        lenis?.stop()
 
         if (isMobileNavOpened) {
             lenis?.start()
         } else {
             lenis?.stop()
         }
+
+        setIsMobileNavOpened((prev) => !prev)
     }
 
     useEffect(() => {
