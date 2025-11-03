@@ -30,12 +30,12 @@ const ContactColumn = ({
                 <LogoShape className='absolute w-[120%] text-primaryAccent -bottom-1/2 -right-1/2 opacity-50 duration-200 group-hover:scale-110 select-none group-hover:rotate-12'></LogoShape>
 
                 {icon && (
-                    <div className='absolute bottom-4 right-4 text-black opacity-0 group-hover:opacity-100 duration-200'>
+                    <div className='absolute bottom-4 right-4 text-black sm:opacity-0 group-hover:opacity-100 duration-200 text-xl'>
                         {icon}
                     </div>
                 )}
                 <div className='relative'>
-                    <h2 className='text-primaryAccent group-hover:text-black duration-200'>
+                    <h2 className='text-primaryAccent group-hover:text-black duration-200 !text-2xl'>
                         {heading}
                     </h2>
                     {children}

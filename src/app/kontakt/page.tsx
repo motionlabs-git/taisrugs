@@ -19,7 +19,7 @@ const Kontakt = () => {
         >
             <h1>Kontatní informace</h1>
 
-            <section className='flex flex-col lg:flex-row gap-8 mt-4 pb-8 sm:pb-16'>
+            <section className='flex flex-col lg:flex-row gap-4 lg:gap-8 mt-4 pb-8 sm:pb-16'>
                 <div className='flex-6 xl:flex-3 h-full'>
                     <div className='w-full h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:grid-rows-2 gap-4'>
                         <ContactColumn heading='Jméno'>
@@ -60,7 +60,7 @@ const Kontakt = () => {
                             <p className='text-black'>taisrugs@email.cz</p>
                         </ContactColumn>
 
-                        <div className='flex justify-center items-center'>
+                        <div className='justify-center items-center hidden sm:flex'>
                             <WiggleButton
                                 text={'Navigovat'}
                                 link={
@@ -74,7 +74,7 @@ const Kontakt = () => {
                     </div>
                 </div>
                 <div className='flex-3 flex flex-col'>
-                    <div className='rounded-2xl bg-gray-100 h-full aspect-video lg:aspect-auto overflow-hidden shadow-[-3px_3px_black]'>
+                    <div className='rounded-2xl bg-gray-100 h-full aspect-video lg:aspect-auto overflow-hidden shadow-[-3px_3px_black] border-2 border-black'>
                         <iframe
                             width='100%'
                             height='100%'
@@ -82,6 +82,18 @@ const Kontakt = () => {
                             scrolling='no'
                             src='https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=%20Karpova%2042/14,%20Praha+(TaisRugs)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'
                         ></iframe>
+                    </div>
+
+                    <div className='justify-end items-center sm:hidden flex'>
+                        <WiggleButton
+                            text={'Navigovat'}
+                            link={
+                                'https://www.google.com/maps/dir//Kaprova+42%2F14,+110+00+Star%C3%A9+M%C4%9Bsto/@50.0899402,14.4151232,16.04z/data=!4m18!1m8!3m7!1s0x470b94e8e9bf533d:0x6b6bc6db31022ebe!2sKaprova+42%2F14,+110+00+Star%C3%A9+M%C4%9Bsto!3b1!8m2!3d50.0879154!4d14.4184677!16s%2Fg%2F11pw3jqtsb!4m8!1m0!1m5!1m1!1s0x470b94e8e9bf533d:0x6b6bc6db31022ebe!2m2!1d14.4184677!2d50.0879154!3e0?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D'
+                            }
+                            blank
+                            className='invert grayscale-100 mt-4 text-white'
+                            wiggleTextDeny
+                        ></WiggleButton>
                     </div>
                 </div>
             </section>

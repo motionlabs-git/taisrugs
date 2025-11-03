@@ -117,3 +117,16 @@ a {
 .embla__slide {
     min-width: 0;
 }
+
+/* Text input label */
+.float-label-input {
+    margin: 28px 0;
+}
+
+.float-label-input:focus-within label,
+.float-label-input input:not(:placeholder-shown) + label,
+.float-label-input textarea:not(:placeholder-shown) + label {
+    transform: translateY(-1.25rem) translateX(-1rem) scale(0.75);
+
+    @apply border border-primary rounded-full text-black bg-white;
+}

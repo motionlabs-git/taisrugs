@@ -20,15 +20,12 @@ export default function ContactForm() {
         },
         resolver: zodResolver(FormSchema),
     })
-    const onSubmit: SubmitHandler<FormType> = (data) => console.log(data)
-
-    console.log(watch('name')) // watch input value by passing the name of it
-
+    const onSubmit: SubmitHandler<FormType> = (data) => {
+        console.log(data)
+    }
     return (
-        /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-
         <form
-            className='flex-3 p-10 rounded-3xl border border-white  bg-radial-[at_80%80%] from-zinc-950/50 to-zinc-900 to-75% shadow-[-3px_3px_white] backdrop-blur-xs'
+            className='flex-3 p-6 sm:p-10 rounded-3xl border border-white bg-radial-[at_80%80%] from-zinc-950/50 to-zinc-900 to-75% shadow-[-3px_3px_white] backdrop-blur-xs lg:flex-5 xl:flex-4'
             onSubmit={handleSubmit(onSubmit)}
         >
             <Input></Input>
