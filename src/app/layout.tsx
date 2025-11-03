@@ -81,7 +81,7 @@ export default async function RootLayout({
             >
                 <GsapProvider>
                     <body
-                        className={`${poppins.className} ${archivo.variable} ${superVibes.variable} antialiased w-full flex flex-col items-center min-h-screen justify-between overflow-hidden`}
+                        className={`${poppins.className} ${archivo.variable} ${superVibes.variable} antialiased w-full flex flex-col items-center min-h-screen justify-between overflow-x-hidden`}
                     >
                         <Navigation order={order}></Navigation>
 

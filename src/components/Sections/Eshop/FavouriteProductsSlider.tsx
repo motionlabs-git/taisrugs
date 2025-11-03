@@ -4,6 +4,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import React from 'react'
 import Image from 'next/image'
 import { IProductQuery } from '@/utils/shopify/productQuery'
+import FavProductCard from '../Home/FavoutiteProducts/FavProductCard'
 
 const FavouriteProductsSlider = ({
     favouriteProducts,
@@ -26,10 +27,10 @@ const FavouriteProductsSlider = ({
             <h2>Oblíbené produkty</h2>
             <div className='embla' ref={emblaRef}>
                 <div className='mt-8 embla__container'>
-                    {favouriteProducts.map((product, index) => (
+                    {favouriteProducts.map((product) => (
                         <div
-                            key={index}
-                            className='embla__slide flex-[0_0_70%] md:flex-[0_0_50%] lg:flex-[0_0_20%] aspect-[4/5] w-full px-3'
+                            key={product.id}
+                            className='embla__slide flex-[0_0_70%] md:flex-[0_0_50%] lg:flex-[0_0_20%] aspect-[4/5] w-full px-2 duration-none'
                         >
                             <div className='relative group bg-gray-100/30 rounded-2xl aspect-[4/5] flex-1 overflow-hidden cursor-pointer shadow-[-8px_8px_black] duration-200'>
                                 <Image
@@ -42,10 +43,10 @@ const FavouriteProductsSlider = ({
                             </div>
                         </div>
                     ))}
-                    {favouriteProducts.map((product, index) => (
+                    {favouriteProducts.map((product) => (
                         <div
-                            key={index}
-                            className='embla__slide flex-[0_0_70%] md:flex-[0_0_50%] lg:flex-[0_0_20%] aspect-[4/5] w-full px-3'
+                            key={product.id}
+                            className='embla__slide flex-[0_0_70%] md:flex-[0_0_50%] lg:flex-[0_0_20%] aspect-[4/5] w-full px-2 duration-none'
                         >
                             <div className='relative group bg-gray-100/30 rounded-2xl aspect-[4/5] flex-1 overflow-hidden cursor-pointer shadow-[-8px_8px_black] duration-200'>
                                 <Image
