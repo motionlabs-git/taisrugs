@@ -1,33 +1,19 @@
-'use client'
-
 import ContactForm from '@/components/Forms/ContactForm'
 import ButtonHeading from '@/components/UI/ButtonHeading'
-import React, { useEffect } from 'react'
+import React from 'react'
 import Image from 'next/image'
-import gsap from 'gsap'
+
 import bgImg from '@/../public/LogoStroke.svg'
 
 const ContactUs = () => {
-    useEffect(() => {
-        gsap.to('#contact-us-card', {
-            scrollTrigger: {
-                trigger: '#contact-us-card',
-                start: 'top bottom',
-                end: 'bottom bottom',
-                scrub: 0.5,
-            },
-            scale: 1,
-        })
-    }, [])
-
     return (
         <section className='pt-16 w-full' id='contact-us'>
             <div
                 id='contact-us-card'
-                className='relative h-full w-full text-white bg-radial-[at_80%80%] from-zinc-950 to-zinc-900 to-75% rounded-3xl py-4 px-4 sm:p-10 scale-90 origin-top'
+                className='relative h-full w-full text-white bg-radial-[at_80%80%] from-zinc-950 to-zinc-900 to-75% rounded-3xl py-4 px-4 sm:p-10  '
             >
                 <div
-                    className='w-full h-full absolute inset-0'
+                    className='w-full h-full absolute left-0 top-0'
                     style={{
                         backgroundImage: `url(${bgImg.src})`,
                         backgroundRepeat: 'no-repeat',

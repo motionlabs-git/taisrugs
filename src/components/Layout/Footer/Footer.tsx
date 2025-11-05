@@ -19,9 +19,11 @@ const Footer = () => {
                 id='footer-body'
                 className='w-full px-4 sm:px-10 pt-20 pb-2 sticky bottom-0 '
             >
-                <div className='w-full flex flex-col md:flex-row justify-between gap-8'>
+                <div className='w-full flex flex-col md:flex-row justify-between gap-8 flex-wrap text-nowrap'>
                     <div className='flex flex-2 flex-col'>
-                        <h2 className='!text-[6vw] font-archivo'>Tais rugs.</h2>
+                        <h2 className='!text-[13vw] md:!text-[6vw] font-archivo'>
+                            Tais rugs.
+                        </h2>
 
                         <p>Ručně vytvářené koberce</p>
                     </div>
@@ -30,19 +32,19 @@ const Footer = () => {
 
                         <ul className='mt-4'>
                             <li>
-                                <Link href={'/'}>Domů</Link>
+                                <Link href={'/'}>Koberce na zakázku</Link>
                             </li>
                             <li>
-                                <Link href={'/'}>Koberce na zakázku</Link>
+                                <Link href={'/'}>Kontakt</Link>
+                            </li>
+                            <li>
+                                <Link href={'/'}>Domů</Link>
                             </li>
                             <li>
                                 <Link href={'/'}>Eshop</Link>
                             </li>
                             <li>
                                 <Link href={'/'}>Kurzy</Link>
-                            </li>
-                            <li>
-                                <Link href={'/'}>Kontakt</Link>
                             </li>
                         </ul>
                     </div>
@@ -66,6 +68,25 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link href={'/'}>Kontakt</Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className='flex-1'>
+                        <FooterHeading text='Informace pro vás'></FooterHeading>
+
+                        <ul className='mt-4'>
+                            <li>
+                                <Link href={'/obchodni-podminky'}>
+                                    Obchodní podmínky
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={'/reklamacni-rad'}>
+                                    Reklamační řád
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={'/gdpr'}>GDPR</Link>
                             </li>
                         </ul>
                     </div>

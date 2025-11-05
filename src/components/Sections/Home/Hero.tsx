@@ -5,7 +5,7 @@ import Image from 'next/image'
 const Hero = () => {
     return (
         <div className='relative w-full h-[100dvh] flex justify-center items-center'>
-            <div className='absolute z-10'>
+            <div className='absolute'>
                 {/* <h1 className='group relative font-superVibes text-[4vw] text-primary font-bold'>
                         <span className='absolute top-0 left-0 translate-y-2 -translate-x-2 text-violet-400 group-hover:translate-y-3 group-hover:-translate-x-3 duration-200'>
                             Tais Rugsěšččšřáú
@@ -20,7 +20,7 @@ const Hero = () => {
                             Tais Rugsěšččšřáú
                         </span>
                     </h1> */}
-                <h1 className='group relative font-superVibes text-[4vw] text-primary font-bold'>
+                <h1 className='group relative font-superVibes text-[7vw] text-primary font-bold'>
                     <span className='absolute top-0 left-0 translate-y-2 -translate-x-2 text-violet-400 group-hover:translate-y-3 group-hover:-translate-x-3 duration-200'>
                         Transform your space
                     </span>
