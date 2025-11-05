@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import Input from '../Inputs/Input'
 import { FiSend } from 'react-icons/fi'
 import TextArea from '@/components/Inputs/TextArea'
+import Link from 'next/link'
 
 const FormSchema = z.object({
     name: z.string(),
@@ -42,7 +43,34 @@ export default function ContactForm() {
                 placeholder='Zpráva'
             />
 
-            <fieldset className='flex justify-center'>
+            {/* <div className='text-xs flex gap-2 items-center'>
+                <input
+                    type='checkbox'
+                    name='gdpr'
+                    id='gdpr'
+                    className='accent-primary'
+                />
+                <label htmlFor='gdpr'>
+                    Souhlasím podmínkami <Link href={'/gdpr'}>GDPR</Link>
+                </label>
+            </div> */}
+
+            <label
+                htmlFor='gdpr'
+                className='relative flex gap-2 w-fit items-center justify-evely cursor-pointer'
+            >
+                <input type='checkbox' id='gdpr' className='peer hidden ' />
+
+                <div className='w-2 absolute left-1 top-1 aspect-square bg-primary scale-0 duration-200 peer-checked:scale-100 rounded-xs'></div>
+
+                <div className='border box-border border-primary w-4 aspect-square rounded-sm'></div>
+
+                <span className='relative text-xs'>
+                    Souhlasím s podmínkama <Link href={'/gdpr'}>GDPR</Link>
+                </span>
+            </label>
+
+            <fieldset className='flex justify-center mt-2'>
                 <button
                     type='submit'
                     aria-label='Odeslat formulář'
