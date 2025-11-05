@@ -128,7 +128,8 @@ a {
     @apply border border-primary rounded-full text-black bg-white;
 }
 
-#pageTransitionLogoWrapper {
+/* LOGO Scale */
+/* #pageTransitionLogoWrapper {
     animation: loaderLogoScale 1.5s cubic-bezier(0, 0.43, 1, 0.56) infinite;
 }
 
@@ -141,5 +142,48 @@ a {
     }
     100% {
         scale: 1;
+    }
+} */
+
+/* Cookies Bar */
+.cookiesBarLine.line-1 {
+    animation-name: cookiesBar;
+    animation-delay: 1s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+.cookiesBarLine.line-2 {
+    animation-name: cookiesBar;
+    animation-delay: 1.5s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+.cookiesBarLine.line-3 {
+    animation-name: cookiesBar;
+    animation-delay: 2s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.cookiesBarLine.line-4 {
+    animation-name: cookiesBar;
+    animation-delay: 2.5s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.cookiesBarLine.line-5 {
+    animation-name: cookiesBar;
+    animation-delay: 3s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes cookiesBar {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100;
     }
 }

@@ -9,6 +9,7 @@ import { cookies } from 'next/headers'
 import { getOrder } from '@/utils/shopify/getOrder'
 import ReactLenis from 'lenis/react'
 import PageTransition from '@/components/Layout/Navigation/PageTransition'
+import CookiesBar from '@/components/Layout/CookiesBar'
 
 const poppins = Poppins({
     variable: '--font-poppins',
@@ -84,14 +85,15 @@ export default async function RootLayout({
                     <body
                         className={`${poppins.className} ${archivo.variable} ${superVibes.variable} antialiased w-full flex flex-col items-center min-h-screen justify-between overflow-x-hidden`}
                     >
-                        <Navigation order={order}></Navigation>
+                        <Navigation order={order} />
+                        <CookiesBar />
                         {/* <PageTransition></PageTransition> */}
 
                         <main className='w-full flex-1 flex justify-center'>
                             {children}
                         </main>
 
-                        <Footer></Footer>
+                        <Footer />
                     </body>
                 </GsapProvider>
             </ReactLenis>
