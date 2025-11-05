@@ -3,13 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { IProductQuery } from '@/utils/shopify/productQuery'
 
-const FavProductCard = ({
-    product,
-    className,
-}: {
-    product: IProductQuery
-    className?: string
-}) => {
+const FavProductCard = ({ product }: { product: IProductQuery }) => {
     const [isHovered, setIsHovered] = useState(false)
     const [isClicked, setIsClicked] = useState(false)
 
@@ -35,7 +29,7 @@ const FavProductCard = ({
             } duration-200`}
         >
             <div
-                className={`relative bg-gray-100/30 border-1 border-black rounded-2xl aspect-[4/5] flex-1 overflow-hidden cursor-pointer  duration-200 max-h-[60vh] ${
+                className={`relative bg-gray-100/30 border-1 border-black rounded-2xl aspect-[4/5] flex-1 overflow-hidden cursor-pointer  duration-200  max-h-[80vh] md:max-h-[60vh] ${
                     isHovered
                         ? `${
                               isClicked

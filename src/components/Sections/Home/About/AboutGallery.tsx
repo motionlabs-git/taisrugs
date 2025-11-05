@@ -63,13 +63,18 @@ const AboutGallery = () => {
             </AboutGalleryButton>
 
             <div className='relative w-4/5 md:w-full aspect-[4/5]'>
-                {galleryImages.slice(0, activeImage).map((img, index) => {
+                {galleryImages.map((img, index) => {
                     const rotation = -12 + index * 6
 
                     return (
                         <div
                             key={index}
-                            className='opacity-0 animate-fade-in-04 absolute top-0 left-0 w-full h-full rounded-2xl overflow-hidden'
+                            className={`gallery-image ${
+                                index < activeImage
+                                    ? `opacity-100 translate-0`
+                                    : 'opacity-0 translate-y-10 translate-x-5'
+                            }  duration-400 absolute top-0 left-0 w-full h-full rounded-2xl overflow-hidden`}
+                            id={`gallery-image-${index}`}
                             style={{ rotate: `${rotation}deg` }}
                         >
                             <Image

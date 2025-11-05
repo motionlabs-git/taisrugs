@@ -20,8 +20,6 @@ const FavouriteProductsSlider = ({
         }),
     ])
 
-    console.log(favouriteProducts)
-
     return (
         <section className='py-16'>
             <h2>Oblíbené produkty</h2>
@@ -38,7 +36,7 @@ const FavouriteProductsSlider = ({
                                     alt={'Obrazek'}
                                     width={500}
                                     height={500}
-                                    className='w-full h-full object-cover group-hover:scale-[1.08] group-hover:rotate-3 duration-400'
+                                    className='w-full h-full object-cover duration-400'
                                 ></Image>
                             </div>
                         </div>
@@ -54,7 +52,7 @@ const FavouriteProductsSlider = ({
                                     alt={'Obrazek'}
                                     width={500}
                                     height={500}
-                                    className='w-full h-full object-cover group-hover:scale-[1.08] group-hover:rotate-3 duration-400'
+                                    className='w-full h-full object-cover duration-400'
                                 ></Image>
                             </div>
                         </div>

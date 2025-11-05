@@ -11,23 +11,41 @@ const NavLink = ({ text, link }: { text: string; link: string }) => {
     const routeTo = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         e.preventDefault()
 
-        router.push(link)
-
         if (link === path) {
             router.refresh()
         } else {
-            gsap.timeline().to(
-                '#pageTransition',
-                {
-                    height: '100vh',
-                    duration: 0.3,
-                    ease: 'power1.inOut',
-                    onComplete: () => {
-                        router.push(link)
-                    },
-                },
-                '<'
-            )
+            router.push(link)
+            // gsap.timeline()
+            //     .to('#pageTransition', {
+            //         height: '100vh',
+            //         duration: 0.3,
+            //         ease: 'power1.inOut',
+            //     })
+            //     .to('#pageTransitionLogo', {
+            //         opacity: 1,
+            //     })
+            //     .to(
+            //         '#pageTransitionLogoBlur',
+            //         {
+            //             opacity: 1,
+            //             duration: 3,
+            //         },
+            //         '<'
+            //     )
+            //     .to(
+            //         '#pageTransitionLogoWrapper',
+            //         {
+            //             scale: 0.9,
+            //             ease: 'power1.inOut',
+            //             duration: 1,
+            //             yoyo: true,
+            //             repeat: 1,
+            //             onComplete: () => {
+            //                 router.push(link)
+            //             },
+            //         },
+            //         '<'
+            //     )
         }
     }
 

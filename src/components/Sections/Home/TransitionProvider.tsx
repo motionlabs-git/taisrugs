@@ -23,11 +23,11 @@ const TransitionProvider = ({ children }: { children: React.JSX.Element }) => {
             {
                 scrollTrigger: {
                     trigger: '#about',
-                    scrub: 1,
-                    start: '100%-=50px 60%',
+                    start: '100%+=50px 60%',
                     end: '100%+=50px 60%',
+                    toggleActions: 'play none reverse none',
                 },
-                duration: 1,
+                duration: 0.5,
                 backgroundImage:
                     'radial-gradient(at 80% 80%, #ffdb85 0%, #f8cd69 75%)',
                 color: 'black',

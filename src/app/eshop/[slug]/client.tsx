@@ -53,7 +53,12 @@ const ProductPageClient: React.FC<IProps> = ({
                 <div className='flex-3 '>
                     <h1 className=''>{product.title}</h1>
 
-                    <p className='mt-4'>{product.description}</p>
+                    <div
+                        className='mt-4 flex flex-col gap-4'
+                        dangerouslySetInnerHTML={{
+                            __html: product.descriptionHtml,
+                        }}
+                    ></div>
 
                     <div className='flex items-center gap-2 justify-between flex-wrap mt-8 align-bottom self-end'>
                         <span className='text-lg font-bold text-nowrap'>

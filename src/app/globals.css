@@ -127,3 +127,19 @@ a {
 
     @apply border border-primary rounded-full text-black bg-white;
 }
+
+#pageTransitionLogoWrapper {
+    animation: loaderLogoScale 1.5s cubic-bezier(0, 0.43, 1, 0.56) infinite;
+}
+
+@keyframes loaderLogoScale {
+    0% {
+        scale: 1;
+    }
+    50% {
+        scale: 0.95;
+    }
+    100% {
+        scale: 1;
+    }
+}

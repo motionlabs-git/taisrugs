@@ -1,7 +1,43 @@
+import WiggleButton from '@/components/Inputs/WiggleButton'
+import ContactUs from '@/components/Layout/Contact/ContactUs'
+import ButtonHeading from '@/components/UI/ButtonHeading'
 import React from 'react'
 
 const KoberecNaZakazku = () => {
-    return <div className='pageWrapper'>KoberceNaZakazku</div>
+    return (
+        <div className='pb-12 w-full pageWrapper'>
+            <section>
+                <ButtonHeading text='Zakázková výroba' invert></ButtonHeading>
+
+                <h1 className='mt-4'>Chceš vlastní kobereček?</h1>
+
+                <p className='mt-4 max-w-2/3'>
+                    Text o tom co je možné a co není možné.. různé důležité body
+                    pro zákazníka... atd Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Beatae, sapiente iste quo rerum eveniet
+                    harum laborum eius corporis ab voluptates perferendis
+                    excepturi minus voluptatum repellat quos labore accusamus!
+                    Laboriosam, mollitia.
+                </p>
+
+                <p className='mt-4'>
+                    Zaujal tě kurz a chceš si rezervovat místo pro sebe?
+                </p>
+
+                <div className='flex flex-wrap gap-4 mt-8'>
+                    <WiggleButton
+                        text='Vytvořit poptávku'
+                        className='invert grayscale-100 border-white text-white'
+                        link='#contact-us'
+                        scrollTo
+                        wiggleTextDeny
+                    />
+                </div>
+            </section>
+
+            <ContactUs />
+        </div>
+    )
 }
 
 export default KoberecNaZakazku
