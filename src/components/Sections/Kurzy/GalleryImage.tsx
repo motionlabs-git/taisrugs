@@ -1,8 +1,15 @@
 'use client'
 import React, { useRef } from 'react'
 import gsap from 'gsap'
+import Image from 'next/image'
 
-const GalleryImage = ({ className }: { className?: string }) => {
+const GalleryImage = ({
+    className,
+    img,
+}: {
+    className?: string
+    img: string
+}) => {
     const ref = useRef<HTMLDivElement>(null)
     let lastMouse = { x: 0, y: 0 }
 
@@ -44,8 +51,15 @@ const GalleryImage = ({ className }: { className?: string }) => {
         <div
             ref={ref}
             onMouseEnter={(e) => mouseEnter(e)}
-            className={`${className} absolute aspect-[4/5] w-1/2 h-auto bg-blue-200 rounded-2xl shadow-sm`}
-        ></div>
+            className={`${className} absolute aspect-[4/5] w-1/2 h-auto bg-blue-200 rounded-2xl shadow-md overflow-hidden`}
+        >
+            <Image
+                src={img}
+                width={750}
+                height={1000}
+                alt='Obrázek v galerii kurzy'
+            ></Image>
+        </div>
     )
 }
 

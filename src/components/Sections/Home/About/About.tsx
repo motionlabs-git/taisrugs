@@ -23,7 +23,7 @@ const About = () => {
                     <WiggleButton
                         text={'Přejít do obchodu'}
                         className='mt-8 hover:text-black'
-                        link='/'
+                        link='/eshop'
                     ></WiggleButton>
                 </div>
             </div>

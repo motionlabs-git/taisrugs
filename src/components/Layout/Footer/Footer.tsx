@@ -71,19 +71,16 @@ const Footer = () => {
                         <FooterHeading text='Informace pro vás'></FooterHeading>
 
                         <ul className='mt-4'>
-                            <li>
-                                <Link href={'/obchodni-podminky'}>
-                                    Obchodní podmínky
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href={'/reklamacni-rad'}>
-                                    Reklamační řád
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href={'/gdpr'}>GDPR</Link>
-                            </li>
+                            <FooterLink
+                                link={'/obchodni-podminky'}
+                                text={'Obchodní podmínky'}
+                            />
+                            <FooterLink
+                                link={'/reklamacni-rad'}
+                                text={'Reklamační řád'}
+                            />
+                            <FooterLink link={'/cookies'} text={'Cookies'} />
+                            <FooterLink link={'/gdpr'} text={'GDPR'} />
                         </ul>
                     </div>
                 </div>
