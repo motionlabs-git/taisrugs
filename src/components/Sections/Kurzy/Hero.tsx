@@ -5,8 +5,8 @@ import HeroGallery from './HeroGallery'
 
 const Hero = () => {
     return (
-        <section className='flex flex-col md:flex-row gap-8 pb-16 min-h-[calc(100vh-8rem)]'>
-            <div className='flex-2'>
+        <section className='flex flex-col md:flex-row gap-20 md:gap-4 pb-16 min-h-[calc(100vh-8rem)]'>
+            <div className='flex-1 lg:flex-2'>
                 <div>
                     <ButtonHeading text='Tvořívé kurzy' invert></ButtonHeading>
 

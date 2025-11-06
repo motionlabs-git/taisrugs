@@ -1,91 +1,28 @@
 'use client'
-import React, { useEffect } from 'react'
-import gsap from 'gsap'
-import DrawSVGPlugin from 'gsap/DrawSVGPlugin'
+import React, { useEffect, useRef } from 'react'
 
 import LogoStroke from '../../../../public/LogoStroke'
+import { usePathname } from 'next/navigation'
+import { useLenis } from 'lenis/react'
 
 const PageTransition = () => {
+    const transitionRef = useRef<HTMLDivElement | null>(null)
+    const path = usePathname()
+    const lenis = useLenis()
+
     useEffect(() => {
-        gsap.timeline()
-            .to('#transitionLogo', {
-                scale: 10,
-                rotate: '-180deg',
-                duration: 1,
+        lenis?.scrollTo(0, { immediate: true })
 
-                delay: 0.5,
-            })
-            .to(
-                '#pageTransition',
-                {
-                    delay: 1,
-                    height: 0,
-                    duration: 0.3,
-                    ease: 'power1.inOut',
-                },
-                '<'
-            )
-    }, [])
-
-    // gsap.registerPlugin(DrawSVGPlugin)
-
-    // gsap.timeline()
-    //     .to('#pageTransitionLogo', {
-    //         opacity: 1,
-    //     })
-    //     .fromTo(
-    //         '.pageTransitionLogoPath',
-    //         {
-    //             drawSVG: '0%',
-    //         },
-    //         {
-    //             drawSVG: '100%',
-    //             duration: 3,
-    //             ease: 'power4.in',
-    //         },
-    //         '<'
-    //     )
-    //     .to(
-    //         '#pageTransitionLogoBlur',
-    //         {
-    //             opacity: 1,
-    //             duration: 3,
-    //         },
-    //         '<'
-    //     )
-    //     .to('#pageTransitionLogoWrapper', {
-    //         scale: 0.9,
-    //         ease: 'power1.inOut',
-    //         duration: 1,
-    //         yoyo: true,
-    //         repeat: -1,
-    //     })
-    //     .to(
-    //         '#pageTransitionLogoWrapper',
-    //         {
-    //             scale: 0.9,
-    //             ease: 'power1.inOut',
-    //             duration: 1,
-    //             yoyo: true,
-    //             repeat: 1,
-    //         },
-    //         '<'
-    //     )
-    //     .to(
-    //         '#pageTransition',
-    //         {
-    //             delay: 1,
-    //             height: 0,
-    //             duration: 0.3,
-    //             ease: 'power1.inOut',
-    //         },
-    //         '<'
-    //     )
+        setTimeout(() => {
+            transitionRef.current?.classList.remove('opened')
+        }, 1000)
+    }, [path, lenis])
 
     return (
         <div
+            ref={transitionRef}
             id='pageTransition'
-            className='opened fixed z-50 top-0 left-0 w-screen  flex items-center justify-center bg-black overflow-hidden'
+            className='opened fixed z-50 top-0 left-0 w-screen hidden sm:flex items-center justify-center bg-black overflow-hidden ease-in-out duration-500'
         >
             <div id='pageTransitionLogoWrapper' className='relative'>
                 <LogoStroke

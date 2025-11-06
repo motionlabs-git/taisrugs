@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Contact from '@/components/Layout/Footer/Contact'
 import FooterHeading from '../../UI/ButtonHeading'
 import Image from 'next/image'
+import FooterLink from './FooterLink'
 
 const Footer = () => {
     const year = new Date().getFullYear()
@@ -31,21 +32,16 @@ const Footer = () => {
                         <FooterHeading text={'Odkazy'}></FooterHeading>
 
                         <ul className='mt-4'>
-                            <li>
-                                <Link href={'/'}>Koberce na zakázku</Link>
-                            </li>
-                            <li>
-                                <Link href={'/'}>Kontakt</Link>
-                            </li>
-                            <li>
-                                <Link href={'/'}>Domů</Link>
-                            </li>
-                            <li>
-                                <Link href={'/'}>Eshop</Link>
-                            </li>
-                            <li>
-                                <Link href={'/'}>Kurzy</Link>
-                            </li>
+                            <FooterLink
+                                link={'/koberec-na-zakazku'}
+                                text={'Koberec na zakázku'}
+                            />
+                            <FooterLink link={'/kontakt'} text={'Kontakt'} />
+                            <FooterLink link={'/'} text={'Domů'} />
+
+                            <FooterLink link={'/eshop'} text={'Eshop'} />
+
+                            <FooterLink link={'/kurzy'} text={'Kurzy'} />
                         </ul>
                     </div>
                     <div className='flex-1'>

@@ -4,7 +4,6 @@ import useEmblaCarousel from 'embla-carousel-react'
 import React from 'react'
 import Image from 'next/image'
 import { IProductQuery } from '@/utils/shopify/productQuery'
-import FavProductCard from '../Home/FavoutiteProducts/FavProductCard'
 
 const FavouriteProductsSlider = ({
     favouriteProducts,

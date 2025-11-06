@@ -87,7 +87,7 @@ export default async function RootLayout({
                     >
                         <Navigation order={order} />
                         <CookiesBar />
-                        {/* <PageTransition></PageTransition> */}
+                        <PageTransition></PageTransition>
 
                         <main className='w-full flex-1 flex justify-center'>
                             {children}

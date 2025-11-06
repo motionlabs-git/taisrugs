@@ -1,7 +1,7 @@
 import About from '@/components/Sections/Home/About/About'
 import FavouriteProducts from '@/components/Sections/Home/FavoutiteProducts/FavouriteProducts'
 import Hero from '@/components/Sections/Home/Hero'
-import TransitionProvider from '@/components/Sections/Home/TransitionProvider'
+import PageBackground from '@/components/Sections/Home/PageBackground'
 import { getCollectionProducts } from '@/utils/shopify/getCollectionProducts'
 
 export default async function Home() {
@@ -11,12 +11,12 @@ export default async function Home() {
         <div className='w-full'>
             <Hero></Hero>
 
-            <TransitionProvider>
+            <PageBackground>
                 <>
                     <About />
                     <FavouriteProducts products={favouriteProducts} />
                 </>
-            </TransitionProvider>
+            </PageBackground>
         </div>
     )
 }

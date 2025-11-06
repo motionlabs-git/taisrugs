@@ -28,10 +28,10 @@ const CookiesBar = () => {
         localStorage.setItem('cookies', 'agreed')
     }
 
-    const disagreeCookies = () => {
-        setIsAgreed(false)
-        localStorage.setItem('cookies', 'disagreed')
-    }
+    // const disagreeCookies = () => {
+    //     setIsAgreed(false)
+    //     localStorage.setItem('cookies', 'disagreed')
+    // }
 
     return (
         <aside className='fixed z-30 w-full sm:w-fit bottom-4 px-4 sm:px-0 sm:right-4'>
@@ -64,10 +64,12 @@ const CookiesBar = () => {
                         type='button'
                         aria-label='Agree with cookies'
                         onClick={agreeCookies}
-                        className='cookiesBarLine line-5 opacity-0 rounded-full flex gap-2 justify-center items-center h-8 py-2 px-3 bg-radial-[at_20%20%] from-[#ffdb85] to-[#f8cd69] to-75% border border-zinc-600/20 text-black self-end cursor-pointer shadow-[-3px_3px_black]'
+                        className='group cookiesBarLine line-5 opacity-0 self-end cursor-pointer pb-[3px] pl-[3px] sm:hover:pb-0 sm:hover:pl-0 sm:hover:pr-[3px] sm:hover:pt-[3px] duration-200'
                     >
-                        <span className='text-sm'>Souhlasím</span>
-                        <FiCheck className='pr-0.5' size={22}></FiCheck>
+                        <div className='rounded-full flex gap-2 justify-center items-center py-1 px-3 bg-radial-[at_20%20%] from-[#ffdb85] to-[#f8cd69] to-75% border border-zinc-600/20 shadow-[-3px_3px_black] sm:hover:shadow-[0_0_black] duration-200 text-black'>
+                            <span className='text-sm'>Souhlasím</span>
+                            <FiCheck className='pr-0.5' size={22}></FiCheck>
+                        </div>
                     </button>
                 </div>
             )}

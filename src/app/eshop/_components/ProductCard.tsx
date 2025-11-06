@@ -9,8 +9,6 @@ interface IProps {
 }
 
 const ProductCard: React.FC<IProps> = ({ product }) => {
-    const image = product.images.nodes[0] ? product.images.nodes[0] : null
-
     return (
         <div className='w-full'>
             <div className='relative aspect-[4/5] w-full h-auto rounded-2xl overflow-hidden group'>

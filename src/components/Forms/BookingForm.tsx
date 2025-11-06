@@ -7,17 +7,23 @@ import { FiSend } from 'react-icons/fi'
 import TextArea from '@/components/Inputs/TextArea'
 import Link from 'next/link'
 import CheckBox from '../Inputs/CheckBox'
+import RadioButton from '../Inputs/RadioButton'
 
 const FormSchema = z.object({
-    name: z.string(),
-    subject: z.string(),
+    name: z.string().nonempty('Toto pole je povinné'),
+    phone: z
+        .string()
+        .regex(/^(?:\d\s*){9}$/, 'Neplatné telefonní číslo')
+        .nonempty('Toto pole je povinné'),
+    email: z.email('Neplatný email').nonempty('Toto pole je povinné'),
     message: z.string(),
+    date: z.boolean(),
     gdpr: z.boolean(),
 })
 
 type FormType = z.infer<typeof FormSchema>
 
-export default function ContactForm() {
+export default function BookingForm() {
     const { handleSubmit, watch, register } = useForm<FormType>({
         defaultValues: {
             name: 'Jindra',
@@ -34,18 +40,61 @@ export default function ContactForm() {
             onSubmit={handleSubmit(onSubmit)}
         >
             <Input {...register('name')} id='name' placeholder='Jméno' />
-            <Input
-                {...register('subject')}
-                id='subject'
-                placeholder='Předmět'
-            />
+            <Input {...register('phone')} id='phone' placeholder='Telefon' />
+
+            <Input {...register('email')} id='email' placeholder='Email' />
+
             <TextArea
                 {...register('message')}
                 id='message'
                 placeholder='Zpráva'
             />
 
+            <fieldset className='flex gap-4 py-2 flex-wrap pb-4'>
+                <RadioButton
+                    text='10.9. 11:00 - 18:00'
+                    id='1'
+                    {...register('date')}
+                />
+                <RadioButton
+                    text='10.9. 11:00 - 18:00'
+                    id='2'
+                    {...register('date')}
+                />
+                <RadioButton
+                    text='10.9. 11:00 - 18:00'
+                    id='1'
+                    {...register('date')}
+                />
+                <RadioButton
+                    text='10.9. 11:00 - 18:00'
+                    id='2'
+                    {...register('date')}
+                />
+                <RadioButton
+                    text='10.9. 11:00 - 18:00'
+                    id='1'
+                    {...register('date')}
+                />
+                <RadioButton
+                    text='10.9. 11:00 - 18:00'
+                    id='2'
+                    {...register('date')}
+                />
+                <RadioButton
+                    text='10.9. 11:00 - 18:00'
+                    id='1'
+                    {...register('date')}
+                />
+                <RadioButton
+                    text='10.9. 11:00 - 18:00'
+                    id='2'
+                    {...register('date')}
+                />
+            </fieldset>
+
             <CheckBox
+                className='mt-2'
                 id='gdpr'
                 {...register('gdpr')}
                 text={
