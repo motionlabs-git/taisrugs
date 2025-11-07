@@ -22,7 +22,7 @@ const PageTransition = () => {
         <div
             ref={transitionRef}
             id='pageTransition'
-            className='opened fixed z-50 top-0 left-0 w-screen hidden sm:flex items-center justify-center bg-black overflow-hidden ease-in-out duration-500'
+            className='opened fixed z-50 top-0 left-0 w-screen flex items-center justify-center bg-black overflow-hidden ease-in-out duration-500'
         >
             <div id='pageTransitionLogoWrapper' className='relative'>
                 <LogoStroke
