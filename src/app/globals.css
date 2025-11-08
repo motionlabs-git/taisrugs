@@ -130,7 +130,7 @@ a {
 
 /* LOGO Scale */
 #pageTransition.opened {
-    @apply h-screen;
+    @apply h-[100lvh];
 
     #pageTransitionLogoWrapper {
         animation: loaderLogoScale 1.5s cubic-bezier(0.42, 0, 0.58, 1) infinite;

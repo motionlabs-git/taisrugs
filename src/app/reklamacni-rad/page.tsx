@@ -1,3 +1,4 @@
+import DocumentsData from '@/data/DocumentsData'
 import { Metadata } from 'next'
 import Link from 'next/link'
 import React from 'react'
@@ -27,7 +28,7 @@ const ReturnsPolicy = () => {
                         práv z vadného plnění (reklamací) a při odstoupení od
                         smlouvy uzavřené mezi kupujícím a prodávajícím
                         prostřednictvím internetového obchodu{' '}
-                        <strong>[doplň název / doménu e-shopu]</strong>.
+                        <strong>{DocumentsData.eshopDomain}</strong>.
                     </p>
                     <p className='mt-4'>
                         Prodávajícím je{' '}
@@ -65,11 +66,11 @@ const ReturnsPolicy = () => {
                     <p>
                         Kupující je povinen reklamaci uplatnit bez zbytečného
                         odkladu po zjištění vady. Reklamace se podává e-mailem
-                        na adresu <strong>[doplň e-mail]</strong> nebo písemně
-                        zasláním reklamovaného zboží na adresu:
+                        na adresu <strong>{DocumentsData.email}</strong> nebo
+                        písemně zasláním reklamovaného zboží na adresu:
                     </p>
                     <p className='mt-4'>
-                        <strong>[doplň adresu pro zasílání reklamací]</strong>
+                        <strong>{DocumentsData.storeAddress}</strong>
                     </p>
                     <p className='mt-4'>
                         V oznámení o reklamaci kupující uvede své jméno, adresu,
@@ -120,8 +121,8 @@ const ReturnsPolicy = () => {
                         Kupující – spotřebitel má právo odstoupit od smlouvy do
                         14 dnů od převzetí zboží bez udání důvodu. O svém
                         odstoupení informuje prodávajícího e-mailem na{' '}
-                        <strong>[doplň e-mail]</strong> nebo písemně na adresu{' '}
-                        <strong>[doplň adresu]</strong>.
+                        <strong>{DocumentsData.email}</strong> nebo písemně na
+                        adresu <strong>{DocumentsData.storeAddress}</strong>.
                     </p>
                     <p className='mt-4'>
                         Zboží musí být zasláno zpět nepoškozené, kompletní,
@@ -158,9 +159,9 @@ const ReturnsPolicy = () => {
 
                         <p>
                             Adresát: <br />
-                            <strong>[doplň obchodní jméno]</strong> <br />
-                            <strong>[doplň adresu]</strong> <br />
-                            <strong>E-mail:</strong> [doplň e-mail]
+                            <strong>{DocumentsData.eshopName}</strong> <br />
+                            <strong>{DocumentsData.storeAddress}</strong> <br />
+                            <strong>E-mail:</strong> {DocumentsData.email}
                         </p>
 
                         <p>
@@ -207,9 +208,9 @@ const ReturnsPolicy = () => {
                     </h2>
                     <p>
                         Tento reklamační řád nabývá účinnosti dne{' '}
-                        <strong>[doplň datum]</strong> a je platný až do jeho
-                        nahrazení novým zněním. Aktuální verze je vždy k
-                        dispozici na webových stránkách e-shopu.
+                        <strong>{DocumentsData.validDate}</strong> a je platný
+                        až do jeho nahrazení novým zněním. Aktuální verze je
+                        vždy k dispozici na webových stránkách e-shopu.
                     </p>
                 </section>
             </div>

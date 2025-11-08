@@ -13,19 +13,19 @@ const Vouchers = async () => {
         <section id='vouchers' className='py-16'>
             <ButtonHeading text='Vouchery' invert></ButtonHeading>
 
-            <h1 className='mt-4 max-w-2/3'>
+            <h1 className='mt-4 sm:max-w-2/3'>
                 Daruj zážitek! {voucher[0].title}.
             </h1>
             <div className='flex flex-col md:flex-row gap-8'>
                 <div className='flex-3 lg:flex-5'>
                     <div
-                        className='mt-4 flex flex-col gap-4 max-w-2/3'
+                        className='mt-4 flex flex-col gap-4 w-full md:max-w-2/3'
                         dangerouslySetInnerHTML={{
                             __html: voucher[0].descriptionHtml,
                         }}
                     ></div>
 
-                    <div className='flex gap-8 items-center mt-8'>
+                    <div className='hidden md:flex gap-8 items-center mt-8'>
                         <span className='text-lg font-bold text-nowrap'>
                             {Math.floor(
                                 Number(
@@ -39,14 +39,14 @@ const Vouchers = async () => {
                         <WiggleButton
                             text={'Koupit voucher'}
                             link={'/'}
-                            className=' md:flex justify-end hidden text-white invert grayscale-100'
+                            className='justify-end flex text-white invert grayscale-100'
                             wiggleTextDeny
                         ></WiggleButton>
                     </div>
                 </div>
 
                 <div className='mt-4'>
-                    <div className='aspect-video w-[32vw] h-[18vw] group relative rounded-3xl overflow-hidden'>
+                    <div className='aspect-video w-full h-auto md:w-[32vw] md:h-[18vw] group relative rounded-3xl overflow-hidden'>
                         <Image
                             src={'/images/Kurzy/VoucherFront.webp'}
                             alt={'Voucher Front'}
@@ -63,11 +63,20 @@ const Vouchers = async () => {
                         ></Image>
                     </div>
                 </div>
-                <div className='flex md:hidden justify-end'>
+                <div className='md:hidden flex justify-end flex-wrap gap-4 items-center'>
+                    <span className='text-lg font-bold text-nowrap'>
+                        {Math.floor(
+                            Number(
+                                voucher[0].priceRangeV2.minVariantPrice.amount
+                            )
+                        ).toLocaleString('cs-CZ')}{' '}
+                        Kč
+                    </span>
+
                     <WiggleButton
                         text={'Koupit voucher'}
                         link={'/'}
-                        className=' text-white invert grayscale-100'
+                        className='justify-end flex text-white invert grayscale-100'
                         wiggleTextDeny
                     ></WiggleButton>
                 </div>

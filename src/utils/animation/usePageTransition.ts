@@ -17,6 +17,7 @@ export function usePageTransition() {
         if (path === link) return
 
         transition?.classList.add('opened')
+        document.body.style.backgroundColor = 'black'
         router.push(link)
     }
 

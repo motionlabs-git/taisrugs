@@ -7,7 +7,11 @@ const FooterLink = ({ link, text }: { link: string; text: string }) => {
 
     return (
         <li>
-            <Link href={link} onClick={(e) => handleTransition(e, link)}>
+            <Link
+                href={link}
+                onClick={(e) => handleTransition(e, link)}
+                className='py-1'
+            >
                 {text}
             </Link>
         </li>

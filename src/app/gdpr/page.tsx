@@ -1,3 +1,4 @@
+import DocumentsData from '@/data/DocumentsData'
 import { Metadata } from 'next'
 import React from 'react'
 
@@ -26,18 +27,16 @@ const GDPR = () => {
                         Tyto zásady ochrany osobních údajů popisují, jakým
                         způsobem zpracovávám osobní údaje návštěvníků a klientů
                         prostřednictvím webových stránek{' '}
-                        <strong>[doplň svůj web / doménu]</strong>. Jsem
+                        <strong>{DocumentsData.eshopDomain}</strong>. Jsem
                         správcem osobních údajů podle čl. 4 odst. 7 Nařízení
                         (EU) 2016/679 (GDPR).
                     </p>
                     <p className='mt-4'>
                         <strong>Správce osobních údajů:</strong> <br />
-                        [doplň obchodní jméno nebo své jméno] <br />
-                        IČO: [doplň IČO] <br />
-                        Sídlo: [doplň adresu] <br />
-                        E-mail: [doplň e-mail pro kontakt ohledně osobních
-                        údajů] <br />
-                        Telefon: [nepovinné]
+                        {DocumentsData.eshopName} <br />
+                        {DocumentsData.seller} <br />
+                        E-mail: {DocumentsData.email} <br />
+                        Telefon: {DocumentsData.phone}
                     </p>
                 </section>
 
@@ -169,7 +168,7 @@ const GDPR = () => {
                     </ul>
                     <p className='mt-4'>
                         Pokud chceš uplatnit svá práva, napiš na e-mail:{' '}
-                        <strong>[doplň svůj kontaktní e-mail]</strong>
+                        <strong>{DocumentsData.email}</strong>
                     </p>
                 </section>
 
@@ -184,7 +183,7 @@ const GDPR = () => {
                     </p>
                     <p className='mt-4'>
                         <strong>
-                            Tyto zásady jsou platné od [doplň datum].
+                            Tyto zásady jsou platné od {DocumentsData.email}.
                         </strong>
                     </p>
                 </section>

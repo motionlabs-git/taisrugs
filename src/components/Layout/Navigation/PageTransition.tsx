@@ -11,10 +11,12 @@ const PageTransition = () => {
     const lenis = useLenis()
 
     useEffect(() => {
-        lenis?.scrollTo(0, { immediate: true })
-
+        // lenis?.scrollTo(0, {
+        //     immediate: true,
+        // })
         setTimeout(() => {
             transitionRef.current?.classList.remove('opened')
+            document.body.style.backgroundColor = 'white'
         }, 1000)
     }, [path, lenis])
 
@@ -22,7 +24,7 @@ const PageTransition = () => {
         <div
             ref={transitionRef}
             id='pageTransition'
-            className='opened fixed z-50 top-0 left-0 w-screen flex items-center justify-center bg-black overflow-hidden ease-in-out duration-500'
+            className='opened fixed inset-0 z-50 w-screen flex items-center justify-center bg-black overflow-hidden ease-in-out duration-500'
         >
             <div id='pageTransitionLogoWrapper' className='relative'>
                 <LogoStroke

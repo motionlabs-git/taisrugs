@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import React from 'react'
+import DocumentsData from '@/data/DocumentsData'
 
 export const metadata: Metadata = {
     title: 'Zásady ochrany osobních údajů',
@@ -24,9 +25,8 @@ const TermsAndConditions = () => {
                         Tyto obchodní podmínky upravují práva a povinnosti mezi
                         prodávajícím a kupujícím při uzavírání kupních smluv
                         prostřednictvím internetového obchodu{' '}
-                        <strong>[doplň název / doménu e-shopu]</strong>, který
-                        provozuje{' '}
-                        <strong>[doplň obchodní jméno / IČO / sídlo]</strong>.
+                        <strong>{DocumentsData.eshopDomain}</strong>, který
+                        provozuje <strong>{DocumentsData.seller}</strong>.
                     </p>
                     <p className='mt-4'>
                         Tyto obchodní podmínky jsou nedílnou součástí kupní
@@ -135,8 +135,9 @@ const TermsAndConditions = () => {
                         V případě, že se u zboží projeví vada, má kupující právo
                         uplatnit reklamaci do 24 měsíců od převzetí. Reklamace
                         se uplatňuje písemně na e-mail{' '}
-                        <strong>[doplň e-mail]</strong> nebo zasláním zboží na
-                        adresu <strong>[doplň adresu]</strong>.
+                        <strong>{DocumentsData.email}</strong> nebo zasláním
+                        zboží na adresu{' '}
+                        <strong>{DocumentsData.storeAddress}</strong>.
                     </p>
                     <p className='mt-4'>
                         Reklamace bude vyřízena bez zbytečného odkladu,
@@ -172,9 +173,9 @@ const TermsAndConditions = () => {
                     </h2>
                     <p>
                         Tyto obchodní podmínky jsou platné od{' '}
-                        <strong>[doplň datum]</strong> a mohou být aktualizovány
-                        bez předchozího upozornění. Aktuální znění je vždy
-                        zveřejněno na webových stránkách e-shopu.
+                        <strong>{DocumentsData.validDate}</strong> a mohou být
+                        aktualizovány bez předchozího upozornění. Aktuální znění
+                        je vždy zveřejněno na webových stránkách e-shopu.
                     </p>
                     <p className='mt-4'>
                         Právní vztahy mezi prodávajícím a kupujícím se řídí

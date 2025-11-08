@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import gsap from 'gsap'
 import { usePathname } from 'next/navigation'
+import { usePageTransition } from '@/utils/animation/usePageTransition'
 
 const SpinningLogo = () => {
     const logoRef = useRef<HTMLDivElement>(null)
@@ -10,20 +11,14 @@ const SpinningLogo = () => {
     const velocity = useRef(0)
     const path = usePathname()
 
+    const handleTransition = usePageTransition()
+
     useEffect(() => {
         gsap.to('#spinning-logo', {
             scrollTrigger: {
                 trigger: document.body,
                 start: 'top top',
-                scrub: true,
-
-                // onLeaveBack: () => {
-                //     gsap.to(logoRef.current, {
-                //         rotate: '0deg',
-                //         ease: 'power3.out',
-                //         duration: 0.4,
-                //     })
-                // },
+                end: 'bottom top',
 
                 onUpdate: (self) => {
                     const newVelocity = self.getVelocity() / 200
@@ -31,7 +26,7 @@ const SpinningLogo = () => {
 
                     rotation.current += velocity.current
 
-                    gsap.to(logoRef.current, {
+                    gsap.set(logoRef.current, {
                         rotate: rotation.current,
                         ease: 'power3.out',
                         duration: 0.3,
@@ -47,7 +42,11 @@ const SpinningLogo = () => {
             id='spinning-logo'
             className='block relative w-16 min-w-16 md:w-20'
         >
-            <Link href={'/'} className='w-full h-full'>
+            <Link
+                onClick={(e) => handleTransition(e, '/')}
+                href={'/'}
+                className='w-full h-full'
+            >
                 <Image
                     src={'/LogoSVG.svg'}
                     alt={'logo'}

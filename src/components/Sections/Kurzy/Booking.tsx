@@ -1,26 +1,11 @@
 'use client'
-import React, { useEffect } from 'react'
-import gsap from 'gsap'
-import Image from 'next/image'
+import React from 'react'
 import ButtonHeading from '@/components/UI/ButtonHeading'
-import ContactForm from '@/components/Forms/ContactForm'
 
 import bgImg from '@/../public/LogoStroke.svg'
 import BookingForm from '@/components/Forms/BookingForm'
 
 const Booking = () => {
-    useEffect(() => {
-        gsap.to('#booking-body', {
-            scrollTrigger: {
-                trigger: '#booking',
-                scrub: 1,
-                start: 'top bottom',
-                end: 'bottom bottom',
-            },
-            scale: 1,
-        })
-    }, [])
-
     return (
         <section className='pt-16 w-full' id='booking'>
             <div
@@ -37,14 +22,6 @@ const Booking = () => {
                         backgroundAttachment: 'fixed',
                     }}
                 ></div>
-
-                {/* <Image
-                    src={'/images/contact-us.png'}
-                    alt={'sdf'}
-                    width={350}
-                    height={500}
-                    className='absolute bottom-0 left-10 opacity-50'
-                ></Image> */}
 
                 <div className='relative h-full pb-12 flex flex-col lg:flex-row w-full gap-8 '>
                     <div className='flex-5 xl:flex-5'>
