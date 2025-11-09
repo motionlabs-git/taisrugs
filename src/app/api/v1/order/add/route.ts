@@ -27,20 +27,37 @@ export async function POST(req: NextRequest) {
         }
 
         const variantId = data.variantId.split('/').pop()
-        console.log('Adding to order:', { orderId, variantId })
+
+        const response = await axiosShopify.post('/graphql.json', {
+            query: `
+            {
+                orderAddLineItems(id: $orderId, lineItems: $lineItems) {
+                    order {
+                        id
+                    }
+                    userErrors {
+                        field
+                        message
+                    }
+                }
+            }
+        `,
+            variables: {
+                orderId: `gid://shopify/Order/${orderId}`,
+                lineItems: [
+                    {
+                        variantId: `gid://shopify/ProductVariant/${variantId}`,
+                        quantity: 1,
+                    },
+                ],
+            },
+        })
+
+        console.log('response', response.data)
 
         // TODO: availibility check
 
         // TODO: add item to order
-        // const response = await axiosShopify.post(
-        //     `/orders/${orderId}/line_items.json`,
-        //     {
-        //         line_item: {
-        //             variant_id: variantId,
-        //             quantity: 1,
-        //         },
-        //     }
-        // )
 
         return HttpSuccess()
     } catch (error) {
