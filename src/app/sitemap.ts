@@ -1,4 +1,4 @@
-import { getAllProducts } from '@/utils/shopify/getAllProducts'
+import { getAllProducts } from '@/app/utils/shopify/getAllProducts'
 import { MetadataRoute } from 'next'
 
 type ChangeFrequencyType =

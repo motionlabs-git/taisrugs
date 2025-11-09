@@ -1,7 +1,10 @@
 'use server'
 
-import { AddToCartSchema, addToCartValidation } from '@/schemas/addToCartSchema'
-import { axiosShopify } from '@/utils/shopify/axiosShopify'
+import {
+    AddToCartSchema,
+    addToCartValidation,
+} from '@/app/schemas/addToCartSchema'
+import { axiosShopify } from '@/app/utils/shopify/axiosShopify'
 import { cookies } from 'next/headers'
 
 export async function createOrder(data: AddToCartSchema) {

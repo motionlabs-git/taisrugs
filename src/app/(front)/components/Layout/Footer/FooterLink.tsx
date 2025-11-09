@@ -1,0 +1,21 @@
+import { usePageTransition } from '@/app/utils/animation/usePageTransition'
+import Link from 'next/link'
+import React from 'react'
+
+const FooterLink = ({ link, text }: { link: string; text: string }) => {
+    const handleTransition = usePageTransition()
+
+    return (
+        <li>
+            <Link
+                href={link}
+                onClick={(e) => handleTransition(e, link)}
+                className='py-1'
+            >
+                {text}
+            </Link>
+        </li>
+    )
+}
+
+export default FooterLink
