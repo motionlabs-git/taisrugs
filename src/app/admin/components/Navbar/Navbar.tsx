@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import Logo from '@/../public/ml_logo_white.svg'
+import Logo from './../../media/ml_logo_white.svg'
 import Avatar from './Avatar'
 // import ThemeButton from './ThemeButton'
 
@@ -19,7 +19,7 @@ const Navbar: React.FC = async () => {
                         alt='Logo'
                         width={40}
                         height={40}
-                        className='h-5 w-auto invert-0 dark:invert'
+                        className='h-5 w-auto'
                     />
                 </Link>
             </section>

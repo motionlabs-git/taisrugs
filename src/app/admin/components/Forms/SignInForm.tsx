@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Input from '../Inputs/Input'
 import Image from 'next/image'
-import Logo from '@/../public/ml_logo_white.svg'
+import Logo from './../../media/ml_logo_white.svg'
 import { useRouter } from 'next/navigation'
 import { ImSpinner2 } from 'react-icons/im'
 import { SignInSchema, signInValidation } from '../../schemas/sign-in.schema'
@@ -55,7 +55,7 @@ const SignInForm: React.FC<IProps> = () => {
                 alt={'logo'}
                 width={100}
                 height={100}
-                className='w-24 h-auto invert'
+                className='w-24 h-auto'
             />
 
             <h1 className='text-2xl mt-8'>Log in to App</h1>
