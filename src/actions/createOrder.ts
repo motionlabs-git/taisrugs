@@ -12,7 +12,6 @@ export async function createOrder(data: AddToCartSchema) {
         }
 
         const variantId = data.variantId.split('/').pop()
-        // TODO: check response
         const response = await axiosShopify.post('/orders.json', {
             order: {
                 line_items: [
@@ -24,6 +23,9 @@ export async function createOrder(data: AddToCartSchema) {
             },
         })
 
+        // TODO: check response
+        console.log('response', response)
+
         const newOrderId = response.data.order.id
         if (!newOrderId) {
             throw new Error('No order ID returned from Shopify')
@@ -31,10 +33,7 @@ export async function createOrder(data: AddToCartSchema) {
 
         const cookieStore = await cookies()
         cookieStore.set('orderId', newOrderId.toString(), { path: '/' })
-
-        return { orderId: newOrderId }
     } catch (error) {
         console.error('Error when creating new order:', error)
-        return { orderId: null }
     }
 }

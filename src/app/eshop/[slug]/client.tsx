@@ -1,7 +1,9 @@
+'use client'
+
 import { IProductQuery } from '@/utils/shopify/productQuery'
 import AddToCartForm from '@/components/Forms/AddToCartForm'
 import { AddToCartSchema } from '@/schemas/addToCartSchema'
-// import { createOrder } from '@/actions/createOrder'
+import { createOrder } from '@/actions/createOrder'
 import { axiosClient } from '@/utils/client/axiosClient'
 import ProductGallery from '../_components/ProductGallery'
 import bgImg from '@/../public/LogoStroke.svg'
@@ -62,12 +64,12 @@ const ProductPageClient: React.FC<IProps> = ({
                             ).toLocaleString('cs-CZ')}{' '}
                             Kč
                         </span>
-                        {/* {!orderId && (
+                        {!orderId && (
                             <AddToCartForm
                                 variantId={product.variants.nodes[0].id}
                                 action={createOrder}
                             />
-                        )} */}
+                        )}
 
                         {orderId && (
                             <AddToCartForm
