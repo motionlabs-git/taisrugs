@@ -39,8 +39,6 @@ export async function updateSession(request: NextRequest) {
         data: { user },
     } = await supabase.auth.getUser()
 
-    console.log(user)
-
     if (user && request.nextUrl.pathname === '/admin/sign_in') {
         const url = request.nextUrl.clone()
         url.pathname = '/admin'

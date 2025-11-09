@@ -1,12 +1,6 @@
-import localFont from 'next/font/local'
 import Navbar from '../components/Navbar/Navbar'
 import Sidebar from '../components/Sidebar/Sidebar'
 import Main from '../components/Main/Main'
-
-// const satoshiRegular = localFont({
-//     src: '../../../assets/fonts/Satoshi-Regular.woff2',
-//     variable: '--font-satoshi-regular',
-// })
 
 export default function PrivateAdminLayout({
     children,
