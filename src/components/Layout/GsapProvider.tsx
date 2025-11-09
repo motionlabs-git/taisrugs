@@ -13,8 +13,6 @@ const GsapProvider = ({ children }: { children: React.ReactNode }) => {
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
             ScrollTrigger.refresh()
         }
-
-        return
     }, [path])
 
     useEffect(() => {

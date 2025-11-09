@@ -27,7 +27,7 @@ const GalleryModal = ({
     }
 
     return (
-        <section className='animate-fade-in-04 opacity-0 fixed top-0 left-0 z-50 p-2 sm:p-4 bg-black/40 backdrop-blur-sm w-screen h-screen'>
+        <section className='animate-fade-in-04 opacity-0 fixed top-0 left-0 z-50 p-2 sm:p-4 bg-black/40 backdrop-blur-sm w-screen h-full'>
             <div className='bg-white p-2 sm:p-4 relative rounded-3xl w-full h-full flex justify-center items-center gap-4'>
                 <button
                     type='button'

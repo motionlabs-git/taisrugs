@@ -1,20 +1,37 @@
-import React from 'react'
+import React, { InputHTMLAttributes } from 'react'
+import { FieldError } from 'react-hook-form'
 
-const Input = () => {
+const Input: React.FC<
+    InputHTMLAttributes<HTMLInputElement> & {
+        error?: FieldError
+        showErrorMessage?: boolean
+        id: string
+        placeholder: string
+    }
+> = ({ error, showErrorMessage = true, id, placeholder, ...props }) => {
     return (
-        <fieldset className='flex flex-col gap-2 w-full'>
-            <label htmlFor='name' className='font-bold mt-2'>
-                Jméno
-            </label>
+        <div className='relative float-label-input'>
             <input
                 type='text'
-                id='name'
-                placeholder='Jméno'
-                className='text-lg font-bold px-6 py-2 rounded-full border border-white text-primary shadow-[-3px_3px_white] outline-none focus:border-primary focus:shadow-[-3px_3px_#ffdb85] duration-200'
+                id={id}
+                placeholder=''
+                className='text-base font-bold px-6 py-2 w-full rounded-full border border-white text-primary shadow-[-2px_2px_white] outline-none focus:border-primary focus:shadow-[-2px_2px_#ffdb85] duration-200'
+                {...props}
             ></input>
 
-            <span className='text-primary text-sm text-right'>Error</span>
-        </fieldset>
+            <label
+                htmlFor={id}
+                className='absolute text-base font-bold top-2 left-4 text-primary/50 rounded-full border-transparent border pointer-events-none transition duration-200 ease-in-out bg-transparent px-2 text-grey-darker '
+            >
+                {placeholder}
+            </label>
+
+            {showErrorMessage && error && error.message && (
+                <span className='block text-primary text-sm text-right w-full mt-2'>
+                    Error
+                </span>
+            )}
+        </div>
     )
 }
 

@@ -2,9 +2,9 @@
 import React, { useEffect } from 'react'
 import gsap from 'gsap'
 
-const TransitionProvider = ({ children }: { children: React.JSX.Element }) => {
+const PageBackground = ({ children }: { children: React.JSX.Element }) => {
     useEffect(() => {
-        gsap.to('#transitionProvider', {
+        gsap.to('#pageBackground', {
             scrollTrigger: {
                 trigger: '#about',
                 scrub: 1,
@@ -15,7 +15,7 @@ const TransitionProvider = ({ children }: { children: React.JSX.Element }) => {
         })
 
         gsap.fromTo(
-            '#transitionProvider',
+            '#pageBackground',
             {
                 background:
                     'radial-gradient(at 50% 20%, #09090b 0%, #18181b 75%)',
@@ -23,11 +23,11 @@ const TransitionProvider = ({ children }: { children: React.JSX.Element }) => {
             {
                 scrollTrigger: {
                     trigger: '#about',
-                    scrub: 1,
-                    start: '100%-=50px 60%',
+                    start: '100%+=50px 60%',
                     end: '100%+=50px 60%',
+                    toggleActions: 'play none reverse none',
                 },
-                duration: 1,
+                duration: 0.5,
                 backgroundImage:
                     'radial-gradient(at 80% 80%, #ffdb85 0%, #f8cd69 75%)',
                 color: 'black',
@@ -37,12 +37,12 @@ const TransitionProvider = ({ children }: { children: React.JSX.Element }) => {
 
     return (
         <div
-            id='transitionProvider'
-            className=' text-white bg-radial-[at_80%80%] from-zinc-950 to-zinc-900 to-75% scale-90 rounded-4xl origin-top '
+            id='pageBackground'
+            className=' text-white bg-radial-[at_80%80%] from-zinc-950 to-zinc-900 to-75% scale-90 rounded-4xl origin-top will-change-transform'
         >
             {children}
         </div>
     )
 }
 
-export default TransitionProvider
+export default PageBackground

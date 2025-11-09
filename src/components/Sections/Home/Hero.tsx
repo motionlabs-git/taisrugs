@@ -5,7 +5,7 @@ import Image from 'next/image'
 const Hero = () => {
     return (
         <div className='relative w-full h-[100dvh] flex justify-center items-center'>
-            <div className='absolute z-10'>
+            <div className='absolute'>
                 {/* <h1 className='group relative font-superVibes text-[4vw] text-primary font-bold'>
                         <span className='absolute top-0 left-0 translate-y-2 -translate-x-2 text-violet-400 group-hover:translate-y-3 group-hover:-translate-x-3 duration-200'>
                             Tais Rugsěšččšřáú
@@ -20,7 +20,16 @@ const Hero = () => {
                             Tais Rugsěšččšřáú
                         </span>
                     </h1> */}
-                <h1 className='group relative font-superVibes text-[4vw] text-primary font-bold'>
+
+                <h1 className='!text-[10vw] md:!text-[8vw] font-bold font-archivo max-w-[66vw] relative pl-[0.06em] pb-[0.06em] pt-[0.03em] pr-[0.03em] sm:hover:pt-[0.06em] sm:hover:pl-[0.03em] sm:hover:pr-[0.06em] sm:hover:pb-[0.03em] duration-200'>
+                    <span className='absolute inset-0 translate-y-[0.8vw] text-primary'>
+                        Transform your space
+                    </span>
+                    <span className='relative text-black'>
+                        Transform your space
+                    </span>
+                </h1>
+                <h1 className='group relative font-superVibes text-[7vw] text-primary font-bold'>
                     <span className='absolute top-0 left-0 translate-y-2 -translate-x-2 text-violet-400 group-hover:translate-y-3 group-hover:-translate-x-3 duration-200'>
                         Transform your space
                     </span>

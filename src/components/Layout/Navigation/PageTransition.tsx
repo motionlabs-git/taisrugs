@@ -1,38 +1,42 @@
-import React, { useEffect } from 'react'
-import gsap from 'gsap'
+'use client'
+import React, { useEffect, useRef } from 'react'
+
+import LogoStroke from '../../../../public/LogoStroke'
 import { usePathname } from 'next/navigation'
+import { useLenis } from 'lenis/react'
 
 const PageTransition = () => {
+    const transitionRef = useRef<HTMLDivElement | null>(null)
     const path = usePathname()
+    const lenis = useLenis()
 
     useEffect(() => {
-        gsap.timeline()
-
-            // .to('#transitionLogo', {
-            //     scale: 10,
-            //     rotate: '-180deg',
-            //     duration: 1,
-
-            //     delay: 0.5,
-            // })
-            .to(
-                '#pageTransition',
-                {
-                    delay: 1,
-                    height: 0,
-                    duration: 0.3,
-                    ease: 'power1.inOut',
-                },
-                '<'
-            )
-    }, [path])
+        // lenis?.scrollTo(0, {
+        //     immediate: true,
+        // })
+        setTimeout(() => {
+            transitionRef.current?.classList.remove('opened')
+            document.body.style.backgroundColor = 'white'
+        }, 1000)
+    }, [path, lenis])
 
     return (
         <div
+            ref={transitionRef}
             id='pageTransition'
-            className='fixed z-50 top-0 left-0 w-screen h-screen flex items-center justify-center bg-black overflow-hidden'
+            className='opened fixed inset-0 z-50 w-screen flex items-center justify-center bg-black overflow-hidden ease-in-out duration-500'
         >
-            {/* <LogoShape id='transitionLogo' className='w-40 text-gray-700' /> */}
+            <div id='pageTransitionLogoWrapper' className='relative'>
+                <LogoStroke
+                    id='pageTransitionLogo'
+                    pathClass='pageTransitionLogoPath'
+                    className='w-40 text-primary stroke-4'
+                />
+                <LogoStroke
+                    id='pageTransitionLogoBlur'
+                    className='absolute inset-0 blur-lg w-40 text-primary stroke-[5px]'
+                />
+            </div>
         </div>
     )
 }

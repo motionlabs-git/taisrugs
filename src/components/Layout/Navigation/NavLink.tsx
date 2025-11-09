@@ -1,35 +1,12 @@
 import Link from 'next/link'
 import React from 'react'
 import { FiArrowRightCircle } from 'react-icons/fi'
-import gsap from 'gsap'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
+import { usePageTransition } from '@/utils/animation/usePageTransition'
 
 const NavLink = ({ text, link }: { text: string; link: string }) => {
-    const router = useRouter()
     const path = usePathname()
-
-    const routeTo = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-        e.preventDefault()
-
-        router.push(link)
-
-        if (link === path) {
-            router.refresh()
-        } else {
-            gsap.timeline().to(
-                '#pageTransition',
-                {
-                    height: '100vh',
-                    duration: 0.3,
-                    ease: 'power1.inOut',
-                    onComplete: () => {
-                        router.push(link)
-                    },
-                },
-                '<'
-            )
-        }
-    }
+    const handleTransition = usePageTransition()
 
     return (
         <Link
@@ -38,7 +15,7 @@ const NavLink = ({ text, link }: { text: string; link: string }) => {
             }`}
             href={link}
             aria-label={`Navigation link to ${text}`}
-            onClick={(e) => routeTo(e)}
+            onClick={(e) => handleTransition(e, link)}
         >
             <div
                 className={`absolute left-0 top-0 w-full h-full bg-black rounded-full duration-300 group-hover:delay-200 group-hover:bg-transparent ${

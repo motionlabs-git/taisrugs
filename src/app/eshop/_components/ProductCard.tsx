@@ -9,19 +9,31 @@ interface IProps {
 }
 
 const ProductCard: React.FC<IProps> = ({ product }) => {
-    const image = product.images.nodes[0] ? product.images.nodes[0] : null
-
     return (
         <div className='w-full'>
-            <div className='aspect-[4/5] w-full h-auto rounded-2xl overflow-hidden group'>
+            <div className='relative aspect-[4/5] w-full h-auto rounded-2xl overflow-hidden group'>
                 <Link href={`/eshop/${product.handle}`}>
-                    {image && (
+                    {product.images.nodes[0] && (
                         <Image
-                            src={image.src}
-                            alt={image.altText ?? product.title}
-                            width={image.width}
-                            height={image.height}
-                            className='w-full h-full object-cover group-hover:scale-[1.08] duration-200 group-hover:rotate-3'
+                            src={product.images.nodes[0].src}
+                            alt={
+                                product.images.nodes[0].altText ?? product.title
+                            }
+                            width={product.images.nodes[0].width}
+                            height={product.images.nodes[0].height}
+                            className='w-full h-full object-cover duration-200'
+                        />
+                    )}
+
+                    {product.images.nodes[1] && (
+                        <Image
+                            src={product.images.nodes[1].src}
+                            alt={
+                                product.images.nodes[1].altText ?? product.title
+                            }
+                            width={product.images.nodes[1].width}
+                            height={product.images.nodes[1].height}
+                            className='absolute inset-0 opacity-0 group-hover:opacity-100 w-full h-full object-cover duration-400'
                         />
                     )}
                 </Link>

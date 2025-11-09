@@ -26,13 +26,15 @@ const Navigation: React.FC<IProps> = ({ order }) => {
     })
 
     const handleMobileNav = () => {
-        setIsMobileNavOpened((prev) => !prev)
+        lenis?.stop()
 
         if (isMobileNavOpened) {
             lenis?.start()
         } else {
             lenis?.stop()
         }
+
+        setIsMobileNavOpened((prev) => !prev)
     }
 
     useEffect(() => {
@@ -55,8 +57,6 @@ const Navigation: React.FC<IProps> = ({ order }) => {
 
     return (
         <header className='fixed top-0 z-40 w-full flex items-center justify-center p-4'>
-            {/* <PageTransition></PageTransition> */}
-
             <MobileNavigation isOpened={isMobileNavOpened} />
 
             <Cart

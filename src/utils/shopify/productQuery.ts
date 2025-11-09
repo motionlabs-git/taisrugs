@@ -4,6 +4,7 @@ export interface IProductQuery {
     id: string
     title: string
     description: string
+    descriptionHtml: string
     handle: string
     priceRangeV2: {
         minVariantPrice: {
@@ -25,6 +26,7 @@ export const productQuery = `
     id
     title
     description
+    descriptionHtml
     handle
     priceRangeV2 {
         minVariantPrice {

@@ -1,48 +1,84 @@
 import WiggleButton from '@/components/Inputs/WiggleButton'
 import ButtonHeading from '@/components/UI/ButtonHeading'
+import { getCollectionProducts } from '@/utils/shopify/getCollectionProducts'
 import Image from 'next/image'
 import React from 'react'
 
-const Vouchers = () => {
-    return (
-        <section id='vouchers' className='py-12'>
-            <ButtonHeading text='Vouchery' invert></ButtonHeading>
-            <div className='flex gap-8'>
-                <div className='flex-1'>
-                    <h1 className='mt-4'>Daruj zážitek!</h1>
-                    <p className='mt-4'>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Porro, dignissimos. Voluptate excepturi aliquam ipsam
-                        nostrum cupiditate itaque dolor vero dignissimos,
-                        maiores odit quod. Fuga, quos amet at tempore ipsum
-                        necessitatibus?
-                    </p>
+const Vouchers = async () => {
+    const voucher = await getCollectionProducts(503142088991)
 
-                    <WiggleButton
-                        text={'Koupit voucher'}
-                        link={'/'}
-                        className='mt-8 text-white invert grayscale-100'
-                        wiggleTextDeny
-                    ></WiggleButton>
+    if (!voucher) return
+
+    return (
+        <section id='vouchers' className='py-16'>
+            <ButtonHeading text='Vouchery' invert></ButtonHeading>
+
+            <h1 className='mt-4 sm:max-w-2/3'>
+                Daruj zážitek! {voucher[0].title}.
+            </h1>
+            <div className='flex flex-col md:flex-row gap-8'>
+                <div className='flex-3 lg:flex-5'>
+                    <div
+                        className='mt-4 flex flex-col gap-4 w-full md:max-w-2/3'
+                        dangerouslySetInnerHTML={{
+                            __html: voucher[0].descriptionHtml,
+                        }}
+                    ></div>
+
+                    <div className='hidden md:flex gap-8 items-center mt-8'>
+                        <span className='text-lg font-bold text-nowrap'>
+                            {Math.floor(
+                                Number(
+                                    voucher[0].priceRangeV2.minVariantPrice
+                                        .amount
+                                )
+                            ).toLocaleString('cs-CZ')}{' '}
+                            Kč
+                        </span>
+
+                        <WiggleButton
+                            text={'Koupit voucher'}
+                            link={'/'}
+                            className='justify-end flex text-white invert grayscale-100'
+                            wiggleTextDeny
+                        ></WiggleButton>
+                    </div>
                 </div>
 
-                <div className='flex-1 flex justify-end mt-8'>
-                    <div className='group relative rounded-3xl w-2/3 aspect-video overflow-hidden'>
+                <div className='mt-4'>
+                    <div className='aspect-video w-full h-auto md:w-[32vw] md:h-[18vw] group relative rounded-3xl overflow-hidden'>
                         <Image
                             src={'/images/Kurzy/VoucherFront.webp'}
                             alt={'Voucher Front'}
                             width={1290}
                             height={725}
-                            className='w-full h-full object-center rounded-3xl shadow-md absolute top-0 left-0 group-hover:-rotate-x-90 duration-100 delay-100 group-hover:delay-0'
+                            className='w-full h-full object-cover rounded-3xl shadow-md absolute top-0 left-0 md:group-hover:-rotate-x-90 duration-100 delay-100 group-hover:delay-0'
                         ></Image>
                         <Image
                             src={'/images/Kurzy/VoucherBack.webp'}
                             alt={'Voucher Front'}
                             width={1290}
                             height={725}
-                            className='w-full h-full object-center rounded-3xl shadow-md absolute top-0 left-0 -rotate-x-90 group-hover:-rotate-x-0 duration-100 group-hover:delay-100'
+                            className='w-full h-full object-cover rounded-3xl shadow-md absolute top-0 left-0 -rotate-x-90 md:group-hover:-rotate-x-0 duration-100 group-hover:delay-100'
                         ></Image>
                     </div>
+                </div>
+                <div className='md:hidden flex justify-end flex-wrap gap-4 items-center'>
+                    <span className='text-lg font-bold text-nowrap'>
+                        {Math.floor(
+                            Number(
+                                voucher[0].priceRangeV2.minVariantPrice.amount
+                            )
+                        ).toLocaleString('cs-CZ')}{' '}
+                        Kč
+                    </span>
+
+                    <WiggleButton
+                        text={'Koupit voucher'}
+                        link={'/'}
+                        className='justify-end flex text-white invert grayscale-100'
+                        wiggleTextDeny
+                    ></WiggleButton>
                 </div>
             </div>
         </section>

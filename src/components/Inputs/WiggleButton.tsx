@@ -1,6 +1,7 @@
 'use client'
+import { usePageTransition } from '@/utils/animation/usePageTransition'
 import { useLenis } from 'lenis/react'
-import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import React from 'react'
 import { FiArrowRightCircle } from 'react-icons/fi'
 
@@ -10,30 +11,35 @@ const WiggleButton = ({
     scrollTo,
     className,
     wiggleTextDeny,
+    blank,
 }: {
     text: string
     link: string
     className?: string
     scrollTo?: boolean
     wiggleTextDeny?: boolean
+    blank?: boolean
 }) => {
-    const router = useRouter()
     const lenis = useLenis()
+    const handleTransition = usePageTransition()
 
-    const linkTo = () => {
+    const linkTo = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        e.preventDefault()
+
         if (scrollTo) {
             lenis?.scrollTo(link)
         } else {
-            router.push(link)
+            if (blank) window.open(link, '_blank')
+            else handleTransition(e, link)
         }
     }
 
     return (
-        <button
-            type='button'
+        <Link
             aria-label={`Navigovat - ${text}`}
-            className={`${className} relative group w-fit h-fit items-center rounded-full border border-inherit hover:border-primary duration-200 transition-transform cursor-pointer select-none`}
-            onClick={linkTo}
+            className={`${className} block relative group w-fit h-fit items-center rounded-full border border-inherit hover:border-primary duration-200 transition-transform cursor-pointer select-none`}
+            href={link}
+            onClick={(e) => linkTo(e)}
         >
             <div className='w-full h-full relative flex items-center gap-4 group-hover:gap-6 duration-200  px-10 py-4 overflow-hidden rounded-full text-inherit group-hover:text-black'>
                 <div className='absolute top-0 left-0 w-0 group-hover:w-full h-full rounded-full bg-primary duration-200'></div>
@@ -59,7 +65,7 @@ const WiggleButton = ({
                     </span>
                 </>
             )}
-        </button>
+        </Link>
     )
 }
 
