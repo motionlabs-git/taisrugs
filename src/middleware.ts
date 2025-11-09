@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from 'next/server'
+import { updateSession } from './app/admin/utils/supabase/middleware'
 
 export async function middleware(request: NextRequest) {
     const host = request.headers.get('host')
@@ -6,6 +7,8 @@ export async function middleware(request: NextRequest) {
     if (host === 'www.taisrugs.cz') {
         return NextResponse.rewrite(new URL('/wip', request.url))
     }
+
+    return await updateSession(request)
 }
 
 export const config = {

@@ -1,13 +1,16 @@
 'use server'
 
-import { AddToCartSchema, addToCartValidation } from '@/schemas/addToCartSchema'
+import {
+    AddToCartSchema,
+    addToCartValidation,
+} from '@/app/schemas/addToCartSchema'
 import {
     HttpBadRequest,
     HttpInternalServerError,
     HttpValidationError,
-} from '@/utils/api/errorResponse'
-import { HttpSuccess } from '@/utils/api/successResponse'
-import { axiosShopify } from '@/utils/shopify/axiosShopify'
+} from '@/app/utils/api/errorResponse'
+import { HttpSuccess } from '@/app/utils/api/successResponse'
+import { axiosShopify } from '@/app/utils/shopify/axiosShopify'
 import { cookies } from 'next/headers'
 import { NextRequest } from 'next/server'
 
