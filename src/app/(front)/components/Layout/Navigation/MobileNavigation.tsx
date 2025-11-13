@@ -4,7 +4,7 @@ import MobileNavLink from './MobileNavLink'
 const MobileNavigation = ({ isOpened }: { isOpened: boolean }) => {
     return (
         <div
-            className={`fixed top-0 left-0 w-full  bg-black duration-300 ease-in-out overflow-hidden flex flex-col gap-4 items-center justify-center ${
+            className={`pointer-events-auto fixed top-0 left-0 w-full  bg-black duration-300 ease-in-out overflow-hidden flex flex-col gap-4 items-center justify-center ${
                 isOpened ? 'h-[100dvh]' : 'h-0'
             }`}
         >

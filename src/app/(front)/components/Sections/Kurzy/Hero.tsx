@@ -15,19 +15,29 @@ const Hero = () => {
                             invert
                         ></ButtonHeading>
 
-                        <h1 className='mt-4'>Přijď si vyrobit kobereček</h1>
+                        <h1 className='mt-4'>
+                            Přijď si vyrobit vlastní kobereček🎨
+                        </h1>
 
                         <p className='mt-4 max-w-2/3'>
-                            Text o tom jak to na kurzu chodí, jak dlouho trvá
-                            atd Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Beatae, sapiente iste quo rerum
-                            eveniet harum laborum eius corporis ab voluptates
-                            perferendis excepturi minus voluptatum repellat quos
-                            labore accusamus! Laboriosam, mollitia.
+                            Zažij dva dny plné tvoření, barev a dobré nálady! Na
+                            kurzu tuftingu si vyzkoušíš, jak se vyrábějí ručně
+                            tkané koberce – od návrhu až po finální úpravu.
+                            Všechno tě naučím krok za krokem a na konci si
+                            odneseš svůj vlastní originální kobereček.
                         </p>
 
                         <p className='mt-4'>
-                            Zaujal tě kurz a chceš si rezervovat místo pro sebe?
+                            Kurz je ideální pro jednotlivce, páry.
+                        </p>
+                        <p>
+                            Nemusíš mít žádné zkušenosti – stačí chuť tvořit a
+                            trochu fantazie. 💛
+                        </p>
+
+                        <p className='mt-4'>
+                            Zaujalo tě to? Vyber si termín nebo daruj zážitek
+                            někomu blízkému.
                         </p>
 
                         <div className='flex flex-wrap gap-4 mt-8'>

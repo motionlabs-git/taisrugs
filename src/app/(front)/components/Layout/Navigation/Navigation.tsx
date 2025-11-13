@@ -56,7 +56,7 @@ const Navigation: React.FC<IProps> = ({ order }) => {
     }, [path])
 
     return (
-        <header className='fixed top-0 z-40 w-full flex items-center justify-center p-4'>
+        <header className='fixed top-0 z-40 w-full flex items-center justify-center p-4 pointer-events-none'>
             <MobileNavigation isOpened={isMobileNavOpened} />
 
             <Cart
@@ -67,10 +67,10 @@ const Navigation: React.FC<IProps> = ({ order }) => {
                 cartTl={cartTl}
             ></Cart>
 
-            <nav className='flex items-center justify-between w-full gap-4'>
+            <nav className='flex items-center justify-between w-full gap-4 pointer-events-none'>
                 <SpinningLogo />
 
-                <div className='hidden md:flex gap-2 items-center bg-gray-500/20 rounded-full p-1.5 backdrop-blur-[2px] shadow-md'>
+                <div className='hidden md:flex gap-2 items-center bg-gray-500/20 rounded-full p-1.5 backdrop-blur-[2px] shadow-md pointer-events-auto'>
                     <NavLink text={'Domů'} link={'/'} />
 
                     <NavLink

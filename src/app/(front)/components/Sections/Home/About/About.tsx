@@ -11,20 +11,31 @@ const About = () => {
             <div className='flex-4'>
                 <h1 className=''>Tais rugs.</h1>
                 <h2 className='mt-4 text-lg'>
-                    Tvořivé kurzy, koberečky na zakázku
+                    Koberce na míru a tufting kurzy v Praze
                 </h2>
                 <div className='mt-8 md:mt-60 md:w-[50vw] md:pl-[5vw]'>
                     <p className='text-lg'>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Aperiam dolorem cupiditate aliquam iusto dolore
-                        cum, ex dolor autem, illum sint doloremque sequi saepe a
-                        eum ullam? Expedita nemo sit minus?
+                        Ahoj jsem Tája, zakladatelka Tais Rugs – malé značky,
+                        která mění nápady ve skutečné koberce.
                     </p>
-                    <WiggleButton
-                        text={'Přejít do obchodu'}
-                        className='mt-8 hover:text-black'
-                        link='/eshop'
-                    ></WiggleButton>
+                    <p className='text-lg mt-4'>
+                        Od roku 2022 tvořím originální designy, pořádám tufting
+                        kurzy v Praze a pomáhám lidem objevovat radost z tvorby
+                        i krásu ruční práce.
+                    </p>
+
+                    <div className='flex gap-4 flex-wrap'>
+                        <WiggleButton
+                            text={'Eshop'}
+                            className='mt-8 hover:text-black'
+                            link='/eshop'
+                        ></WiggleButton>
+                        <WiggleButton
+                            text={'Kurzy tuftingu'}
+                            className='mt-8 hover:text-black'
+                            link='/kurzy'
+                        ></WiggleButton>
+                    </div>
                 </div>
             </div>
 

@@ -21,13 +21,12 @@ const Hero = () => {
                         </h1>
 
                         <p className='mt-4 max-w-2/3'>
-                            Text o tom co je možné a co není možné.. různé
-                            důležité body // pro zákazníka... atd Lorem ipsum
-                            dolor sit amet consectetur // adipisicing elit.
-                            Beatae, sapiente iste quo rerum eveniet // harum
-                            laborum eius corporis ab voluptates perferendis //
-                            excepturi minus voluptatum repellat quos labore
-                            accusamus! // Laboriosam, mollitia.
+                            Z fotky, loga nebo tvého oblíbeného obrázku ti
+                            vytvořím originální kobereček na míru. Stačí mi
+                            poslat návrh nebo fotku, domluvíme si detaily
+                            velikosti, barev i tvaru – a já se pustím do práce.
+                            Každý kus je ručně vyrobený s láskou, takže žádné
+                            dva kousky nejsou stejné.🧡
                         </p>
 
                         <div className='flex flex-wrap gap-4 mt-8'>

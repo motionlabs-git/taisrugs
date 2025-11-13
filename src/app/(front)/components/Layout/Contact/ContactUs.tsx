@@ -38,11 +38,10 @@ const ContactUs = () => {
                             Kobereček na zakázku?
                         </h1>
                         <p className='mt-4 lg:max-w-2/3'>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing
-                            elit. Fuga modi dolor qui sed libero sapiente
-                            dignissimos pariatur dicta rem possimus, cumque
-                            autem culpa suscipit rerum quasi odio
-                            exercitationem, alias optio.
+                            Máš dotaz nebo chceš vytvořit vlastní kobereček?
+                            Napiš mi pár slov o svém nápadu – barvy, motiv,
+                            velikost . Ráda ti poradím, připravím návrh a
+                            společně vymyslíme, jak tvůj koberec oživit. 💛
                         </p>
                     </div>
 

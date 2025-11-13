@@ -40,7 +40,7 @@ const SpinningLogo = () => {
         <div
             ref={logoRef}
             id='spinning-logo'
-            className='block relative w-16 min-w-16 md:w-20'
+            className='pointer-events-auto block relative w-16 min-w-16 md:w-20'
         >
             <Link
                 onClick={(e) => handleTransition(e, '/')}

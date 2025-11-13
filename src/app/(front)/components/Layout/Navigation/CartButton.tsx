@@ -8,7 +8,7 @@ const CartButton = ({ handleClick }: { handleClick: () => void }) => {
         <button
             type='button'
             aria-label='Košík'
-            className={`relative group cursor-pointer duration-200 select-none rounded-full ${
+            className={`pointer-events-auto relative group cursor-pointer duration-200 select-none rounded-full ${
                 isHovered ? 'pb-0 pl-0 pr-[3px] pt-[3px]' : 'pl-[3px] pb-[3px]'
             }`}
             onClick={handleClick}

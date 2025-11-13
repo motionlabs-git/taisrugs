@@ -28,7 +28,7 @@ const Cart: React.FC<IProps> = ({ order, handleCloseCart, cartTl }) => {
     return (
         <section
             id='cart'
-            className={`hidden opacity-0 bg-black/20 z-50 fixed top-0 right-0 w-screen h-screen`}
+            className={`hidden opacity-0 bg-black/20 z-50 fixed top-0 right-0 w-screen h-screen pointer-events-auto`}
             onClick={(e) => {
                 if ((e.target as HTMLElement).id === 'cart') handleCloseCart()
             }}

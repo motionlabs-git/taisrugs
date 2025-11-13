@@ -10,8 +10,10 @@ import CheckBox from '../Inputs/CheckBox'
 
 const FormSchema = z.object({
     name: z.string(),
-    subject: z.string(),
+    email: z.string(),
+    phone: z.string(),
     message: z.string(),
+    image: z.ZodFile,
     gdpr: z.boolean(),
 })
 
@@ -33,12 +35,13 @@ export default function ContactForm() {
             className='flex-3 p-4 sm:p-10 rounded-3xl border border-white bg-radial-[at_80%80%] from-zinc-950/50 to-zinc-900 to-75% shadow-[-3px_3px_white] backdrop-blur-xs lg:flex-5 xl:flex-4'
             onSubmit={handleSubmit(onSubmit)}
         >
-            <Input {...register('name')} id='name' placeholder='Jméno' />
             <Input
-                {...register('subject')}
-                id='subject'
-                placeholder='Předmět'
+                {...register('name')}
+                id='name'
+                placeholder='Jméno a přijmení'
             />
+            <Input {...register('email')} id='email' placeholder='Email' />
+            <Input {...register('phone')} id='phone' placeholder='Telefon' />
             <TextArea
                 {...register('message')}
                 id='message'
@@ -69,7 +72,9 @@ export default function ContactForm() {
                             className='relative text-inherit duration-200'
                         ></FiSend>
 
-                        <span className=' relative text-nowrap'>Odeslat</span>
+                        <span className=' relative text-nowrap'>
+                            Odeslat zprávu
+                        </span>
                     </div>
                 </button>
             </fieldset>

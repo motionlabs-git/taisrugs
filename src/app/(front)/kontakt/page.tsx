@@ -29,11 +29,9 @@ const Kontakt = () => {
                         <ContactColumn
                             heading='Adresa'
                             icon={<FiExternalLink></FiExternalLink>}
-                            link='https://www.google.com/maps/place/Kaprova+42%2F14,+110+00+Star%C3%A9+M%C4%9Bsto/@50.0879188,14.4158928,17z/data=!3m1!4b1!4m6!3m5!1s0x470b94e8e9bf533d:0x6b6bc6db31022ebe!8m2!3d50.0879154!4d14.4184677!16s%2Fg%2F11pw3jqtsb?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D'
+                            link='https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Moskevsk%C3%A1%20Praha%2010+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'
                         >
-                            <p className='text-black'>
-                                Karpova 42/14 110 00 Praha
-                            </p>
+                            <p className='text-black'>Moskevská , Praha 10</p>
                         </ContactColumn>
 
                         <ContactColumn
@@ -54,10 +52,12 @@ const Kontakt = () => {
 
                         <ContactColumn
                             heading='Email'
-                            link='mailto:taisrugs@email.cz'
+                            link='&#77;&#97;&#105;&#76;&#84;&#79;&#58;&#116;&#97;&#105;&#115;&#114;&#117;&#103;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;'
                             icon={<FiMail></FiMail>}
                         >
-                            <p className='text-black'>taisrugs@email.cz</p>
+                            <p className='text-black'>
+                                &#116;&#97;&#105;&#115;&#114;&#117;&#103;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;
+                            </p>
                         </ContactColumn>
 
                         <div className='justify-center items-center hidden sm:flex'>
@@ -80,7 +80,7 @@ const Kontakt = () => {
                             height='100%'
                             frameBorder='0'
                             scrolling='no'
-                            src='https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=%20Karpova%2042/14,%20Praha+(TaisRugs)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'
+                            src='https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Moskevsk%C3%A1%20Praha%2010+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'
                         ></iframe>
                     </div>
 

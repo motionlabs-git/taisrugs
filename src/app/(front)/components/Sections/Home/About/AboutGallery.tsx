@@ -6,12 +6,12 @@ import AboutGalleryButton from './AboutGalleryButton'
 import AboutGalleryImage from './AboutGalleryImage'
 
 const galleryImages = [
-    '/images/rug1.jpg',
-    '/images/rug1.jpg',
-    '/images/rug1.jpg',
-    '/images/rug1.jpg',
-    '/images/rug1.jpg',
-    '/images/rug1.jpg',
+    '/images/AboutGallery/2.webp',
+    '/images/AboutGallery/4.webp',
+    '/images/AboutGallery/5.webp',
+    '/images/AboutGallery/1.webp',
+    '/images/AboutGallery/3.webp',
+    '/images/AboutGallery/5.webp',
 ]
 
 const AboutGallery = () => {

@@ -13,7 +13,7 @@ const HamburgerIcon = ({
         <button
             type='button'
             aria-label='Tlačítko mobilního menu'
-            className={`md:hidden flex flex-col gap-0.5 items-center justify-center rounded-full w-10 h-10 aspect-square bg-black cursor-pointer select-none ${
+            className={`pointer-events-auto md:hidden flex flex-col gap-0.5 items-center justify-center rounded-full w-10 h-10 aspect-square bg-black cursor-pointer select-none ${
                 isMobileNavOpened && 'invert'
             } ${isPressed && 'scale-90'}`}
             onClick={handleClick}

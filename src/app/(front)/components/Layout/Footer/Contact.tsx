@@ -13,9 +13,12 @@ const Contact = () => {
             <div className='relative flex flex-col gap-2 justify-center items-center'>
                 <p className='text-gray-600 text-sm '>KONTAKT</p>
 
-                <Link href={'mailto:'} className='text-black'>
+                <Link
+                    href='&#77;&#97;&#105;&#76;&#84;&#79;&#58;&#116;&#97;&#105;&#115;&#114;&#117;&#103;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;'
+                    className='text-black'
+                >
                     <h1 className='font-archivo !text-[10vw] md:!text-[6vw]'>
-                        taisrugs@email.cz
+                        &#116;&#97;&#105;&#115;&#114;&#117;&#103;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;
                     </h1>
                 </Link>
 
@@ -24,7 +27,7 @@ const Contact = () => {
                     target='_blank'
                     type='button'
                     aria-label='Vidět více'
-                    className='invert grayscale-100 brightness-100 relative group w-fit h-fit items-center rounded-full border border-white hover:border-primary duration-200  cursor-pointer'
+                    className='mt-8 invert grayscale-100 brightness-100 relative group w-fit h-fit items-center rounded-full border border-white hover:border-primary duration-200  cursor-pointer'
                 >
                     <div className='w-full h-full relative flex items-center gap-4 group-hover:gap-6  duration-200 px-10 py-4 overflow-hidden rounded-full text-white group-hover:text-black'>
                         <div className='absolute top-0 left-0 w-0 group-hover:w-full h-full rounded-full bg-primary duration-200'></div>

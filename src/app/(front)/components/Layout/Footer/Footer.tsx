@@ -5,6 +5,7 @@ import Contact from '@/app/(front)/components/Layout/Footer/Contact'
 import FooterHeading from '../../UI/ButtonHeading'
 import Image from 'next/image'
 import FooterLink from './FooterLink'
+import { FiClock, FiMail, FiMap, FiPhone } from 'react-icons/fi'
 
 const Footer = () => {
     const year = new Date().getFullYear()
@@ -45,29 +46,6 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className='flex-1'>
-                        <FooterHeading
-                            text={'Kontaktní informace'}
-                        ></FooterHeading>
-
-                        <ul className='mt-4'>
-                            <li>
-                                <Link href={'/'}>Domů</Link>
-                            </li>
-                            <li>
-                                <Link href={'/'}>Koberce na zakázku</Link>
-                            </li>
-                            <li>
-                                <Link href={'/'}>Eshop</Link>
-                            </li>
-                            <li>
-                                <Link href={'/'}>Kurzy</Link>
-                            </li>
-                            <li>
-                                <Link href={'/'}>Kontakt</Link>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className='flex-1'>
                         <FooterHeading text='Informace pro vás'></FooterHeading>
 
                         <ul className='mt-4'>
@@ -81,6 +59,51 @@ const Footer = () => {
                             />
                             <FooterLink link={'/cookies'} text={'Cookies'} />
                             <FooterLink link={'/gdpr'} text={'GDPR'} />
+                        </ul>
+                    </div>
+                    <div className='flex-1'>
+                        <FooterHeading
+                            text={'Kontaktní informace'}
+                        ></FooterHeading>
+
+                        <ul className='mt-4'>
+                            <li>
+                                <Link
+                                    className='py-1 flex items-center gap-2'
+                                    href={
+                                        'https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Moskevsk%C3%A1%20Praha%2010+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'
+                                    }
+                                    target='_blank'
+                                >
+                                    <FiMap></FiMap>
+                                    <span>Moskevská , Praha 10</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className='py-1 flex items-center gap-2'
+                                    href={'tel:+420799025999'}
+                                >
+                                    <FiPhone></FiPhone>
+                                    <span>+420 799 025 999</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href='&#77;&#97;&#105;&#76;&#84;&#79;&#58;&#116;&#97;&#105;&#115;&#114;&#117;&#103;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;'
+                                    className='py-1 flex items-center gap-2'
+                                >
+                                    <FiMail></FiMail>
+                                    <span>
+                                        {' '}
+                                        &#116;&#97;&#105;&#115;&#114;&#117;&#103;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;
+                                    </span>
+                                </Link>
+                            </li>
+                            <li className='py-1 flex items-center gap-2'>
+                                <FiClock></FiClock>
+                                <span>Otevírací doba: Po–Pá 10:00 – 18:00</span>
+                            </li>
                         </ul>
                     </div>
                 </div>

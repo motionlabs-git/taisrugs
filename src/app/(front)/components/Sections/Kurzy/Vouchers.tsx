@@ -13,9 +13,7 @@ const Vouchers = async () => {
         <section id='vouchers' className='py-16'>
             <ButtonHeading text='Vouchery' invert></ButtonHeading>
 
-            <h1 className='mt-4 sm:max-w-2/3'>
-                Daruj zážitek! {voucher[0].title}.
-            </h1>
+            <h1 className='mt-4 sm:max-w-2/3'>Daruj zážitek🎁</h1>
             <div className='flex flex-col md:flex-row gap-8'>
                 <div className='flex-3 lg:flex-5'>
                     <div
