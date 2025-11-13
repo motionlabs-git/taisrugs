@@ -4,6 +4,10 @@ import React from 'react'
 
 export const metadata: Metadata = {
     title: 'Zásady ochrany osobních údajů',
+    robots: {
+        follow: false,
+        index: false,
+    },
 }
 
 const GDPR = () => {

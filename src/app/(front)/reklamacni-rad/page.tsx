@@ -6,6 +6,10 @@ import { FiDownload } from 'react-icons/fi'
 
 export const metadata: Metadata = {
     title: 'Work in Progress',
+    robots: {
+        follow: false,
+        index: false,
+    },
 }
 
 const ReturnsPolicy = () => {

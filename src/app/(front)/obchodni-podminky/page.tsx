@@ -4,6 +4,10 @@ import DocumentsData from '@/app/(front)/data/DocumentsData'
 
 export const metadata: Metadata = {
     title: 'Zásady ochrany osobních údajů',
+    robots: {
+        follow: false,
+        index: false,
+    },
 }
 
 const TermsAndConditions = () => {

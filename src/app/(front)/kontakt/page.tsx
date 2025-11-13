@@ -4,6 +4,13 @@ import bgImg from '@/../public/LogoStroke.svg'
 import WiggleButton from '@/app/(front)/components/Inputs/WiggleButton'
 import ContactColumn from '@/app/(front)/components/Sections/Kontakt/ContactColumn'
 import { FiExternalLink, FiMail, FiPhoneOutgoing } from 'react-icons/fi'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Kontakt',
+    description:
+        'Máš dotaz nebo chceš vytvořit vlastní kobereček? Napiš mi pár slov o svém nápadu – barvy, motiv, velikost.',
+}
 
 const Kontakt = () => {
     return (

@@ -42,8 +42,9 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
     },
     openGraph: {
-        title: 'Motionlabs - Web development',
-        description: '',
+        title: 'Tais Rugs | Koberce na míru a tufting kurzy v Praze',
+        description:
+            'Ručně vyráběné koberce a tufting kurzy v Praze. Originální dárky a design, který promění váš domov, kancelář i nápad na jedinečný koberec',
         images: '/seo/open-graph.png',
     },
     icons: {
