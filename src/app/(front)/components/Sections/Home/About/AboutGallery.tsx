@@ -11,7 +11,7 @@ const galleryImages = [
     '/images/AboutGallery/5.webp',
     '/images/AboutGallery/1.webp',
     '/images/AboutGallery/3.webp',
-    '/images/AboutGallery/5.webp',
+    '/images/AboutGallery/6.webp',
 ]
 
 const AboutGallery = () => {

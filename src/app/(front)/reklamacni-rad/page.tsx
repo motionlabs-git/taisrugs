@@ -148,8 +148,8 @@ const ReturnsPolicy = () => {
 
                     <div className='relative mt-6 bg-zinc-800 border border-zinc-600/30 rounded-xl p-6 space-y-4 text-sm leading-relaxed'>
                         <Link
-                            href='/documents/'
-                            download={'Odstoupeni_Od_Smlouvy.pdf'}
+                            href='/documents/Formular_Pro_Odstoupeni_Od_Smlouvy.pdf'
+                            download={'Formular_Pro_Odstoupeni_Od_Smlouvy.pdf'}
                             className='absolute top-4 right-4 flex items-center gap-2 cursor-pointer'
                         >
                             <span>Stáhnout</span> <FiDownload></FiDownload>

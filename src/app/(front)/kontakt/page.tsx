@@ -51,7 +51,7 @@ const Kontakt = () => {
 
                         <ContactColumn
                             heading='Telefon'
-                            link='tel:111111111'
+                            link='tel:+420799025999'
                             icon={<FiPhoneOutgoing></FiPhoneOutgoing>}
                         >
                             <p className='text-black'>+420 775 180 052</p>

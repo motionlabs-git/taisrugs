@@ -66,12 +66,10 @@ const Hero = () => {
 
             <WiggleGallery
                 images={[
-                    '/images/Kurzy/Hero/1.webp',
-                    '/images/Kurzy/Hero/2.webp',
-
-                    '/images/Kurzy/Hero/3.webp',
-
-                    '/images/Kurzy/Hero/4.webp',
+                    '/images/KoberecNaZakazku/Gallery/4.webp',
+                    '/images/KoberecNaZakazku/Gallery/3.webp',
+                    '/images/KoberecNaZakazku/Gallery/1.webp',
+                    '/images/KoberecNaZakazku/Gallery/2.webp',
                 ]}
             ></WiggleGallery>
         </section>

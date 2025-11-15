@@ -34,6 +34,7 @@ const About = () => {
                             text={'Kurzy tuftingu'}
                             className='mt-8 hover:text-black'
                             link='/kurzy'
+                            wiggleTextDeny
                         ></WiggleButton>
                     </div>
                 </div>
