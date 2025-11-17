@@ -3,6 +3,7 @@ import MouseShift from '@/app/(front)/components/Motion/MouseShift'
 import { Metadata } from 'next'
 import React from 'react'
 import Image from 'next/image'
+import ButtonHeading from '../components/UI/ButtonHeading'
 
 export const metadata: Metadata = {
     title: 'Stránka nebyla nalezena',
@@ -20,90 +21,32 @@ export const metadata: Metadata = {
 
 const E404 = () => {
     return (
-        <section className='pageWrapper min-h-screen flex  justify-center items-center'>
-            <MouseShift
-                scale={2}
-                className='w-full h-full absolute z-0 inset-0'
-            >
-                <div className='relative w-full h-full'>
-                    <div className='absolute right-3/5 top-3/5 w-[15%] aspect-square bg-blue-500 rounded-4xl hover:scale-105 duration-300'>
+        <section className='pageWrapper min-h-screen flex justify-center items-center'>
+            <div className='flex flex-col-reverse sm:flex-row gap-4 sm:gap-8'>
+                <div>
+                    <div className='aspect-[4/5] w-2/3 sm:w-52 md:w-96 rounded-2xl overflow-hidden sm:-translate-10 shadow-sm'>
                         <Image
-                            src={'/images/Hero/1.png'}
-                            alt={'Hero image'}
-                            width={800}
+                            src={'/images/KoberecNaZakazku/Gallery/4.webp'}
+                            alt={'Obrázek 404'}
+                            width={600}
                             height={800}
-                            className='w-full h-full object-cover'
                         />
                     </div>
-
-                    <div className='absolute left-5/6 top-1/6 w-[20%] aspect-square rounded-4xl hover:scale-105 duration-300'>
-                        <Image
-                            src={'/images/Hero/2.png'}
-                            alt={'Hero image'}
-                            width={800}
-                            height={800}
-                            className='w-full h-full object-cover'
-                        />
-                    </div>
-
-                    <div className='absolute left-4/6 top-4/6 w-[14%] aspect-square  rounded-4xl hover:scale-105 duration-300'>
-                        <Image
-                            src={'/images/Hero/3.png'}
-                            alt={'Hero image'}
-                            width={800}
-                            height={800}
-                            className='w-full h-full object-cover'
-                        />
-                    </div>
-
-                    <div className='absolute left-2/6 top-1/5 w-[17%] aspect-vid rounded-4xl hover:scale-105 duration-300'>
-                        <Image
-                            src={'/images/Hero/4.png'}
-                            alt={'Hero image'}
-                            width={800}
-                            height={800}
-                            className='w-full h-full object-cover'
-                        />
-                    </div>
-
-                    <div className='absolute left-1/2 top-1/2 w-[18%] aspect-square  rounded-4xl hover:scale-105 duration-300'>
-                        <Image
-                            src={'/images/Hero/5.png'}
-                            alt={'Hero image'}
-                            width={800}
-                            height={800}
-                            className='w-full h-full object-cover'
-                        />
-                    </div>
-
-                    <div className='absolute left-0 top-0 w-[18%] aspect-squar rounded-4xl hover:scale-105 duration-300'>
-                        <Image
-                            src={'/images/Hero/6.png'}
-                            alt={'Hero image'}
-                            width={800}
-                            height={800}
-                            className='w-full h-full object-cover'
-                        />
-                    </div>
-
-                    <div className='absolute right-0 bottom-0 w-[15%] aspect-square rounded-4xl hover:scale-105 duration-300'>
-                        <Image
-                            src={'/images/Hero/7.png'}
-                            alt={'Hero image'}
-                            width={800}
-                            height={800}
-                            className='w-full h-full object-cover'
-                        />
-                    </div>
-
-                    <div className='absolute left-0 bottom-0 w-[23%] aspect-squa rounded-4xl hover:scale-105 duration-300'></div>
                 </div>
-            </MouseShift>
 
-            <div className='flex flex-col gap-4 items-center'>
-                <h1>Ajaj, to se nepovedlo</h1>
-                <p>Tato stránka není dostupná</p>
-                <WiggleButton text='Domů' link={'/'} />
+                <div className='relative flex flex-col gap-4'>
+                    <div>
+                        <ButtonHeading text={'Chyba 404'} invert />
+                    </div>
+
+                    <h1>Ajaj, to se nepovedlo</h1>
+                    <p>Tato stránka není dostupná</p>
+                    <WiggleButton
+                        className='invert text-white grayscale-100 mt-4'
+                        text='Domů'
+                        link={'/'}
+                    />
+                </div>
             </div>
         </section>
     )

@@ -10,6 +10,7 @@ const FavProductCard = ({ product }: { product: IProductQuery }) => {
     return (
         <Link
             href={`/eshop/${product.handle}`}
+            aria-label={'Favourite product card - ' + product.title}
             onTouchStartCapture={() => setIsHovered(true)}
             onTouchEndCapture={() => setIsHovered(false)}
             onMouseEnter={() => setIsHovered(true)}

@@ -4,11 +4,11 @@ import { FieldError } from 'react-hook-form'
 const Input: React.FC<
     InputHTMLAttributes<HTMLInputElement> & {
         error?: FieldError
-        showErrorMessage?: boolean
+
         id: string
         placeholder: string
     }
-> = ({ error, showErrorMessage = true, id, placeholder, ...props }) => {
+> = ({ error, id, placeholder, ...props }) => {
     return (
         <div className='relative float-label-input'>
             <input
@@ -26,9 +26,9 @@ const Input: React.FC<
                 {placeholder}
             </label>
 
-            {showErrorMessage && error && error.message && (
+            {error && error.message && (
                 <span className='block text-primary text-sm text-right w-full mt-2'>
-                    Error
+                    {error.message}
                 </span>
             )}
         </div>
