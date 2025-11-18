@@ -1,5 +1,6 @@
-import { signInValidation } from '../../../../schemas/sign-in.schema'
-import { createServerClient } from '../../../../utils/supabase/server'
+import { signInValidation } from '@/app/admin/schemas/sign-in.schema'
+import { createServerClient } from '@/app/admin/utils/supabase/server'
+
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {

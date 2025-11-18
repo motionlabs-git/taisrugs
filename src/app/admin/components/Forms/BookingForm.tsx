@@ -1,6 +1,7 @@
 import { NextPage } from 'next'
 import React from 'react'
 import DateTimePicker from '../Inputs/DateTimePicker'
+import { FiSave } from 'react-icons/fi'
 
 interface IProps {
     defaultValues?: ''
@@ -20,10 +21,20 @@ const BookingForm: NextPage<IProps> = ({
     handleDelete,
 }) => {
     return (
-        <form>
+        <form className='mt-4'>
             <DateTimePicker
                 onChange={(value) => console.log(value)}
             ></DateTimePicker>
+
+            <div className='flex justify-end mt-4'>
+                <button
+                    type='submit'
+                    className='self-end flex justify-center items-center gap-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg duration-300 h-12 px-6 cursor-pointer'
+                >
+                    Vložit
+                    <FiSave className='text-lg' />
+                </button>
+            </div>
         </form>
     )
 }

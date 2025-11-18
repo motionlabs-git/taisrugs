@@ -47,3 +47,32 @@
         opacity: 1;
     }
 }
+
+/* Wrapper for consistent styling */
+input[type='datetime-local'].ml-datetime {
+    width: 100%;
+    padding: 12px 14px;
+    background: #202020;
+    color: #fff;
+
+    border: 1px solid #ffffff73;
+    border-radius: 8px;
+
+    font-size: 16px;
+    font-family: inherit;
+
+    outline: none;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+/* Focus state */
+input[type='datetime-local'].ml-datetime:focus {
+    border-color: #fff;
+    background: #0a0a0a;
+}
+
+/* Calendar & time icon color */
+input[type='datetime-local'].ml-datetime::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* Makes icon white */
+    cursor: pointer;
+}

@@ -51,7 +51,12 @@ const Booking = async () => {
                                         {formattedTime}
                                     </span>
 
-                                    <DeleteBooking id={value.id} />
+                                    <DeleteBooking
+                                        isError={(err) =>
+                                            console.log(console.log(err))
+                                        }
+                                        id={value.id}
+                                    />
                                 </li>
                             )
                         })}

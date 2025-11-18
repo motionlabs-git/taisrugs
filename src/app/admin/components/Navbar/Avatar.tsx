@@ -25,18 +25,18 @@ const Avatar = () => {
                 id='signOutBtn'
                 onClick={handleAvatarClick}
                 className={`w-10 h-10 flex items-center justify-center rounded-full hover:bg-black/5
-					hover:dark:bg-white/5 border border-black/5 dark:border-white/5 duration-300`}
+					hover:dark:bg-white/5 border border-black/5 dark:border-white/5 duration-300 cursor-pointer`}
             >
                 <FiUser className='text-lg opacity-80' />
             </button>
 
             {isOpen && (
                 <ul className='absolute right-0 top-10 pt-2 '>
-                    <li className='bg-stone-300 dark:bg-stone-900 rounded-lg border border-black/10 dark:border-white/5 p-2'>
+                    <li className='bg-stone-300 dark:bg-stone-900 rounded-lg border border-black/10 dark:border-white/5 p-2 '>
                         <form action={signOut}>
                             <button
                                 type='submit'
-                                className='flex items-center gap-2'
+                                className='flex items-center gap-2 cursor-pointer'
                             >
                                 <FiLogOut />
                                 Logout
