@@ -54,30 +54,6 @@ const Sidebar = () => {
                     <li>
                         <Link
                             isOpen={isOpen}
-                            href={'/admin/seo'}
-                            title={'SEO'}
-                            icon={<FiServer />}
-                        />
-                    </li>
-                    <li>
-                        <Link
-                            isOpen={isOpen}
-                            href={'/admin/gallery'}
-                            title={'Gallery'}
-                            icon={<FiImage />}
-                        />
-                    </li>
-                    <li>
-                        <Link
-                            isOpen={isOpen}
-                            href={'/admin/price-list'}
-                            title={'Price list'}
-                            icon={<FiDollarSign />}
-                        />
-                    </li>
-                    <li>
-                        <Link
-                            isOpen={isOpen}
                             href={'/admin/booking'}
                             title={'Booking'}
                             icon={<FiCalendar />}
