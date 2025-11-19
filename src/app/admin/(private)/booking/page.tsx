@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import { FiPlusCircle, FiTrash2 } from 'react-icons/fi'
+import { FiPlusCircle } from 'react-icons/fi'
 import { createServerClient } from '../../utils/supabase/server'
 import { PostgrestResponse } from '@supabase/supabase-js'
 import { Model } from '../../schemas/model'
@@ -16,7 +16,7 @@ const Booking = async () => {
     return (
         <main>
             <section className='w-full rounded-2xl bg-widget p-4'>
-                <div className='flex items-center justify-between gap-2'>
+                <div className='flex items-center justify-between gap-2 flex-wrap'>
                     <h2 className='text-xl'>Vypsané termíny</h2>
                     <Link
                         href='/admin/booking/create'
@@ -44,19 +44,14 @@ const Booking = async () => {
                             return (
                                 <li
                                     key={value.id}
-                                    className='group p-2 pl-4 flex gap-2 items-center justify-between bg-white/50 border border-white/20 hover:bg-stone-800 transition-colors duration-200 dark:bg-stone-900 rounded-xl  '
+                                    className='group p-2 pl-4 flex flex-wrap gap-2 items-center justify-between bg-white/50 border border-white/20 hover:bg-stone-800 transition-colors duration-200 dark:bg-stone-900 rounded-xl  '
                                 >
                                     <span>
                                         {date.toLocaleDateString('cs')}{' '}
                                         {formattedTime}
                                     </span>
 
-                                    <DeleteBooking
-                                        isError={(err) =>
-                                            console.log(console.log(err))
-                                        }
-                                        id={value.id}
-                                    />
+                                    <DeleteBooking id={value.id} />
                                 </li>
                             )
                         })}

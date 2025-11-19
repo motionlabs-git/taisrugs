@@ -64,8 +64,8 @@ const Sidebar = () => {
                 <button
                     type='button'
                     onClick={handleToggleSidebar}
-                    className={`self-start h-10 aspect-square flex z-50 justify-center items-center bg-stone-900 md:bg-stone-950 border-white/20 border-1 md:border-none opacity-100 md:hover:bg-widget
-						md:opacity-80 md:hover:opacity-100 duration-300 rounded-lg md:flex fixed bottom-2 left-2`}
+                    className='cursor-pointer self-start h-10 aspect-square flex z-50 justify-center items-center bg-stone-900 md:bg-stone-950 border-white/20 border-1 md:border-none opacity-100 md:hover:bg-widget
+						md:opacity-80 md:hover:opacity-100 duration-300 rounded-lg md:flex fixed bottom-2 left-2'
                 >
                     <FiSidebar className='text-md' />
                 </button>

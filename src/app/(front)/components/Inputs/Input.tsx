@@ -4,7 +4,6 @@ import { FieldError } from 'react-hook-form'
 const Input: React.FC<
     InputHTMLAttributes<HTMLInputElement> & {
         error?: FieldError
-
         id: string
         placeholder: string
     }

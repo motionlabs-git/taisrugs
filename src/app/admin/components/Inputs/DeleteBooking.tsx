@@ -5,13 +5,7 @@ import { createClient } from '../../utils/supabase/client'
 import { useRouter } from 'next/navigation'
 import { ImSpinner2 } from 'react-icons/im'
 
-const DeleteBooking = ({
-    id,
-    isError,
-}: {
-    id: number
-    isError: (err: string) => void
-}) => {
+const DeleteBooking = ({ id }: { id: number }) => {
     const supabase = createClient()
     const router = useRouter()
     const [isDeleting, setIsDeleting] = useState(false)
@@ -32,7 +26,7 @@ const DeleteBooking = ({
             const message = err instanceof Error ? err.message : String(err)
             setError(message)
             setIsDeleting(false)
-            isError(message)
+
             //TODO:Handle Error
             return
         }

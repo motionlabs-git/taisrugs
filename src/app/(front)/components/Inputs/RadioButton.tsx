@@ -10,6 +10,7 @@ const RadioButton: React.FC<
             <input
                 type='radio'
                 id={props.id}
+                value={`${props.id}/${text}`}
                 name={props.name}
                 className='hidden peer'
                 {...props}

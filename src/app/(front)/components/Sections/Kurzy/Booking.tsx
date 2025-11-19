@@ -1,11 +1,19 @@
-'use client'
 import React from 'react'
 import ButtonHeading from '@/app/(front)/components/UI/ButtonHeading'
 
 import bgImg from '@/../public/LogoStroke.svg'
 import BookingForm from '@/app/(front)/components/Forms/BookingForm'
+import { createServerClient } from '@/app/admin/utils/supabase/server'
+import { PostgrestResponse } from '@supabase/postgrest-js'
+import { Model } from '@/app/admin/schemas/model'
+import { BookingSchema } from '@/app/admin/schemas/booking.schema'
 
-const Booking = () => {
+const Booking = async () => {
+    const supabase = await createServerClient()
+
+    const { data, error }: PostgrestResponse<Model<BookingSchema>> =
+        await supabase.from('booking').select('*')
+
     return (
         <section className='pt-16 w-full' id='booking'>
             <div
@@ -38,7 +46,7 @@ const Booking = () => {
                         </p>
                     </div>
 
-                    <BookingForm></BookingForm>
+                    <BookingForm data={data}></BookingForm>
                 </div>
             </div>
         </section>
