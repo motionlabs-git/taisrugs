@@ -1,17 +1,17 @@
 import Link from 'next/link'
 import React from 'react'
 import { FiPlusCircle } from 'react-icons/fi'
-import { createServerClient } from '../../utils/supabase/server'
-import { PostgrestResponse } from '@supabase/supabase-js'
-import { Model } from '../../schemas/model'
-import { BookingSchema } from '../../schemas/booking.schema'
+// import { createServerClient } from '../../utils/supabase/server'
+// import { PostgrestResponse } from '@supabase/supabase-js'
+// import { Model } from '../../schemas/model'
+// import { BookingSchema } from '../../schemas/booking.schema'
 import DeleteBooking from '../../components/Inputs/DeleteBooking'
 
 const Booking = async () => {
-    const supabase = await createServerClient()
-
-    const { data: booking, error }: PostgrestResponse<Model<BookingSchema>> =
-        await supabase.from('booking').select('*')
+    // const supabase = await createServerClient()
+    const booking = [{ value: 'xd', id: 1 }]
+    // const { data: booking, error }: PostgrestResponse<Model<BookingSchema>> =
+    //     await supabase.from('booking').select('*')
 
     //TODO:Handle errr
     return (
