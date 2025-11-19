@@ -79,8 +79,8 @@ export default async function RootLayout({
                     lerp: 0.1,
                     duration: 1.5,
                     autoResize: true,
-                    // syncTouch: false,
-                    // touchMultiplier: 0,
+                    syncTouch: false,
+                    touchMultiplier: 0,
                 }}
             >
                 <GsapProvider>
