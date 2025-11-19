@@ -3,22 +3,15 @@ import BookingForm from '../../../components/Forms/BookingForm'
 
 const BookingCreatePage = () => {
     return (
-        <>
-            <section className='w-full rounded-2xl bg-widget p-4'>
-                <div className='flex justify-between'>
-                    <h2 className='text-xl'>Přidat termín</h2>
+        <section className='w-full rounded-2xl bg-widget p-4'>
+            <div className='flex justify-between'>
+                <h2 className='text-xl'>Přidat termín</h2>
 
-                    <CloseButton></CloseButton>
-                </div>
+                <CloseButton></CloseButton>
+            </div>
 
-                <BookingForm
-                // onSubmit={handleFormSubmit}
-                // loading={loading}
-                // response={response}
-                // error={error}
-                ></BookingForm>
-            </section>
-        </>
+            <BookingForm></BookingForm>
+        </section>
     )
 }
 
