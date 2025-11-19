@@ -1,9 +1,7 @@
 'use client'
-
 import { redirect, usePathname } from 'next/navigation'
-import { NextRequest } from 'next/server'
 
-const E404 = (request: NextRequest) => {
+const E404 = () => {
     const pathname = usePathname()
 
     console.log(pathname)

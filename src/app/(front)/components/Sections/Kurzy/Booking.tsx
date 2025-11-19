@@ -14,6 +14,8 @@ const Booking = async () => {
     const { data, error }: PostgrestResponse<Model<BookingSchema>> =
         await supabase.from('booking').select('*')
 
+    //TODO:Handle error
+
     return (
         <section className='pt-16 w-full' id='booking'>
             <div

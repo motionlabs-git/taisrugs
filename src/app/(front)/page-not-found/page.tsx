@@ -1,5 +1,4 @@
 import WiggleButton from '@/app/(front)/components/Inputs/WiggleButton'
-import MouseShift from '@/app/(front)/components/Motion/MouseShift'
 import { Metadata } from 'next'
 import React from 'react'
 import Image from 'next/image'

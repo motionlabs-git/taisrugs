@@ -1,14 +1,11 @@
 import React, { InputHTMLAttributes } from 'react'
-import { FieldError } from 'react-hook-form'
 
 const CheckBox: React.FC<
     InputHTMLAttributes<HTMLInputElement> & {
-        error?: FieldError
-        showErrorMessage?: boolean
         id: string
         text: React.JSX.Element
     }
-> = ({ error, showErrorMessage = true, id, text, ...props }) => {
+> = ({ id, text, ...props }) => {
     return (
         <label
             htmlFor={id}

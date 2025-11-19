@@ -1,10 +1,4 @@
-'use client'
-
 import CloseButton from '../../../components/Inputs/CloseButton'
-
-import { axiosFileClient } from '../../../utils/axios/client'
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
 import BookingForm from '../../../components/Forms/BookingForm'
 
 const BookingCreatePage = () => {

@@ -13,6 +13,7 @@ const Booking = async () => {
     const { data: booking, error }: PostgrestResponse<Model<BookingSchema>> =
         await supabase.from('booking').select('*')
 
+    //TODO:Handle errr
     return (
         <main>
             <section className='w-full rounded-2xl bg-widget p-4'>

@@ -151,7 +151,6 @@ export default function BookingForm({
                     className='mt-2'
                     id='gdpr'
                     {...register('gdpr')}
-                    error={errors.gdpr}
                     text={
                         <span className='relative text-xs'>
                             *Souhlasím s podmínkama{' '}

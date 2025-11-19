@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react'
 import DateTimePicker from '../Inputs/DateTimePicker'
 import { FiSave } from 'react-icons/fi'
@@ -35,6 +36,7 @@ const BookingForm = () => {
         } catch (err) {
             setError(true)
             setLoading(false)
+            //TODO:Handle err
         }
 
         // await axiosFileClient
