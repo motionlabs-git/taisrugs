@@ -24,15 +24,15 @@ const About = () => {
                         i krásu ruční práce.
                     </p>
 
-                    <div className='flex gap-4 flex-wrap'>
+                    <div className='flex mt-8 gap-4 flex-wrap'>
                         <WiggleButton
                             text={'Eshop'}
-                            className='mt-8 hover:text-black'
+                            className=' hover:text-black'
                             link='/eshop'
                         ></WiggleButton>
                         <WiggleButton
                             text={'Kurzy tuftingu'}
-                            className='mt-8 hover:text-black'
+                            className=' hover:text-black'
                             link='/kurzy'
                             wiggleTextDeny
                         ></WiggleButton>

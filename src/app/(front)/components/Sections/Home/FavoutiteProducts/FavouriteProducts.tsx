@@ -72,7 +72,7 @@ const FavouriteProducts = ({
                         <WiggleButton
                             text='Přejít do obchodu'
                             className='invert grayscale-100 scale-80 sm:scale-100 text-white'
-                            link='/'
+                            link='/eshop'
                         />
                     </div>
                 </div>

@@ -19,7 +19,7 @@ const Hero = () => {
                             Přijď si vyrobit vlastní kobereček🎨
                         </h1>
 
-                        <p className='mt-4 max-w-2/3'>
+                        <p className='mt-4 md:max-w-2/3'>
                             Zažij dva dny plné tvoření, barev a dobré nálady! Na
                             kurzu tuftingu si vyzkoušíš, jak se vyrábějí ručně
                             tkané koberce – od návrhu až po finální úpravu.
@@ -27,15 +27,15 @@ const Hero = () => {
                             odneseš svůj vlastní originální kobereček.
                         </p>
 
-                        <p className='mt-4'>
+                        <p className='mt-4 md:max-w-2/3'>
                             Kurz je ideální pro jednotlivce, páry.
                         </p>
-                        <p>
+                        <p className='mt-4 md:max-w-2/3'>
                             Nemusíš mít žádné zkušenosti – stačí chuť tvořit a
                             trochu fantazie. 💛
                         </p>
 
-                        <p className='mt-4'>
+                        <p className='mt-4 md:max-w-2/3'>
                             Zaujalo tě to? Vyber si termín nebo daruj zážitek
                             někomu blízkému.
                         </p>

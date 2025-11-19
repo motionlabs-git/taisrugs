@@ -20,7 +20,7 @@ const Hero = () => {
                             Chceš kobereček s vlastním motivem?
                         </h1>
 
-                        <p className='mt-4 max-w-2/3'>
+                        <p className='mt-4 md:max-w-2/3'>
                             Z fotky, loga nebo tvého oblíbeného obrázku ti
                             vytvořím originální kobereček na míru. Stačí mi
                             poslat návrh nebo fotku, domluvíme si detaily

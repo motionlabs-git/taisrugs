@@ -56,6 +56,54 @@ const FavouriteProductsSlider = ({
                             </div>
                         </div>
                     ))}
+                    {favouriteProducts.map((product) => (
+                        <div
+                            key={product.id}
+                            className='embla__slide flex-[0_0_70%] md:flex-[0_0_50%] lg:flex-[0_0_20%] aspect-[4/5] w-full px-2 duration-none'
+                        >
+                            <div className='relative group bg-gray-100/30 rounded-2xl aspect-[4/5] flex-1 overflow-hidden cursor-pointer shadow-[-8px_8px_black] duration-200'>
+                                <Image
+                                    src={product.images.nodes[0].src}
+                                    alt={'Obrazek'}
+                                    width={500}
+                                    height={500}
+                                    className='w-full h-full object-cover duration-400'
+                                ></Image>
+                            </div>
+                        </div>
+                    ))}
+                    {favouriteProducts.map((product) => (
+                        <div
+                            key={product.id}
+                            className='embla__slide flex-[0_0_70%] md:flex-[0_0_50%] lg:flex-[0_0_20%] aspect-[4/5] w-full px-2 duration-none'
+                        >
+                            <div className='relative group bg-gray-100/30 rounded-2xl aspect-[4/5] flex-1 overflow-hidden cursor-pointer shadow-[-8px_8px_black] duration-200'>
+                                <Image
+                                    src={product.images.nodes[0].src}
+                                    alt={'Obrazek'}
+                                    width={500}
+                                    height={500}
+                                    className='w-full h-full object-cover duration-400'
+                                ></Image>
+                            </div>
+                        </div>
+                    ))}
+                    {favouriteProducts.map((product) => (
+                        <div
+                            key={product.id}
+                            className='embla__slide flex-[0_0_70%] md:flex-[0_0_50%] lg:flex-[0_0_20%] aspect-[4/5] w-full px-2 duration-none'
+                        >
+                            <div className='relative group bg-gray-100/30 rounded-2xl aspect-[4/5] flex-1 overflow-hidden cursor-pointer shadow-[-8px_8px_black] duration-200'>
+                                <Image
+                                    src={product.images.nodes[0].src}
+                                    alt={'Obrazek'}
+                                    width={500}
+                                    height={500}
+                                    className='w-full h-full object-cover duration-400'
+                                ></Image>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

@@ -21,7 +21,7 @@ const ContactColumn = ({
                 aria-label='Odkaz kontaktu'
                 className='group col-span-1 row-span-1 w-full h-full rounded-2xl pb-[2px] pl-[2px] hover:pb-0 hover:pl-0 hover:pt-[2px] hover:pr-[2px] duration-200 selection:!bg-primaryAccent selection:!text-white'
             >
-                <div className='relative block w-full aspect-video p-4 bg-radial-[at_10%90%] from-[#ffdb85] to-[#f8cd69] to-75% rounded-2xl border-2 border-black shadow-[-3px_3px_black] overflow-hidden group-hover:shadow-[-1px_1px_black] duration-200 cursor-pointer text-left'>
+                <div className='relative block w-full h-full aspect-square sm:aspect-video p-4 bg-radial-[at_10%90%] from-[#ffdb85] to-[#f8cd69] to-75% rounded-2xl border-2 border-black shadow-[-3px_3px_black] overflow-hidden group-hover:shadow-[-1px_1px_black] duration-200 cursor-pointer text-left'>
                     <LogoShape className='absolute w-[120%] text-primaryAccent -bottom-1/2 -right-1/2 opacity-50 duration-200 group-hover:scale-110 select-none group-hover:rotate-12'></LogoShape>
 
                     {icon && (
@@ -41,7 +41,7 @@ const ContactColumn = ({
 
     return (
         <div className='group col-span-1 row-span-1 w-full h-full rounded-2xl pb-[2px] pl-[2px] hover:pb-0 hover:pl-0 hover:pt-[2px] hover:pr-[2px] duration-200 selection:!bg-primaryAccent selection:!text-white'>
-            <div className='relative block w-full aspect-video p-4 bg-primary rounded-2xl border-2 border-black shadow-[-3px_3px_black] overflow-hidden group-hover:shadow-[-1px_1px_black] duration-200 cursor-pointer text-left'>
+            <div className='relative block w-full aspect-square sm:aspect-video p-4 bg-primary rounded-2xl border-2 border-black shadow-[-3px_3px_black] overflow-hidden group-hover:shadow-[-1px_1px_black] duration-200 cursor-pointer text-left'>
                 <LogoShape className='absolute w-[120%] text-primaryAccent -bottom-1/2 -right-1/2 opacity-50 duration-200 group-hover:scale-110 select-none group-hover:rotate-12'></LogoShape>
 
                 {icon && (

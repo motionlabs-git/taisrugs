@@ -28,7 +28,7 @@ const Kontakt = () => {
 
             <section className='flex flex-col lg:flex-row gap-4 lg:gap-8 mt-4 pb-8 sm:pb-16'>
                 <div className='flex-6 xl:flex-3 h-full'>
-                    <div className='w-full h-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:grid-rows-2 gap-4'>
+                    <div className='w-full h-full grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 md:grid-rows-2 gap-4'>
                         <ContactColumn heading='Jméno'>
                             <p className='text-black'>Taisiia Mamedova</p>
                         </ContactColumn>
@@ -62,7 +62,7 @@ const Kontakt = () => {
                             link='&#77;&#97;&#105;&#76;&#84;&#79;&#58;&#116;&#97;&#105;&#115;&#114;&#117;&#103;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;'
                             icon={<FiMail></FiMail>}
                         >
-                            <p className='text-black'>
+                            <p className='text-black text-wrap wrap-anywhere'>
                                 &#116;&#97;&#105;&#115;&#114;&#117;&#103;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;
                             </p>
                         </ContactColumn>
