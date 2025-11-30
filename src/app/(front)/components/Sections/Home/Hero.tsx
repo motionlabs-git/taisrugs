@@ -97,18 +97,23 @@ const Hero = () => {
                     </h1>
 
                     <p className='mt-4 max-w-2/3 text-white mix-blend-difference'>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Voluptatum, totam accusamus velit officiis
-                        consequatur cumque maxime in quis inventore quas
-                        voluptates explicabo incidunt aspernatur eum molestiae?
-                        Mollitia magni temporibus vel.
+                        Originální koberce, které nejsou jen na zem.
+                    </p>
+
+                    <p className='mt-4 max-w-2/3 text-white mix-blend-difference'>
+                        Ručně vyráběné kousky na míru, s láskou a smyslem pro
+                        detail.
+                    </p>
+                    <p className='mt-4 max-w-2/3 text-white mix-blend-difference'>
+                        Ať už chcete koberec s vaším mazlíčkem, autem, nebo
+                        čistě abstraktní design – společně ho vymyslíme,
+                        navrhneme a já ho pro vás vytvořím.
                     </p>
 
                     <WiggleButton
-                        text={'Číst více'}
-                        link={'#about'}
+                        text={'Objednat koberec na míru'}
+                        link={'/koberec-na-zakazku'}
                         className='mt-8 invert  mix-blend-difference text-black '
-                        scrollTo
                     />
                 </div>
             </div>
