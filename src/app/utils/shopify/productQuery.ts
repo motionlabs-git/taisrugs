@@ -15,6 +15,7 @@ export interface IProductQuery {
     variants: {
         nodes: Array<{
             id: string
+            inventoryQuantity: number
         }>
     }
     images: {
@@ -27,6 +28,7 @@ export const productQuery = `
     title
     description
     descriptionHtml
+
     handle
     priceRangeV2 {
         minVariantPrice {
@@ -37,6 +39,7 @@ export const productQuery = `
     variants(first: 1) {
         nodes {
             id
+            inventoryQuantity
         }
     }
     images(first: 6) {

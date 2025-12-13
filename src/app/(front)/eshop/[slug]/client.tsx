@@ -36,6 +36,8 @@ const ProductPageClient: React.FC<IProps> = ({
             })
     }
 
+    console.log(product)
+
     return (
         <div
             className='pageWrapper'
@@ -62,7 +64,7 @@ const ProductPageClient: React.FC<IProps> = ({
                         }}
                     ></div>
 
-                    <div className='flex items-center gap-2 justify-between flex-wrap mt-8 align-bottom self-end'>
+                    <div className=' mt-8 align-bottom self-end'>
                         <span className='text-lg font-bold text-nowrap'>
                             {Math.floor(
                                 Number(
@@ -71,19 +73,34 @@ const ProductPageClient: React.FC<IProps> = ({
                             ).toLocaleString('cs-CZ')}{' '}
                             Kč
                         </span>
-                        {!orderId && (
-                            <AddToCartForm
-                                variantId={product.variants.nodes[0].id}
-                                action={createOrder}
+                        <div className='mt-2 justify-between flex flex-wrap gap-2 items-center'>
+                            <input
+                                type='number'
+                                name='count'
+                                id='count'
+                                min={1}
+                                defaultValue={1}
+                                onChange={() => null}
+                                max={
+                                    product.variants.nodes[0].inventoryQuantity
+                                }
+                                className='w-20 px-4 py-4 text-center h-full border border-black rounded-full outline-none'
                             />
-                        )}
 
-                        {orderId && (
-                            <AddToCartForm
-                                variantId={product.variants.nodes[0].id}
-                                action={handleAddToCart}
-                            />
-                        )}
+                            {!orderId && (
+                                <AddToCartForm
+                                    variantId={product.variants.nodes[0].id}
+                                    action={createOrder}
+                                />
+                            )}
+
+                            {orderId && (
+                                <AddToCartForm
+                                    variantId={product.variants.nodes[0].id}
+                                    action={handleAddToCart}
+                                />
+                            )}
+                        </div>
                     </div>
                 </div>
             </section>
