@@ -22,6 +22,10 @@
     --font-superVibes: var(--font-superVibes);
 }
 
+.text-nowrap {
+    white-space: nowrap;
+}
+
 h1 {
     @apply text-2xl sm:text-3xl md:text-4xl font-bold;
 }

@@ -8,16 +8,16 @@ import CartItem from './CartItem'
 interface IProps {
     order: IOrderQuery | null
     handleCloseCart: () => void
-    cartTl: gsap.core.Timeline
+    isOpened: boolean
 }
 
-const Cart: React.FC<IProps> = ({ order, handleCloseCart, cartTl }) => {
+const Cart: React.FC<IProps> = ({ order, handleCloseCart, isOpened }) => {
     const router = useRouter()
 
     const { data, setData } = useOrder()
 
     const showStore = () => {
-        cartTl.reverse()
+        handleCloseCart()
         router.push('/eshop')
     }
 
@@ -28,14 +28,22 @@ const Cart: React.FC<IProps> = ({ order, handleCloseCart, cartTl }) => {
     return (
         <section
             id='cart'
-            className={`hidden opacity-0 bg-black/20 z-50 fixed top-0 right-0 w-screen h-screen pointer-events-auto`}
+            className={`${
+                isOpened
+                    ? 'opacity-100'
+                    : 'opacity-0 pointer-events-none delay-300'
+            } bg-black/20 duration-200 z-50 fixed top-0 right-0 w-screen h-screen pointer-events-auto`}
             onClick={(e) => {
                 if ((e.target as HTMLElement).id === 'cart') handleCloseCart()
             }}
         >
             <aside
                 id='cartAside'
-                className='fixed -right-full md:-right-2/3 lg:-right-1/3 top-0 bg-white h-screen w-full md:w-2/3 lg:w-1/3 rounded-l-3xl border-1 border-black/30 tra border-r-none p-4 sm:p-10'
+                className={`${
+                    isOpened
+                        ? 'right-0 delay-150'
+                        : '-right-full md:-right-2/3 lg:-right-1/3'
+                } duration-300 fixed top-0 bg-white h-screen w-full md:w-2/3 lg:w-1/3 rounded-l-3xl border-1 border-black/30 tra border-r-none p-4 sm:p-10`}
             >
                 <div className='flex justify-between items-center'>
                     <h2 className='text-xl'>Košík</h2>

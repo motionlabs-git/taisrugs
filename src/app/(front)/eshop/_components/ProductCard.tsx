@@ -19,8 +19,8 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
                             alt={
                                 product.images.nodes[0].altText ?? product.title
                             }
-                            width={product.images.nodes[0].width}
-                            height={product.images.nodes[0].height}
+                            width={1000}
+                            height={1200}
                             className='w-full h-full object-cover duration-200'
                         />
                     )}
@@ -31,8 +31,8 @@ const ProductCard: React.FC<IProps> = ({ product }) => {
                             alt={
                                 product.images.nodes[1].altText ?? product.title
                             }
-                            width={product.images.nodes[1].width}
-                            height={product.images.nodes[1].height}
+                            width={1000}
+                            height={1200}
                             className='absolute inset-0 opacity-0 group-hover:opacity-100 w-full h-full object-cover duration-400'
                         />
                     )}

@@ -1,7 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import Cart from '../Cart/Cart'
-import gsap from 'gsap'
 import SpinningLogo from './SpinningLogo'
 import NavLink from './NavLink'
 import MobileNavigation from './MobileNavigation'
@@ -17,13 +16,9 @@ interface IProps {
 
 const Navigation: React.FC<IProps> = ({ order }) => {
     const [isMobileNavOpened, setIsMobileNavOpened] = useState(false)
+    const [isCartOpened, setIsCartOpened] = useState(false)
     const lenis = useLenis()
     const path = usePathname()
-
-    const cartTl = gsap.timeline({
-        defaults: { duration: 0.3, ease: 'power1.inOut' },
-        paused: true,
-    })
 
     const handleMobileNav = () => {
         lenis?.stop()
@@ -38,20 +33,6 @@ const Navigation: React.FC<IProps> = ({ order }) => {
     }
 
     useEffect(() => {
-        cartTl
-            .set('#cart', {
-                display: 'block',
-                opacity: 0,
-            })
-            .to('#cart', {
-                opacity: 1,
-            })
-            .to('#cartAside', {
-                right: 0,
-            })
-    }, [cartTl])
-
-    useEffect(() => {
         setIsMobileNavOpened(false)
     }, [path])
 
@@ -62,9 +43,9 @@ const Navigation: React.FC<IProps> = ({ order }) => {
             <Cart
                 order={order}
                 handleCloseCart={() => {
-                    cartTl.reverse()
+                    setIsCartOpened(false)
                 }}
-                cartTl={cartTl}
+                isOpened={isCartOpened}
             ></Cart>
 
             <nav className='flex items-center justify-between w-full gap-4 pointer-events-none'>
@@ -85,7 +66,9 @@ const Navigation: React.FC<IProps> = ({ order }) => {
                 </div>
 
                 <div className='z-40 flex gap-4'>
-                    <CartButton handleClick={() => cartTl.play()}></CartButton>
+                    <CartButton
+                        handleClick={() => setIsCartOpened(true)}
+                    ></CartButton>
 
                     <HamburgerIcon
                         isMobileNavOpened={isMobileNavOpened}
