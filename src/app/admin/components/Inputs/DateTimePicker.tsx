@@ -6,11 +6,11 @@ const DateTimePicker: React.FC<
         error?: FieldError
         showErrorMessage?: boolean
     }
-> = ({ error, ...props }) => {
+> = ({ error, className, ...props }) => {
     return (
         <>
             <input
-                className='ml-datetime'
+                className={`ml-datetime ${className ?? ''}`}
                 aria-label='Date and time'
                 type='datetime-local'
                 {...props}

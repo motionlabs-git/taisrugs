@@ -1,4 +1,5 @@
 'use client'
+
 import React, { useState } from 'react'
 import DateTimePicker from '../Inputs/DateTimePicker'
 import { FiSave } from 'react-icons/fi'
@@ -10,10 +11,16 @@ import { useRouter } from 'next/navigation'
 import { createClient } from '../../utils/supabase/client'
 
 const BookingForm = () => {
-    const { register, handleSubmit } = useForm<BookingSchema>({
+    const router = useRouter()
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<BookingSchema>({
         resolver: zodResolver(bookingValidation),
     })
-    const router = useRouter()
+
+    const [response, setResponse] = useState(false)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
     const supabase = createClient()
@@ -21,60 +28,57 @@ const BookingForm = () => {
     const onSubmit: SubmitHandler<BookingSchema> = async (data) => {
         setLoading(true)
 
-        try {
-            await supabase
-                .from('booking')
-                .insert([{ value: data.value }])
-                .select()
-                .then((res) => {
-                    console.log(res)
-                    if (res.status === 201) {
-                        setLoading(false)
-                        router.push('/admin/booking')
-                    }
-                })
-        } catch (err) {
-            setError(true)
-            setLoading(false)
-            //TODO:Handle err
-        }
+        const { error: updateError } = await supabase
+            .from('booking')
+            .insert([{ value: data.value }])
+            .select()
 
-        // await axiosFileClient
-        //     .post('/api/v1/booking', data)
-        //     .then(() => {
-        //         setResponse(true)
-        //     })
-        //     .catch(() => {
-        //         setError(true)
-        //     })
-        //     .finally(() => {
-        //         setTimeout(() => {
-        //             setError(false)
-        //             setResponse(false)
-        //             router.push('/admin/price-list')
-        //         }, 2000)
-        //     })
+        if (updateError) setError(true)
+        else setResponse(true)
+
+        setLoading(false)
+        setTimeout(() => {
+            setResponse(false)
+            setError(false)
+
+            router.push('/admin/booking')
+        }, 2000)
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className='mt-4'>
-            <DateTimePicker {...register('value')}></DateTimePicker>
+        <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col gap-4'>
+            <fieldset>
+                <label>Datum</label>
 
-            <div className='flex justify-end mt-4'>
-                <button
-                    type='submit'
-                    className='self-end flex justify-center items-center gap-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg duration-300 h-12 px-6 cursor-pointer'
-                >
-                    Vložit
-                    {loading ? (
-                        <ImSpinner2 className='animate-spin' size={16} />
-                    ) : (
-                        <FiSave className='text-lg' />
-                    )}
-                </button>
-            </div>
+                <DateTimePicker
+                    {...register('value')}
+                    error={errors.value}
+                    className='mt-1'
+                />
+            </fieldset>
 
-            {error && <span>Něco se pokazilo</span>}
+            {error && (
+                <span className='text-red-500 animate-res-fade-out'>
+                    An error occurred while saving the data.
+                </span>
+            )}
+            {response && (
+                <span className='text-green-500 animate-res-fade-out'>
+                    Data saved successfully
+                </span>
+            )}
+
+            <button
+                type='submit'
+                className='self-end flex justify-center items-center gap-2 bg-white/90 hover:bg-white text-gray-900 rounded-lg duration-300 h-12 px-6 cursor-pointer'
+            >
+                Vložit
+                {loading ? (
+                    <ImSpinner2 className='animate-spin' size={16} />
+                ) : (
+                    <FiSave className='text-lg' />
+                )}
+            </button>
         </form>
     )
 }
