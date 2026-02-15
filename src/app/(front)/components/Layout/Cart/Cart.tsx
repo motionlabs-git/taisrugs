@@ -1,20 +1,21 @@
 import { useRouter } from 'next/navigation'
-import { IOrderQuery } from '@/app/utils/shopify/orderQuery'
-import { useOrder } from '@/app/utils/zustand/orderStore'
 import React, { useEffect } from 'react'
 import { FiArrowRightCircle, FiPlus } from 'react-icons/fi'
 import CartItem from './CartItem'
+import { ICartMerchandiseQuery } from '@/app/utils/shopify/cartQuery'
+import { useCart } from '@/app/utils/zustand/cartStore'
 
 interface IProps {
-    order: IOrderQuery | null
+    cart: ICartMerchandiseQuery | null
     handleCloseCart: () => void
     isOpened: boolean
 }
 
-const Cart: React.FC<IProps> = ({ order, handleCloseCart, isOpened }) => {
+const Cart: React.FC<IProps> = ({ cart, handleCloseCart, isOpened }) => {
     const router = useRouter()
 
-    const { data, setData } = useOrder()
+    const { data: cartData, loading: cartLoading, setData } = useCart()
+    // TODO: change styles or indicator on Loading
 
     const showStore = () => {
         handleCloseCart()
@@ -22,8 +23,8 @@ const Cart: React.FC<IProps> = ({ order, handleCloseCart, isOpened }) => {
     }
 
     useEffect(() => {
-        setData(order)
-    }, [order, setData])
+        setData(cart)
+    }, [cart, setData])
 
     return (
         <section
@@ -58,11 +59,12 @@ const Cart: React.FC<IProps> = ({ order, handleCloseCart, isOpened }) => {
                     </button>
                 </div>
 
-                {!data && (
+                {!cartData && (
                     <>
                         <div className='mt-8'>
                             <p>Váš košík je prázdný...</p>
                         </div>
+
                         <button
                             type='button'
                             aria-label={'Prozkoumat obchod'}
@@ -85,34 +87,45 @@ const Cart: React.FC<IProps> = ({ order, handleCloseCart, isOpened }) => {
                     </>
                 )}
 
-                {data && data.lineItems.nodes.length > 0 && (
+                {cartData && cartData.lines.nodes.length > 0 && (
                     <div className='flex flex-col gap-4 h-full'>
                         <ul className='mt-8 flex flex-col h-full overflow-y-auto gap-4'>
-                            {data.lineItems.nodes.map((item) => (
-                                <CartItem item={item} key={item.product.id} />
+                            {cartData.lines.nodes.map((item) => (
+                                <CartItem item={item} key={item.id} />
                             ))}
                         </ul>
-                        <div className='pb-8 sm:pb-10'>
-                            <button
-                                type='button'
-                                aria-label={'Prozkoumat obchod'}
-                                className={`invert grayscale-100 text-white border-white relative group w-fit h-fit items-center rounded-full border hover:border-primary duration-200 transition-transform cursor-pointer select-none`}
-                                onClick={showStore}
-                            >
-                                <div className='w-full h-full relative flex items-center gap-4 group-hover:gap-6 duration-200  px-10 py-4 overflow-hidden rounded-full text-inherit group-hover:text-black'>
-                                    <div className='absolute top-0 left-0 w-0 group-hover:w-full h-full rounded-full bg-primary duration-200'></div>
 
-                                    <FiArrowRightCircle
-                                        size={20}
-                                        className='relative text-inherit duration-200'
-                                    ></FiArrowRightCircle>
+                        <span>
+                            {cartData.cost.totalAmount.amount}{' '}
+                            {cartData.cost.totalAmount.currencyCode}
+                        </span>
 
-                                    <span className=' relative text-nowrap'>
-                                        Přejít k pokladně
-                                    </span>
-                                </div>
-                            </button>
-                        </div>
+                        {!cartLoading && cartData.checkoutUrl ? (
+                            <div className='pb-8 sm:pb-10'>
+                                <button
+                                    type='button'
+                                    aria-label={'Prozkoumat obchod'}
+                                    className={`invert grayscale-100 text-white border-white relative group w-fit h-fit items-center rounded-full border hover:border-primary duration-200 transition-transform cursor-pointer select-none`}
+                                    onClick={showStore}
+                                >
+                                    <div className='w-full h-full relative flex items-center gap-4 group-hover:gap-6 duration-200  px-10 py-4 overflow-hidden rounded-full text-inherit group-hover:text-black'>
+                                        <div className='absolute top-0 left-0 w-0 group-hover:w-full h-full rounded-full bg-primary duration-200'></div>
+
+                                        <FiArrowRightCircle
+                                            size={20}
+                                            className='relative text-inherit duration-200'
+                                        ></FiArrowRightCircle>
+
+                                        <a
+                                            href={cartData.checkoutUrl}
+                                            className='relative text-nowrap'
+                                        >
+                                            Přejít k pokladně
+                                        </a>
+                                    </div>
+                                </button>
+                            </div>
+                        ) : null}
                     </div>
                 )}
             </aside>

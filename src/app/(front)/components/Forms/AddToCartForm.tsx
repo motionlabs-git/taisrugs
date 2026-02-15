@@ -4,19 +4,20 @@ import {
     AddToCartSchema,
     addToCartValidation,
 } from '@/app/schemas/addToCartSchema'
+import { IProductQuery } from '@/app/utils/shopify/productQuery'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { FiShoppingCart } from 'react-icons/fi'
 
 interface IProps {
-    variantId: string
+    product: IProductQuery
     action: ({ variantId }: AddToCartSchema) => Promise<void>
 }
 
-const AddToCartForm: React.FC<IProps> = ({ variantId, action }) => {
+const AddToCartForm: React.FC<IProps> = ({ product, action }) => {
     const { register, handleSubmit } = useForm<AddToCartSchema>({
         defaultValues: {
-            variantId: variantId,
+            variantId: product.variants.nodes[0].id,
         },
         resolver: zodResolver(addToCartValidation),
     })

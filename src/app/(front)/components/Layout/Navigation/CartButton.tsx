@@ -1,7 +1,14 @@
+'use client'
+
 import React, { useState } from 'react'
 import { FiShoppingCart } from 'react-icons/fi'
 
-const CartButton = ({ handleClick }: { handleClick: () => void }) => {
+interface IProps {
+    cartCount: number | null
+    handleClick: () => void
+}
+
+const CartButton: React.FC<IProps> = ({ cartCount, handleClick }) => {
     const [isHovered, setIsHovered] = useState(false)
 
     return (
@@ -27,7 +34,17 @@ const CartButton = ({ handleClick }: { handleClick: () => void }) => {
                     size={16}
                 ></FiShoppingCart>
 
-                <span>Košík</span>
+                {cartCount && (
+                    <>
+                        <span>Košík ({cartCount})</span>
+
+                        <span className='block absolute top-0 right-0 w-3 h-3 rounded-full shadow-[0_0px_5px_2px_rgba(245,100,103,0.2)] shadow-red-400 animate-pulse' />
+
+                        <span className='block absolute top-0 right-0 z-10 w-3 h-3 rounded-full bg-red-400' />
+                    </>
+                )}
+
+                {!cartCount && <span>Košík</span>}
             </div>
         </button>
     )

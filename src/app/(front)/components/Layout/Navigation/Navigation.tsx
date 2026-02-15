@@ -1,4 +1,5 @@
 'use client'
+
 import React, { useEffect, useState } from 'react'
 import Cart from '../Cart/Cart'
 import SpinningLogo from './SpinningLogo'
@@ -7,14 +8,17 @@ import MobileNavigation from './MobileNavigation'
 import HamburgerIcon from './HamburgerIcon'
 import { useLenis } from 'lenis/react'
 import CartButton from './CartButton'
-import { IOrderQuery } from '@/app/utils/shopify/orderQuery'
 import { usePathname } from 'next/navigation'
+import { useCart } from '@/app/utils/zustand/cartStore'
+import { ICartMerchandiseQuery } from '@/app/utils/shopify/cartQuery'
 
 interface IProps {
-    order: IOrderQuery | null
+    cart: ICartMerchandiseQuery | null
 }
 
-const Navigation: React.FC<IProps> = ({ order }) => {
+const Navigation: React.FC<IProps> = ({ cart }) => {
+    const { data: cartData, setData: setCartData } = useCart()
+
     const [isMobileNavOpened, setIsMobileNavOpened] = useState(false)
     const [isCartOpened, setIsCartOpened] = useState(false)
     const lenis = useLenis()
@@ -36,12 +40,16 @@ const Navigation: React.FC<IProps> = ({ order }) => {
         setIsMobileNavOpened(false)
     }, [path])
 
+    useEffect(() => {
+        setCartData(cart)
+    }, [cart, setCartData])
+
     return (
         <header className='fixed top-0 z-40 w-full flex items-center justify-center p-4 pointer-events-none'>
             <MobileNavigation isOpened={isMobileNavOpened} />
 
             <Cart
-                order={order}
+                cart={cartData}
                 handleCloseCart={() => {
                     setIsCartOpened(false)
                 }}
@@ -67,8 +75,9 @@ const Navigation: React.FC<IProps> = ({ order }) => {
 
                 <div className='z-40 flex gap-4'>
                     <CartButton
+                        cartCount={cartData?.totalQuantity ?? null}
                         handleClick={() => setIsCartOpened(true)}
-                    ></CartButton>
+                    />
 
                     <HamburgerIcon
                         isMobileNavOpened={isMobileNavOpened}

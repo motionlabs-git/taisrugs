@@ -2,41 +2,29 @@
 
 import { IProductQuery } from '@/app/utils/shopify/productQuery'
 import AddToCartForm from '@/app/(front)/components/Forms/AddToCartForm'
-import { AddToCartSchema } from '@/app/schemas/addToCartSchema'
-import { createOrder } from '@/actions/createOrder'
-import { axiosClient } from '@/app/utils/client/axiosClient'
 import ProductGallery from '../_components/ProductGallery'
 import bgImg from '@/../public/LogoStroke.svg'
 import FavouriteProductsSlider from '@/app/(front)/components/Sections/Eshop/FavouriteProductsSlider'
 import ContactUs from '@/app/(front)/components/Layout/Contact/ContactUs'
+import { addVariantToCart } from '@/actions/addVariantToCart'
+import { useCart } from '@/app/utils/zustand/cartStore'
+import UpdateCartLineForm from '../../components/Forms/UpdateLineCartForm'
+import RemoveLineCartForm from '../../components/Forms/RemoveLineCartForm'
 
 interface IProps {
     product: IProductQuery
-    orderId?: string
     favouriteProducts: IProductQuery[] | null
 }
 
 const ProductPageClient: React.FC<IProps> = ({
     product,
-    orderId,
     favouriteProducts,
 }) => {
-    const handleAddToCart = async (data: AddToCartSchema) => {
-        if (!orderId) return
+    const { data: cartData } = useCart()
 
-        axiosClient
-            .post(`/order/add`, data)
-            .then((res) => {
-                // TODO:
-                console.log(res)
-            })
-            .catch((error) => {
-                // TODO:
-                console.error('Error adding to cart', error)
-            })
-    }
-
-    console.log(product)
+    const findCartLine = cartData?.lines.nodes.find(
+        (line) => line.merchandise.product.id === product.id
+    )
 
     return (
         <div
@@ -73,32 +61,25 @@ const ProductPageClient: React.FC<IProps> = ({
                             ).toLocaleString('cs-CZ')}{' '}
                             Kč
                         </span>
-                        <div className='mt-2 justify-between flex flex-wrap gap-2 items-center'>
-                            <input
-                                type='number'
-                                name='count'
-                                id='count'
-                                min={1}
-                                defaultValue={1}
-                                onChange={() => null}
-                                max={
-                                    product.variants.nodes[0].inventoryQuantity
-                                }
-                                className='w-20 px-4 py-4 text-center h-full border border-black rounded-full outline-none'
-                            />
 
-                            {!orderId && (
+                        <div className='mt-2 justify-between flex flex-wrap gap-2 items-center'>
+                            {!findCartLine && (
                                 <AddToCartForm
-                                    variantId={product.variants.nodes[0].id}
-                                    action={createOrder}
+                                    product={product}
+                                    action={addVariantToCart}
                                 />
                             )}
 
-                            {orderId && (
-                                <AddToCartForm
-                                    variantId={product.variants.nodes[0].id}
-                                    action={handleAddToCart}
-                                />
+                            {findCartLine && (
+                                <>
+                                    <UpdateCartLineForm
+                                        cartLine={findCartLine}
+                                    />
+
+                                    <RemoveLineCartForm
+                                        cartLine={findCartLine}
+                                    />
+                                </>
                             )}
                         </div>
                     </div>

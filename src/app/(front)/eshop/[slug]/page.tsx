@@ -42,15 +42,11 @@ const ProductPage: NextPage<IProps> = async ({ params }) => {
         return redirect('/eshop')
     }
 
-    const cookieStore = await cookies()
-    const orderId = cookieStore.get('orderId')?.value
-
     const favouriteProducts = await getCollectionProducts(502318891295)
 
     return (
         <ProductPageClient
             product={product}
-            orderId={orderId}
             favouriteProducts={favouriteProducts}
         />
     )
