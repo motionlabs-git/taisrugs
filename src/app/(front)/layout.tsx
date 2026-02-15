@@ -6,10 +6,10 @@ import Navigation from '@/app/(front)/components/Layout/Navigation/Navigation'
 import Footer from '@/app/(front)/components/Layout/Footer/Footer'
 import GsapProvider from '@/app/(front)/components/Layout/GsapProvider'
 import { cookies } from 'next/headers'
-import { getOrder } from '@/app/utils/shopify/getOrder'
 import ReactLenis from 'lenis/react'
 import PageTransition from '@/app/(front)/components/Layout/Navigation/PageTransition'
 import CookiesBar from '@/app/(front)/components/Layout/CookiesBar'
+import { getCart } from '../utils/shopify/getCart'
 
 const poppins = Poppins({
     variable: '--font-poppins',
@@ -67,9 +67,9 @@ export default async function RootLayout({
     children: React.ReactNode
 }>) {
     const cookieStore = await cookies()
-    const orderId = cookieStore.get('orderId')?.value
 
-    const order = orderId ? await getOrder(orderId) : null
+    const cartId = cookieStore.get('cartId')?.value
+    const cart = cartId ? await getCart(cartId) : null
 
     return (
         <html lang='cs'>
@@ -87,8 +87,10 @@ export default async function RootLayout({
                     <body
                         className={`${poppins.className} ${archivo.variable} ${superVibes.variable} bg-black antialiased w-full min-h-[100lvh] overflow-x-hidden duration-200 transition-colors`}
                     >
-                        <Navigation order={order} />
+                        <Navigation cart={cart} />
+
                         <CookiesBar />
+
                         <PageTransition></PageTransition>
 
                         <main className='w-full flex-1 flex justify-center'>

@@ -15,3 +15,7 @@ export function HttpNotFoundError() {
 export function HttpInternalServerError() {
     return NextResponse.json({ code: 'INTERNAL_SERVER_ERROR' }, { status: 500 })
 }
+
+export function HttpBadGateway() {
+    return NextResponse.json({ code: 'BAD_GATEWAY' }, { status: 502 })
+}
