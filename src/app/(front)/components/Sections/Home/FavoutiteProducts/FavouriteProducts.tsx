@@ -52,21 +52,6 @@ const FavouriteProducts = ({
                     {products?.map((product) => (
                         <FavProductCard key={product.id} product={product} />
                     ))}
-                    {products?.map((product) => (
-                        <FavProductCard key={product.id} product={product} />
-                    ))}
-                    {products?.map((product) => (
-                        <FavProductCard key={product.id} product={product} />
-                    ))}
-                    {products?.map((product) => (
-                        <FavProductCard key={product.id} product={product} />
-                    ))}
-                    {products?.map((product) => (
-                        <FavProductCard key={product.id} product={product} />
-                    ))}
-                    {products?.map((product) => (
-                        <FavProductCard key={product.id} product={product} />
-                    ))}
 
                     <div className='flex-1'>
                         <WiggleButton
