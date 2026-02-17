@@ -103,10 +103,7 @@ const AboutGallery = () => {
                 <FiChevronRight size={24} className='pl-0.5'></FiChevronRight>
             </AboutGalleryButton>
             <div className='w-full flex gap-2 justify-end md:justify-center xl:hidden'>
-                <AboutGalleryButton
-                    handleClick={prevImage}
-                    className='border text-white'
-                >
+                <AboutGalleryButton handleClick={prevImage}>
                     <FiChevronLeft size={24} className='pr-0.5'></FiChevronLeft>
                 </AboutGalleryButton>
                 <AboutGalleryButton handleClick={nextImage}>

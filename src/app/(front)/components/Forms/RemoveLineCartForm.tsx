@@ -48,9 +48,9 @@ const RemoveLineCartForm: React.FC<IProps> = ({ cartLine }) => {
             <button
                 type='submit'
                 aria-label={'Odebrat položku'}
-                className='text-gray-600 flex items-center gap-2 text-lg sm:text-sm hover:text-black duration-200 cursor-pointer '
+                className='text-gray-600 flex items-center gap-2 text-base sm:text-sm hover:text-black duration-200 cursor-pointer '
             >
-                <span className='hidden sm:inline-block'>Odebrat</span>
+                <span className='inline-block'>Odebrat</span>
                 <FiTrash />
             </button>
         </form>
