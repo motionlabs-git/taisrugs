@@ -34,11 +34,11 @@ const CookiesBar = () => {
     // }
 
     return (
-        <aside className='fixed z-30 w-full sm:w-fit bottom-4 px-4 sm:px-0 sm:right-4'>
+        <aside className='fixed z-30 w-full sm:w-fit bottom-4 px-4 sm:px-0 sm:right-4 '>
             {typeof isAgreed !== 'boolean' && (
                 <div
                     id='cookiesBar'
-                    className='w-full sm:w-96 h-full border-zinc-500/20 flex flex-col gap-2'
+                    className='w-full sm:w-96 h-full bg-white/50 backdrop-blur-sm p-2 rounded-2xl border  border-zinc-500/40 flex flex-col gap-2'
                 >
                     <p className='cookiesBarLine line-1 opacity-0 px-4 py-2 text-sm rounded-2xl bg-radial-[at_80%80%] from-[#ffdb85] to-[#f8cd69] to-75% border border-zinc-600/20 text-black max-w-4/5 self-end'>
                         Ahoj, i tady jsou potřeba cookies?🍪
