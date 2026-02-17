@@ -10,6 +10,8 @@ import { addVariantToCart } from '@/actions/addVariantToCart'
 import { useCart } from '@/app/utils/zustand/cartStore'
 import UpdateCartLineForm from '../../components/Forms/UpdateLineCartForm'
 import RemoveLineCartForm from '../../components/Forms/RemoveLineCartForm'
+import { useEffect } from 'react'
+import { useLenis } from 'lenis/react'
 
 interface IProps {
     product: IProductQuery
@@ -21,10 +23,17 @@ const ProductPageClient: React.FC<IProps> = ({
     favouriteProducts,
 }) => {
     const { data: cartData } = useCart()
+    const lenis = useLenis()
 
     const findCartLine = cartData?.lines.nodes.find(
         (line) => line.merchandise.product.id === product.id
     )
+
+    useEffect(() => {
+        lenis?.scrollTo(0, {
+            immediate: true,
+        })
+    }, [])
 
     return (
         <div

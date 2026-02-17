@@ -15,7 +15,11 @@ interface IProps {
 }
 
 const AddToCartForm: React.FC<IProps> = ({ product, action }) => {
-    const { register, handleSubmit } = useForm<AddToCartSchema>({
+    const {
+        register,
+        handleSubmit,
+        formState: { isSubmitting, isSubmitSuccessful },
+    } = useForm<AddToCartSchema>({
         defaultValues: {
             variantId: product.variants.nodes[0].id,
         },
@@ -27,6 +31,7 @@ const AddToCartForm: React.FC<IProps> = ({ product, action }) => {
             <input type='hidden' {...register('variantId')} />
 
             <button
+                disabled={isSubmitting || isSubmitSuccessful}
                 type='submit'
                 aria-label={'Přidat do košíku'}
                 className={` relative group w-fit h-fit items-center rounded-full border border-black hover:border-primary duration-200 cursor-pointer select-none`}
@@ -40,7 +45,9 @@ const AddToCartForm: React.FC<IProps> = ({ product, action }) => {
                     ></FiShoppingCart>
 
                     <span className=' relative text-nowrap'>
-                        Přidat do košíku
+                        {isSubmitting || isSubmitSuccessful
+                            ? 'Přidávám...'
+                            : ' Přidat do košíku'}
                     </span>
                 </div>
             </button>

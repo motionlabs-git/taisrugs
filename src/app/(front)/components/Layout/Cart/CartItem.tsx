@@ -7,7 +7,7 @@ import UpdateCartLineForm from '../../Forms/UpdateLineCartForm'
 const CartItem = ({ item }: { item: ICartProductQuery }) => {
     return (
         <li key={item.id} className='flex justify-between items-end'>
-            <div className='flex gap-4'>
+            <div className='flex gap-4 '>
                 <div className='aspect-[4/5] min-w-20 max-w-20 rounded-2xl overflow-hidden'>
                     <Image
                         src={item.merchandise.product.featuredImage.url}
@@ -39,10 +39,11 @@ const CartItem = ({ item }: { item: ICartProductQuery }) => {
                     </p>
                 </div>
             </div>
+            <div className='flex flex-col gap-2 items-end'>
+                <UpdateCartLineForm cartLine={item} />
 
-            <UpdateCartLineForm cartLine={item} />
-
-            <RemoveLineCartForm cartLine={item} />
+                <RemoveLineCartForm cartLine={item} />
+            </div>
         </li>
     )
 }

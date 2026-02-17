@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
         EMAILJS_SERVICE_ID: process.env.EMAILJS_SERVICE_ID,
         EMAILJS_BOOKING_TEMPLATE_ID: process.env.EMAILJS_BOOKING_TEMPLATE_ID,
         EMAILJS_CONTACT_TEMPLATE_ID: process.env.EMAILJS_CONTACT_TEMPLATE_ID,
+
+        NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
+        NEXT_PUBLIC_SUPABASE_ANON_KEY:
+            process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
     },
     allowedDevOrigins: ['172.30.179.212'],
 }

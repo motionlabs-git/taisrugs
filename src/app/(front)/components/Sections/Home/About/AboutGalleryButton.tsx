@@ -4,15 +4,20 @@ const AboutGalleryButton = ({
     handleClick,
     children,
     className,
+    borderClassName,
+    disabled,
 }: {
     handleClick: () => void
     children: React.JSX.Element
     className?: string
+    borderClassName?: string
+    disabled?: boolean
 }) => {
     const [isClicked, setIsClicked] = useState(false)
 
     return (
         <button
+            disabled={disabled ? !disabled : false}
             type='button'
             aria-label='Předchozí obrázek'
             className={`${className} text-black cursor-pointer pb-[5px] pl-[3px] duration-200 hover:pb-[2px] hover:pl-[2px] hover:pt-[3px] hover:pr-[1px] group ${
@@ -30,7 +35,7 @@ const AboutGalleryButton = ({
                     {children}
                 </div>
                 <div
-                    className={`w-full h-full absolute z-0 rounded-full border border-white top-[5px] -left-[3px] group-hover:top-[3px] group-hover:left-[-2px] duration-200 ${
+                    className={`w-full h-full absolute z-0 rounded-full border ${borderClassName ? borderClassName : 'border-white'} top-[5px] -left-[3px] group-hover:top-[3px] group-hover:left-[-2px] duration-200 ${
                         isClicked && '!top-[0px] !left-[0px]'
                     }`}
                 ></div>

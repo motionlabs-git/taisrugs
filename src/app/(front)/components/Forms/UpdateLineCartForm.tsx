@@ -11,6 +11,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { FiMinus, FiPlus } from 'react-icons/fi'
+import AboutGalleryButton from '../Sections/Home/About/AboutGalleryButton'
 
 interface IProps {
     cartLine: ICartProductQuery
@@ -62,36 +63,36 @@ const UpdateCartLineForm: React.FC<IProps> = ({ cartLine }) => {
     }
 
     return (
-        <form onSubmit={handleSubmit(handleUpdateCartLine)}>
+        <form
+            onSubmit={handleSubmit(handleUpdateCartLine)}
+            className={`flex items-center gap-1 flex-nowrap duration-200 transition-opacity ${cartLoading ? 'pointer-events-none opacity-50' : 'pointer-events-auto opacity-100'}`}
+        >
             <input type='hidden' {...register('lineId')} />
 
-            <button
-                type='button'
-                aria-label={'Aktualizovat množství'}
-                onClick={handleLowerQuantityClick}
+            <AboutGalleryButton
+                handleClick={handleLowerQuantityClick}
                 disabled={!canLowerQuantity || cartLoading}
-                className='h-8 aspect-square border border-black rounded-full'
+                borderClassName='border-black'
             >
                 <FiMinus size={20} />
-            </button>
+            </AboutGalleryButton>
 
             <input
                 type='number'
                 min={1}
                 max={variant.quantityAvailable}
                 {...register('quantity', { valueAsNumber: true })}
-                className='w-12 text-center h-full border border-black rounded-full outline-none'
+                className='w-12 text-center mt-2 h-10 border border-black rounded-full outline-none'
+                onChange={() => handleUpdateCartLine}
             />
 
-            <button
-                type='button'
-                aria-label={'Aktualizovat množství'}
-                onClick={handleUpperQuantityClick}
-                disabled={!canHigherQuantity || cartLoading}
-                className='h-8 aspect-square border border-black rounded-full'
+            <AboutGalleryButton
+                handleClick={handleUpperQuantityClick}
+                borderClassName='border-black'
+                disabled={!canLowerQuantity || cartLoading}
             >
                 <FiPlus size={20} />
-            </button>
+            </AboutGalleryButton>
         </form>
     )
 }

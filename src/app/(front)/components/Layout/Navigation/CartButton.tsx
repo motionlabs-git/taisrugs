@@ -34,7 +34,7 @@ const CartButton: React.FC<IProps> = ({ cartCount, handleClick }) => {
                     size={16}
                 ></FiShoppingCart>
 
-                {cartCount && (
+                {cartCount !== null && cartCount > 0 && (
                     <>
                         <span>Košík ({cartCount})</span>
 
