@@ -19,6 +19,7 @@ import { createClient } from '@/app/admin/utils/supabase/client'
 import { useRouter } from 'next/navigation'
 import FormSuccess from './FormSuccess'
 import { ImSpinner2 } from 'react-icons/im'
+import axios from 'axios'
 
 export default function BookingForm({
     data,
@@ -34,14 +35,12 @@ export default function BookingForm({
         formState: { errors, isSubmitting, isSubmitSuccessful },
         reset,
     } = useForm<BookingFormType>({
-        defaultValues: {
-            name: 'Jindra',
-        },
         resolver: zodResolver(BookingFormSchema),
     })
 
     const onSubmit: SubmitHandler<BookingFormType> = async (data) => {
         const payload = {
+            formType: 'booking',
             name: data.name,
             email: data.email,
             phone: data.phone ?? '',
@@ -49,30 +48,24 @@ export default function BookingForm({
             message: data.message ?? '',
         }
 
-        await emailjs.init({
-            publicKey: process.env.EMAILJS_PUBLIC_KEY!,
-            blockHeadless: true,
-        })
+        try {
+            const res = await axios.post('/api/v1/email', payload)
 
-        await emailjs
-            .send(
-                process.env.EMAILJS_SERVICE_ID!,
-                process.env.EMAILJS_BOOKING_TEMPLATE_ID!,
-                payload
-            )
-            .then(async (res) => {
-                if (res.status === 200) {
-                    const { error } = await supabase
-                        .from('booking')
-                        .delete()
-                        .eq('id', data.date.split('/')[0])
+            console.log(res)
 
-                    if (error) setError('root', { message: 'Něco se pokazilo' })
-                }
-            })
-            .catch(() => {
-                setError('root', { message: 'Něco se pokazilo' })
-            })
+            if (res.status === 200) {
+                reset()
+
+                const { error } = await supabase
+                    .from('booking')
+                    .delete()
+                    .eq('id', data.date.split('/')[0])
+
+                if (error) setError('root', { message: 'Něco se pokazilo' })
+            }
+        } catch (e) {
+            setError('root', { message: 'Něco se pokazilo' })
+        }
     }
 
     return (

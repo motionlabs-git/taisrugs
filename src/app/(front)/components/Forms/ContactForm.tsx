@@ -15,6 +15,7 @@ import {
 } from '@/app/schemas/contactFormSchema'
 import FormSuccess from './FormSuccess'
 import { ImSpinner2 } from 'react-icons/im'
+import axios from 'axios'
 
 export default function ContactForm() {
     const {
@@ -22,42 +23,33 @@ export default function ContactForm() {
         reset,
         setError,
         register,
+        setValue,
         formState: { errors, isSubmitting, isSubmitSuccessful },
     } = useForm<ContactFormType>({
-        defaultValues: {
-            name: 'Jindra',
-        },
         resolver: zodResolver(ContactFormSchema),
+        reValidateMode: 'onSubmit',
     })
     const onSubmit: SubmitHandler<ContactFormType> = async (data) => {
-        console.log(data)
-
-        await emailjs.init({
-            publicKey: process.env.EMAILJS_PUBLIC_KEY!,
-            blockHeadless: true,
-        })
-        //TODO:Zprovoznit cloudinary
         const payload = {
+            formType: 'contact',
             name: data.name,
             email: data.email,
             phone: data.phone ?? '',
-            imageURL: '',
+            image: data.image ?? '',
         }
 
-        await emailjs
-            .send(
-                process.env.EMAILJS_SERVICE_ID!,
-                process.env.EMAILJS_CONTACT_TEMPLATE_ID!,
-                payload
-            )
-            .then(async (res) => {
-                if (res.status === 200) {
-                    console.log(res.status)
-                }
-            })
-            .catch(() => {
-                setError('root', { message: 'Něco se pokazilo' })
-            })
+        try {
+            const res = await axios.post('/api/v1/email', payload)
+
+            console.log(res)
+
+            if (res.status === 200) {
+                reset()
+                setValue('image', null)
+            }
+        } catch (e) {
+            setError('root', { message: 'Něco se pokazilo' })
+        }
     }
 
     return (
@@ -74,11 +66,6 @@ export default function ContactForm() {
                     id='name'
                     placeholder='*Jméno a příjmení'
                 />
-                {/* {errors.name && (
-                <span className='block text-primary text-sm text-right w-full '>
-                    {errors.name.message}
-                </span>
-            )} */}
 
                 <Input
                     {...register('email')}
@@ -100,10 +87,10 @@ export default function ContactForm() {
                 />
 
                 <FileInput
-                    {...register('image')}
                     error={errors.image}
-                    placeholder='xd'
-                    id='image-dropzone'
+                    placeholder='image'
+                    id='image'
+                    setValue={(base64) => setValue('image', base64)}
                 />
 
                 <CheckBox

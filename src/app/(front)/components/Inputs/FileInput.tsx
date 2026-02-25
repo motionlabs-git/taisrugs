@@ -7,19 +7,67 @@ const FileInput: React.FC<
     InputHTMLAttributes<HTMLInputElement> & {
         error?: FieldError
         id: string
+        setValue: (base64: Base64URLString | null) => void
         placeholder: string
     }
-> = ({ error, id, ...props }) => {
+> = ({ error, id, setValue, ...props }) => {
     const [preview, setPreview] = useState<string | null>(null)
     const inputRef = useRef<HTMLInputElement | null>(null)
 
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const compressImage = (file: File, maxWidth = 1200, quality = 0.7) => {
+        return new Promise<string>((resolve) => {
+            const reader = new FileReader()
+
+            reader.onload = (event) => {
+                const img = new window.Image()
+                img.src = event.target?.result as string
+
+                img.onload = () => {
+                    const canvas = document.createElement('canvas')
+                    const scale = maxWidth / img.width
+
+                    canvas.width = maxWidth
+                    canvas.height = img.height * scale
+
+                    const ctx = canvas.getContext('2d')
+                    ctx?.drawImage(img, 0, 0, canvas.width, canvas.height)
+
+                    const compressedBase64 = canvas.toDataURL(
+                        'image/jpeg',
+                        quality
+                    )
+
+                    resolve(compressedBase64)
+                }
+            }
+
+            reader.readAsDataURL(file)
+        })
+    }
+
+    const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0]
         if (!file) return
 
         const url = URL.createObjectURL(file)
         setPreview(url)
         props.onChange?.(e)
+
+        const compressedBase64 = await compressImage(file, 300, 0.5)
+
+        console.log(compressedBase64)
+
+        setValue(compressedBase64)
+
+        // const reader = new FileReader()
+        // reader.onloadend = () => {
+        //     console.log(reader.result)
+
+        //     const base64String = reader.result as string
+        //     setValue(base64String.split(',')[1])
+        // }
+
+        // reader.readAsDataURL(file)
     }
 
     const deleteFile = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -27,6 +75,7 @@ const FileInput: React.FC<
         if (!inputRef.current) return
         inputRef.current.value = ''
         setPreview(null)
+        setValue(null)
     }
 
     return (
@@ -86,9 +135,9 @@ const FileInput: React.FC<
                         id={id}
                         type='file'
                         className='hidden'
-                        {...props}
                         onChange={handleFileChange}
                         ref={inputRef}
+                        {...props}
                     />
                 </label>
             </div>
