@@ -4,8 +4,6 @@ import { redirect, usePathname } from 'next/navigation'
 const E404 = () => {
     const pathname = usePathname()
 
-    console.log(pathname)
-
     if (pathname.startsWith('/admin')) {
         return redirect('/admin')
     }

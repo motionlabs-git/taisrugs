@@ -16,8 +16,6 @@ const DeleteBooking = ({ id }: { id: number }) => {
         try {
             const res = await supabase.from('booking').delete().eq('id', id)
 
-            console.log(res)
-
             if (res.status === 204) {
                 setIsDeleting(false)
                 router.refresh()
@@ -27,7 +25,8 @@ const DeleteBooking = ({ id }: { id: number }) => {
             setError(message)
             setIsDeleting(false)
 
-            //TODO:Handle Error
+            // TODO:Show error
+
             return
         }
     }

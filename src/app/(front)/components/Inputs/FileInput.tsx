@@ -55,19 +55,7 @@ const FileInput: React.FC<
 
         const compressedBase64 = await compressImage(file, 300, 0.5)
 
-        console.log(compressedBase64)
-
         setValue(compressedBase64)
-
-        // const reader = new FileReader()
-        // reader.onloadend = () => {
-        //     console.log(reader.result)
-
-        //     const base64String = reader.result as string
-        //     setValue(base64String.split(',')[1])
-        // }
-
-        // reader.readAsDataURL(file)
     }
 
     const deleteFile = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {

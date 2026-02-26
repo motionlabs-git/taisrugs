@@ -41,11 +41,10 @@ export default function ContactForm() {
         try {
             const res = await axios.post('/api/v1/email', payload)
 
-            console.log(res)
-
             if (res.status === 200) {
                 reset()
                 setValue('image', null)
+                setValue('gdpr', false)
             }
         } catch (e) {
             setError('root', { message: 'Něco se pokazilo' })

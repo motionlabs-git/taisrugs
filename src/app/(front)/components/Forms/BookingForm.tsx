@@ -51,8 +51,6 @@ export default function BookingForm({
         try {
             const res = await axios.post('/api/v1/email', payload)
 
-            console.log(res)
-
             if (res.status === 200) {
                 reset()
 

@@ -31,31 +31,10 @@ const AboutGallery = () => {
         } else {
             setActiveImage(1)
         }
-
-        console.log(activeImage)
     }
-
-    // useEffect(() => {
-    //     const autoSwipe = setInterval(() => {
-    //         nextImage()
-    //     }, 500)
-
-    //     return () => {
-    //         clearInterval(autoSwipe)
-    //     }
-    // }, [])
 
     return (
         <div className='flex flex-col xl:flex-row md:flex-2 gap-8 items-center h-fit w-full self-center md:self-start lg:self-center'>
-            {/* <button
-                type='button'
-                aria-label='Předchozí obrázek'
-                className='w-12 h-auto aspect-square flex justify-center items-center bg-white text-black rounded-full shadow-[-3px_3px_white]'
-                onClick={prevImage}
-            >
-                <FiChevronLeft size={24} className='pr-0.5'></FiChevronLeft>
-            </button> */}
-
             <AboutGalleryButton
                 className='hidden xl:block'
                 handleClick={prevImage}
@@ -75,24 +54,6 @@ const AboutGallery = () => {
                             rotation={rotation}
                             img={img}
                         />
-                        // <div
-                        //     key={index}
-                        //     className={`gallery-image ${
-                        //         index < activeImage
-                        //             ? `opacity-100 translate-0`
-                        //             : 'opacity-0 translate-y-10 translate-x-5'
-                        //     }  duration-400 absolute top-0 left-0 w-full h-full rounded-2xl overflow-hidden`}
-                        //     id={`gallery-image-${index}`}
-                        //     style={{ rotate: `${rotation}deg` }}
-                        // >
-                        //     <Image
-                        //         src={img}
-                        //         alt={'Obrázek v galerii O TaisRugs'}
-                        //         width={500}
-                        //         height={800}
-                        //         className='w-full h-full object-cover'
-                        //     />
-                        // </div>
                     )
                 })}
             </div>
