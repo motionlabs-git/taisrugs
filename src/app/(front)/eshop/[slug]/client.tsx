@@ -33,7 +33,7 @@ const ProductPageClient: React.FC<IProps> = ({
         lenis?.scrollTo(0, {
             immediate: true,
         })
-    }, [])
+    }, [lenis])
 
     return (
         <div
