@@ -10,11 +10,16 @@ import { useForm } from 'react-hook-form'
 import { FiShoppingCart } from 'react-icons/fi'
 
 interface IProps {
+    title?: string
     product: IProductQuery
     action: ({ variantId }: AddToCartSchema) => Promise<void>
 }
 
-const AddToCartForm: React.FC<IProps> = ({ product, action }) => {
+const AddToCartForm: React.FC<IProps> = ({
+    title = 'Přidat do košíku',
+    product,
+    action,
+}) => {
     const {
         register,
         handleSubmit,
@@ -33,7 +38,7 @@ const AddToCartForm: React.FC<IProps> = ({ product, action }) => {
             <button
                 disabled={isSubmitting || isSubmitSuccessful}
                 type='submit'
-                aria-label={'Přidat do košíku'}
+                aria-label={title}
                 className={` relative group w-fit h-fit items-center rounded-full border border-black hover:border-primary duration-200 cursor-pointer select-none`}
             >
                 <div className='w-full h-full relative flex items-center gap-4 duration-200 px-10 py-4 overflow-hidden rounded-full text-black group-hover:text-black'>
@@ -47,7 +52,7 @@ const AddToCartForm: React.FC<IProps> = ({ product, action }) => {
                     <span className=' relative text-nowrap'>
                         {isSubmitting || isSubmitSuccessful
                             ? 'Přidávám...'
-                            : ' Přidat do košíku'}
+                            : title}
                     </span>
                 </div>
             </button>

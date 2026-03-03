@@ -2,7 +2,6 @@ import { getProduct } from '@/app/utils/shopify/getProduct'
 import { NextPage } from 'next'
 import { redirect } from 'next/navigation'
 import ProductPageClient from './client'
-import { cookies } from 'next/headers'
 import type { Metadata, ResolvingMetadata } from 'next'
 import { getCollectionProducts } from '@/app/utils/shopify/getCollectionProducts'
 
