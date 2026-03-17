@@ -29,7 +29,7 @@ const superVibes = localFont({
 })
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://taisrugs.cz'),
+    metadataBase: new URL('https://www.taisrugs.cz'),
     title: {
         default: 'Tais Rugs | Koberce na míru a tufting kurzy v Praze',
         template: 'Tais Rugs | %s',
@@ -58,6 +58,9 @@ export const metadata: Metadata = {
             url: '/seo/apple-touch-icon.png',
             href: '/seo/apple-touch-icon.png',
         },
+    },
+    verification: {
+        google: '6CffTgOiBZuMuuXOE21S6Sr4wNbkGxz7PEim0Cot5rE',
     },
 }
 

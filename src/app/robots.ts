@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/admin/',
         },
-        sitemap: 'https://taisrugs.cz/sitemap.xml',
+        sitemap: 'https://www.taisrugs.cz/sitemap.xml',
     }
 }

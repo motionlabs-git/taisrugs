@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './admin.css'
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://taisrugs.cz'),
+    metadataBase: new URL('https://www.taisrugs.cz'),
     title: {
         default: 'Admin | Tais Rugs',
         template: 'Tais Rugs | %s',

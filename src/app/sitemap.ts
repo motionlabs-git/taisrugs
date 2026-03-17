@@ -12,7 +12,7 @@ type ChangeFrequencyType =
     | undefined
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const baseUrl = 'https://taisrugs.cz'
+    const baseUrl = 'https://www.taisrugs.cz'
 
     const products = await getAllProducts()
 
