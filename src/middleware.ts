@@ -1,12 +1,12 @@
-import { NextResponse, type NextRequest } from 'next/server'
+import { type NextRequest } from 'next/server'
 import { updateSession } from './app/admin/utils/supabase/middleware'
 
 export async function middleware(request: NextRequest) {
-    const host = request.headers.get('host')
+    // const host = request.headers.get('host')
 
-    if (host === 'www.taisrugs.cz') {
-        return NextResponse.rewrite(new URL('/wip', request.url))
-    }
+    // if (host === 'www.taisrugs.cz') {
+    //     return NextResponse.rewrite(new URL('/wip', request.url))
+    // }
 
     return await updateSession(request)
 }
