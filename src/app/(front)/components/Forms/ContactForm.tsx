@@ -34,6 +34,7 @@ export default function ContactForm() {
             formType: 'contact',
             name: data.name,
             email: data.email,
+            message: data.message,
             phone: data.phone ?? '',
             image: data.image ?? '',
         }
