@@ -24,7 +24,7 @@ const CookiesBar = () => {
 
     const agreeCookies = () => {
         setIsAgreed(true)
-
+        localStorage.setItem('cookies', 'agreed')
     }
 
     // const disagreeCookies = () => {
