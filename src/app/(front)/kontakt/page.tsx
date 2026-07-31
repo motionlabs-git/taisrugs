@@ -36,9 +36,9 @@ const Kontakt = () => {
                         <ContactColumn
                             heading='Adresa'
                             icon={<FiExternalLink></FiExternalLink>}
-                            link='https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Moskevsk%C3%A1%20Praha%2010+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'
+                            link='https://www.google.com/maps/place/Ol%C5%A1ansk%C3%A1+54%2F3,+130+00+Praha+3-%C5%BDi%C5%BEkov,+%C4%8Cesko/@50.0837848,14.461801,17z/data=!3m1!4b1!4m6!3m5!1s0x470b9360d0d1269f:0x7591019bab1e6c44!8m2!3d50.0837814!4d14.4643759!16s%2Fg%2F11bw3zk7l9?entry=ttu&g_ep=EgoyMDI2MDcyOC4wIKXMDSoASAFQAw%3D%3D'
                         >
-                            <p className='text-black'>Moskevská , Praha 10</p>
+                            <p className='text-black'>Olšanská 54/3, Praha 3</p>
                         </ContactColumn>
 
                         <ContactColumn
@@ -71,7 +71,7 @@ const Kontakt = () => {
                             <WiggleButton
                                 text={'Navigovat'}
                                 link={
-                                    'https://www.google.com/maps/dir//Kaprova+42%2F14,+110+00+Star%C3%A9+M%C4%9Bsto/@50.0899402,14.4151232,16.04z/data=!4m18!1m8!3m7!1s0x470b94e8e9bf533d:0x6b6bc6db31022ebe!2sKaprova+42%2F14,+110+00+Star%C3%A9+M%C4%9Bsto!3b1!8m2!3d50.0879154!4d14.4184677!16s%2Fg%2F11pw3jqtsb!4m8!1m0!1m5!1m1!1s0x470b94e8e9bf533d:0x6b6bc6db31022ebe!2m2!1d14.4184677!2d50.0879154!3e0?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D'
+                                    'https://www.google.com/maps/place/Ol%C5%A1ansk%C3%A1+54%2F3,+130+00+Praha+3-%C5%BDi%C5%BEkov,+%C4%8Cesko/@50.0837848,14.461801,17z/data=!3m1!4b1!4m6!3m5!1s0x470b9360d0d1269f:0x7591019bab1e6c44!8m2!3d50.0837814!4d14.4643759!16s%2Fg%2F11bw3zk7l9?entry=ttu&g_ep=EgoyMDI2MDcyOC4wIKXMDSoASAFQAw%3D%3D'
                                 }
                                 blank
                                 className='invert grayscale-100 mt-4 text-white'
@@ -87,7 +87,7 @@ const Kontakt = () => {
                             height='100%'
                             frameBorder='0'
                             scrolling='no'
-                            src='https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Moskevsk%C3%A1%20Praha%2010+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'
+                            src='https://maps.google.com/maps?width=100%&amp;height=100%&amp;hl=en&amp;q=Olšanská 54/3, Praha 3&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'
                         ></iframe>
                     </div>
 
@@ -95,7 +95,7 @@ const Kontakt = () => {
                         <WiggleButton
                             text={'Navigovat'}
                             link={
-                                'https://www.google.com/maps/dir//Kaprova+42%2F14,+110+00+Star%C3%A9+M%C4%9Bsto/@50.0899402,14.4151232,16.04z/data=!4m18!1m8!3m7!1s0x470b94e8e9bf533d:0x6b6bc6db31022ebe!2sKaprova+42%2F14,+110+00+Star%C3%A9+M%C4%9Bsto!3b1!8m2!3d50.0879154!4d14.4184677!16s%2Fg%2F11pw3jqtsb!4m8!1m0!1m5!1m1!1s0x470b94e8e9bf533d:0x6b6bc6db31022ebe!2m2!1d14.4184677!2d50.0879154!3e0?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D'
+                                'https://www.google.com/maps/place/Ol%C5%A1ansk%C3%A1+54%2F3,+130+00+Praha+3-%C5%BDi%C5%BEkov,+%C4%8Cesko/@50.0837848,14.461801,17z/data=!3m1!4b1!4m6!3m5!1s0x470b9360d0d1269f:0x7591019bab1e6c44!8m2!3d50.0837814!4d14.4643759!16s%2Fg%2F11bw3zk7l9?entry=ttu&g_ep=EgoyMDI2MDcyOC4wIKXMDSoASAFQAw%3D%3D'
                             }
                             blank
                             className='invert grayscale-100 mt-4 text-white'

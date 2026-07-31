@@ -71,12 +71,12 @@ const Footer = () => {
                                 <Link
                                     className='py-1 flex items-center gap-2'
                                     href={
-                                        'https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Moskevsk%C3%A1%20Praha%2010+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'
+                                        'https://www.google.com/maps/place/Ol%C5%A1ansk%C3%A1+54%2F3,+130+00+Praha+3-%C5%BDi%C5%BEkov,+%C4%8Cesko/@50.0837848,14.461801,17z/data=!3m1!4b1!4m6!3m5!1s0x470b9360d0d1269f:0x7591019bab1e6c44!8m2!3d50.0837814!4d14.4643759!16s%2Fg%2F11bw3zk7l9?entry=ttu&g_ep=EgoyMDI2MDcyOC4wIKXMDSoASAFQAw%3D%3D'
                                     }
                                     target='_blank'
                                 >
                                     <FiMap></FiMap>
-                                    <span>Moskevská , Praha 10</span>
+                                    <span>Olšanská 54/3, Praha 3</span>
                                 </Link>
                             </li>
                             <li>
