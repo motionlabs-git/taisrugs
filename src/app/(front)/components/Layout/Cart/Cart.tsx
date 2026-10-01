@@ -33,7 +33,7 @@ const Cart: React.FC<IProps> = ({ cart, handleCloseCart, isOpened }) => {
                 isOpened
                     ? 'opacity-100'
                     : 'opacity-0 pointer-events-none delay-300'
-            } bg-black/20 duration-200 z-50 fixed top-0 right-0 w-screen h-dvh pointer-events-auto`}
+            } bg-black/20 duration-200 z-50 fixed top-0 right-0 w-screen h-svh pointer-events-auto`}
             onClick={(e) => {
                 if ((e.target as HTMLElement).id === 'cart') handleCloseCart()
             }}
