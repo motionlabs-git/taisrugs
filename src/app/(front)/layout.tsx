@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Poppins, Lilita_One } from 'next/font/google'
 import localFont from 'next/font/local'
 import './front.css'
@@ -64,6 +64,11 @@ export const metadata: Metadata = {
     },
 }
 
+export const viewport: Viewport = {
+    viewportFit: 'cover',
+    themeColor: '#000000',
+}
+
 export default async function RootLayout({
     children,
 }: Readonly<{
@@ -84,6 +89,7 @@ export default async function RootLayout({
                     autoResize: true,
                     syncTouch: false,
                     touchMultiplier: 0,
+                    autoRaf: false,
                 }}
             >
                 <GsapProvider>

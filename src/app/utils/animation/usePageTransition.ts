@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter } from 'next/navigation'
 import { MouseEvent } from 'react'
+import { setPageColor } from './setPageColor'
 
 export function usePageTransition() {
     const router = useRouter()
@@ -17,7 +18,7 @@ export function usePageTransition() {
         if (path === link) return
 
         transition?.classList.add('opened')
-        document.body.style.backgroundColor = 'black'
+        setPageColor('#000000')
         router.push(link)
     }
 

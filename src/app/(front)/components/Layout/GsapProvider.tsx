@@ -3,10 +3,16 @@ import React, { useEffect } from 'react'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 import { usePathname } from 'next/navigation'
+import { useLenis } from 'lenis/react'
+
+gsap.registerPlugin(ScrollTrigger)
+
+// Address bar show/hide on mobile triggers resize - don't recalculate triggers mid-scroll
+ScrollTrigger.config({ ignoreMobileResize: true })
 
 const GsapProvider = ({ children }: { children: React.ReactNode }) => {
     const path = usePathname()
-    gsap.registerPlugin(ScrollTrigger)
+    const lenis = useLenis()
 
     useEffect(() => {
         return () => {
@@ -15,24 +21,21 @@ const GsapProvider = ({ children }: { children: React.ReactNode }) => {
         }
     }, [path])
 
+    // Drive Lenis from GSAP ticker so scrub animations stay in sync with scroll
     useEffect(() => {
-        window.addEventListener('resize', () => {
-            ScrollTrigger.refresh()
-        })
+        if (!lenis) return
 
-        // if (typeof window !== 'undefined') {
-        //     const ua = navigator.userAgent.toLowerCase()
-        //     const isInstagram = ua.includes('instagram')
+        const update = (time: number) => lenis.raf(time * 1000)
 
-        //     if (isInstagram) {
-        //     }
-        // }
+        lenis.on('scroll', ScrollTrigger.update)
+        gsap.ticker.add(update)
+        gsap.ticker.lagSmoothing(0)
 
-        ScrollTrigger.normalizeScroll(true)
-
-        return () =>
-            window.removeEventListener('resize', () => ScrollTrigger.refresh)
-    }, [])
+        return () => {
+            lenis.off('scroll', ScrollTrigger.update)
+            gsap.ticker.remove(update)
+        }
+    }, [lenis])
 
     return <>{children}</>
 }
