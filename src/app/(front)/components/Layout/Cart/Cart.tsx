@@ -4,7 +4,6 @@ import { FiArrowRightCircle, FiPlus } from 'react-icons/fi'
 import CartItem from './CartItem'
 import { ICartMerchandiseQuery } from '@/app/utils/shopify/cartQuery'
 import { useCart } from '@/app/utils/zustand/cartStore'
-import Link from 'next/link'
 
 interface IProps {
     cart: ICartMerchandiseQuery | null
@@ -108,12 +107,10 @@ const Cart: React.FC<IProps> = ({ cart, handleCloseCart, isOpened }) => {
 
                         {!cartLoading && cartData.checkoutUrl ? (
                             <div className='shrink-0 pb-[max(1rem,env(safe-area-inset-bottom))] sm:pb-6'>
-                                <Link
+                                <a
                                     href={cartData.checkoutUrl}
-                                    type='button'
-                                    aria-label={'Prozkoumat obchod'}
+                                    aria-label={'Přejít k pokladně'}
                                     className={`invert block grayscale-100 text-white border-white relative group w-fit h-fit items-center rounded-full border hover:border-primary duration-200 transition-transform cursor-pointer select-none`}
-                                    onClick={showStore}
                                 >
                                     <div className='w-full h-full relative flex items-center gap-4 group-hover:gap-6 duration-200  px-10 py-4 overflow-hidden rounded-full text-inherit group-hover:text-black'>
                                         <div className='absolute top-0 left-0 w-0 group-hover:w-full h-full rounded-full bg-primary duration-200'></div>
@@ -127,7 +124,7 @@ const Cart: React.FC<IProps> = ({ cart, handleCloseCart, isOpened }) => {
                                             Přejít k pokladně
                                         </span>
                                     </div>
-                                </Link>
+                                </a>
                             </div>
                         ) : (
                             <div className='shrink-0 pb-[max(1rem,env(safe-area-inset-bottom))] sm:pb-6'>
