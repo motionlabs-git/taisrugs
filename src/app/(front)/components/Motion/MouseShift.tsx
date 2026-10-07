@@ -30,6 +30,18 @@ const MouseShift: React.FC<IProps> = ({ children, scale, ...rest }) => {
     }
 
     useEffect(() => {
+        // Only for devices with mouse, touch devices have nothing to follow
+        const hasMouse = window.matchMedia(
+            '(hover: hover) and (pointer: fine)'
+        ).matches
+        const reducedMotion = window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+        ).matches
+
+        if (!hasMouse || reducedMotion) return
+
+        let frameId = 0
+
         const handleMouseMove = (e: MouseEvent) => {
             const { pageX, pageY } = e
 
@@ -59,14 +71,17 @@ const MouseShift: React.FC<IProps> = ({ children, scale, ...rest }) => {
                 -delayerBgPosition.current.y
             )
 
-            window.requestAnimationFrame(animate)
+            frameId = window.requestAnimationFrame(animate)
         }
 
         animate()
 
         document.addEventListener('mousemove', handleMouseMove)
 
-        return () => document.removeEventListener('mousemove', handleMouseMove)
+        return () => {
+            window.cancelAnimationFrame(frameId)
+            document.removeEventListener('mousemove', handleMouseMove)
+        }
     }, [scale])
 
     return (

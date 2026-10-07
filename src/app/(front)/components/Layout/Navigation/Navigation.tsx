@@ -25,16 +25,14 @@ const Navigation: React.FC<IProps> = ({ cart }) => {
     const path = usePathname()
 
     const handleMobileNav = () => {
-        lenis?.stop()
-
-        if (isMobileNavOpened) {
-            lenis?.start()
-        } else {
-            lenis?.stop()
-        }
-
         setIsMobileNavOpened((prev) => !prev)
     }
+
+    // Disable page scroll while cart or mobile nav is opened
+    useEffect(() => {
+        if (isCartOpened || isMobileNavOpened) lenis?.stop()
+        else lenis?.start()
+    }, [isCartOpened, isMobileNavOpened, lenis])
 
     useEffect(() => {
         setIsMobileNavOpened(false)

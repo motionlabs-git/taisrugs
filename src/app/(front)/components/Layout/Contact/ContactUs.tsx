@@ -25,7 +25,8 @@ const ContactUs = () => {
 
                 <Image
                     src={'/images/contact-us.png'}
-                    alt={'sdf'}
+                    alt=''
+                    aria-hidden
                     width={350}
                     height={500}
                     className='absolute bottom-0 left-10 opacity-50'

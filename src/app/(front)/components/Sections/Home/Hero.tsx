@@ -14,7 +14,7 @@ const Hero = () => {
                     <div className='absolute right-3/5 top-3/5 w-[10%] aspect-square hover:scale-105 duration-300'>
                         <Image
                             src={'/LogoSVG.svg'}
-                            alt={'Hero image'}
+                            alt={'Logo Tais Rugs'}
                             width={500}
                             height={500}
                             className='w-full h-full object-cover'
@@ -24,7 +24,7 @@ const Hero = () => {
                     <div className='absolute left-5/6 top-1/6 w-[20%] aspect-square rounded-4xl hover:scale-105 duration-300'>
                         <Image
                             src={'/images/Hero/2.png'}
-                            alt={'Hero image'}
+                            alt={'Tuftovaný koberec – portrét muže s plnovousem a srdíčkovými brýlemi'}
                             width={800}
                             height={800}
                             className='w-full h-full object-cover'
@@ -34,7 +34,7 @@ const Hero = () => {
                     <div className='absolute left-4/6 top-4/6 w-[14%] aspect-square  rounded-4xl hover:scale-105 duration-300'>
                         <Image
                             src={'/images/Hero/3.png'}
-                            alt={'Hero image'}
+                            alt={'Tuftovaný koberec – anime postava se sepjatýma rukama'}
                             width={800}
                             height={800}
                             className='w-full h-full object-cover'
@@ -44,7 +44,7 @@ const Hero = () => {
                     <div className='absolute left-2/6 top-1/5 w-[17%] aspect-vid rounded-4xl hover:scale-105 duration-300'>
                         <Image
                             src={'/images/Hero/4.png'}
-                            alt={'Hero image'}
+                            alt={'Tuftovaný koberec – vykukující Baby Yoda'}
                             width={800}
                             height={800}
                             className='w-full h-full object-cover'
@@ -54,7 +54,7 @@ const Hero = () => {
                     <div className='absolute left-1/2 top-1/2 w-[18%] aspect-square  rounded-4xl hover:scale-105 duration-300'>
                         <Image
                             src={'/images/Hero/5.png'}
-                            alt={'Hero image'}
+                            alt={'Tuftovaný koberec – hlava kočky sphynx'}
                             width={800}
                             height={800}
                             className='w-full h-full object-cover'
@@ -64,7 +64,7 @@ const Hero = () => {
                     <div className='absolute left-0 top-0 w-[18%] aspect-squar rounded-4xl hover:scale-105 duration-300'>
                         <Image
                             src={'/images/Hero/6.png'}
-                            alt={'Hero image'}
+                            alt={'Tuftovaný koberec – hlava krávy'}
                             width={800}
                             height={800}
                             className='w-full h-full object-cover'
@@ -74,7 +74,7 @@ const Hero = () => {
                     <div className='absolute right-0 bottom-0 w-[15%] aspect-square rounded-4xl hover:scale-105 duration-300'>
                         <Image
                             src={'/images/Hero/7.png'}
-                            alt={'Hero image'}
+                            alt={'Tuftovaný koberec – žralok s otevřenou tlamou'}
                             width={800}
                             height={800}
                             className='w-full h-full object-cover'

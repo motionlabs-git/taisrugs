@@ -35,7 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 1,
         },
         {
-            url: `${baseUrl}/koberce-na-zakazku`,
+            url: `${baseUrl}/koberec-na-zakazku`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.9,
@@ -66,6 +66,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
         {
             url: `${baseUrl}/obchodni-podminky`,
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.1,
+        },
+        {
+            url: `${baseUrl}/cookies`,
             lastModified: new Date(),
             changeFrequency: 'yearly',
             priority: 0.1,

@@ -39,6 +39,7 @@ const RemoveLineCartForm: React.FC<IProps> = ({ cartLine }) => {
                 // TODO: redirect to error page
                 console.error('Error removing cart line:', error)
             })
+            .finally(() => setCartLoading(false))
     }
 
     return (

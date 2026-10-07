@@ -12,7 +12,7 @@ import { FiShoppingCart } from 'react-icons/fi'
 interface IProps {
     title?: string
     product: IProductQuery
-    action: ({ variantId }: AddToCartSchema) => Promise<void>
+    action: ({ variantId }: AddToCartSchema) => Promise<{ success: boolean }>
 }
 
 const AddToCartForm: React.FC<IProps> = ({
@@ -23,7 +23,8 @@ const AddToCartForm: React.FC<IProps> = ({
     const {
         register,
         handleSubmit,
-        formState: { isSubmitting, isSubmitSuccessful },
+        setError,
+        formState: { isSubmitting, isSubmitSuccessful, errors },
     } = useForm<AddToCartSchema>({
         defaultValues: {
             variantId: product.variants.nodes[0].id,
@@ -31,8 +32,17 @@ const AddToCartForm: React.FC<IProps> = ({
         resolver: zodResolver(addToCartValidation),
     })
 
+    const onSubmit = async (data: AddToCartSchema) => {
+        const { success } = await action(data)
+
+        if (!success)
+            setError('root', {
+                message: 'Nepodařilo se přidat do košíku, zkuste to znovu',
+            })
+    }
+
     return (
-        <form onSubmit={handleSubmit(action)}>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <input type='hidden' {...register('variantId')} />
 
             <button
@@ -56,6 +66,12 @@ const AddToCartForm: React.FC<IProps> = ({
                     </span>
                 </div>
             </button>
+
+            {errors.root && (
+                <span className='block text-red-600 text-sm mt-2'>
+                    {errors.root.message}
+                </span>
+            )}
         </form>
     )
 }

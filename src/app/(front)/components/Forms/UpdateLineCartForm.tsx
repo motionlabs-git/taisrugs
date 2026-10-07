@@ -8,7 +8,7 @@ import { axiosClient } from '@/app/utils/client/axiosClient'
 import { ICartProductQuery } from '@/app/utils/shopify/cartQuery'
 import { useCart } from '@/app/utils/zustand/cartStore'
 import { zodResolver } from '@hookform/resolvers/zod'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { FiMinus, FiPlus } from 'react-icons/fi'
 import AboutGalleryButton from '../Sections/Home/About/AboutGalleryButton'
@@ -37,6 +37,11 @@ const UpdateCartLineForm: React.FC<IProps> = ({ cartLine }) => {
     const canLowerQuantity = cartLine.quantity > 1
     const canHigherQuantity = cartLine.quantity < variant.quantityAvailable
 
+    // Keep input in sync with cart (e.g. after server rejects the change)
+    useEffect(() => {
+        setValue('quantity', cartLine.quantity)
+    }, [cartLine.quantity, setValue])
+
     const handleUpdateCartLine = (formData: UpdateCartLineSchema) => {
         setCartLoading(true)
         axiosClient
@@ -47,8 +52,29 @@ const UpdateCartLineForm: React.FC<IProps> = ({ cartLine }) => {
             .catch((error) => {
                 // TODO: redirect to error page
                 console.error('Error updating cart:', error)
+                setValue('quantity', cartLine.quantity)
             })
+            .finally(() => setCartLoading(false))
     }
+
+    const submitQuantity = handleSubmit(
+        (formData) => {
+            if (cartLoading) return
+
+            const quantity = Math.min(
+                formData.quantity,
+                variant.quantityAvailable
+            )
+
+            if (quantity === cartLine.quantity) {
+                setValue('quantity', cartLine.quantity)
+                return
+            }
+
+            handleUpdateCartLine({ ...formData, quantity })
+        },
+        () => setValue('quantity', cartLine.quantity)
+    )
 
     const handleLowerQuantityClick = () => {
         if (!canLowerQuantity) return
@@ -64,7 +90,7 @@ const UpdateCartLineForm: React.FC<IProps> = ({ cartLine }) => {
 
     return (
         <form
-            onSubmit={handleSubmit(handleUpdateCartLine)}
+            onSubmit={submitQuantity}
             className={`flex items-center gap-1 flex-nowrap duration-200 transition-opacity ${cartLoading ? 'pointer-events-none opacity-50' : 'pointer-events-auto opacity-100'}`}
         >
             <input type='hidden' {...register('lineId')} />
@@ -81,15 +107,17 @@ const UpdateCartLineForm: React.FC<IProps> = ({ cartLine }) => {
                 type='number'
                 min={1}
                 max={variant.quantityAvailable}
-                {...register('quantity', { valueAsNumber: true })}
+                {...register('quantity', {
+                    valueAsNumber: true,
+                    onBlur: submitQuantity,
+                })}
                 className='w-12 text-center mt-2 h-10 border border-black rounded-full outline-none'
-                onChange={() => handleUpdateCartLine}
             />
 
             <AboutGalleryButton
                 handleClick={handleUpperQuantityClick}
                 borderClassName='border-black'
-                disabled={!canLowerQuantity || cartLoading}
+                disabled={!canHigherQuantity || cartLoading}
             >
                 <FiPlus size={20} />
             </AboutGalleryButton>

@@ -34,15 +34,11 @@ export async function POST(request: NextRequest) {
 
         return NextResponse.json(res)
     } catch (err) {
-        if (err instanceof Error) {
-            return NextResponse.json({
-                status: 400,
-                message: err.message,
-            })
-        }
-        return NextResponse.json({
-            status: 500,
-            message: 'Internal server error',
-        })
+        console.error('Error sending email:', err)
+
+        return NextResponse.json(
+            { message: 'Failed to send email' },
+            { status: 500 }
+        )
     }
 }

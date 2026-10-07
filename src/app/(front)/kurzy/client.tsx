@@ -67,14 +67,14 @@ const CoursePageClient: React.FC<IProps> = ({ product }) => {
                     <div className='aspect-video w-full h-auto md:w-[32vw] md:h-[18vw] group relative rounded-3xl overflow-hidden'>
                         <Image
                             src={'/images/Kurzy/VoucherFront.webp'}
-                            alt={'Voucher Front'}
+                            alt={'Dárkový voucher na kurz tuftingu – přední strana'}
                             width={1290}
                             height={725}
                             className='w-full h-full object-cover rounded-3xl shadow-md absolute top-0 left-0 md:group-hover:-rotate-x-90 duration-100 delay-100 group-hover:delay-0'
                         ></Image>
                         <Image
                             src='/images/Kurzy/VoucherBack.webp'
-                            alt='Voucher Front'
+                            alt='Dárkový voucher na kurz tuftingu – zadní strana'
                             width={1290}
                             height={725}
                             className='w-full h-full object-cover rounded-3xl shadow-md absolute top-0 left-0 -rotate-x-90 md:group-hover:-rotate-x-0 duration-100 group-hover:delay-100'

@@ -85,7 +85,7 @@ const FileInput: React.FC<
                                 </button>
                                 <Image
                                     src={preview}
-                                    alt='preview'
+                                    alt='Náhled nahrané fotky'
                                     className='w-full h-full rounded-xl object-cover'
                                     width={300}
                                     height={300}

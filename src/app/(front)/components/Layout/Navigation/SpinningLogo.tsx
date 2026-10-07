@@ -49,7 +49,7 @@ const SpinningLogo = () => {
             >
                 <Image
                     src={'/LogoSVG.svg'}
-                    alt={'logo'}
+                    alt={'Tais Rugs logo – domů'}
                     width={200}
                     height={200}
                     className='w-full h-full '

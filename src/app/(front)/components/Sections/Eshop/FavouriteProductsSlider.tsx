@@ -32,7 +32,7 @@ const FavouriteProductsSlider = ({
                             <div className='relative group bg-gray-100/30 rounded-2xl aspect-[4/5] flex-1 overflow-hidden cursor-pointer shadow-[-8px_8px_black] duration-200'>
                                 <Image
                                     src={product.images.nodes[0].src}
-                                    alt={'Obrazek'}
+                                    alt={product.images.nodes[0].altText ?? product.title}
                                     width={500}
                                     height={500}
                                     className='w-full h-full object-cover duration-400'
@@ -48,7 +48,7 @@ const FavouriteProductsSlider = ({
                             <div className='relative group bg-gray-100/30 rounded-2xl aspect-[4/5] flex-1 overflow-hidden cursor-pointer shadow-[-8px_8px_black] duration-200'>
                                 <Image
                                     src={product.images.nodes[0].src}
-                                    alt={'Obrazek'}
+                                    alt={product.images.nodes[0].altText ?? product.title}
                                     width={500}
                                     height={500}
                                     className='w-full h-full object-cover duration-400'
@@ -64,7 +64,7 @@ const FavouriteProductsSlider = ({
                             <div className='relative group bg-gray-100/30 rounded-2xl aspect-[4/5] flex-1 overflow-hidden cursor-pointer shadow-[-8px_8px_black] duration-200'>
                                 <Image
                                     src={product.images.nodes[0].src}
-                                    alt={'Obrazek'}
+                                    alt={product.images.nodes[0].altText ?? product.title}
                                     width={500}
                                     height={500}
                                     className='w-full h-full object-cover duration-400'
@@ -80,7 +80,7 @@ const FavouriteProductsSlider = ({
                             <div className='relative group bg-gray-100/30 rounded-2xl aspect-[4/5] flex-1 overflow-hidden cursor-pointer shadow-[-8px_8px_black] duration-200'>
                                 <Image
                                     src={product.images.nodes[0].src}
-                                    alt={'Obrazek'}
+                                    alt={product.images.nodes[0].altText ?? product.title}
                                     width={500}
                                     height={500}
                                     className='w-full h-full object-cover duration-400'
@@ -96,7 +96,7 @@ const FavouriteProductsSlider = ({
                             <div className='relative group bg-gray-100/30 rounded-2xl aspect-[4/5] flex-1 overflow-hidden cursor-pointer shadow-[-8px_8px_black] duration-200'>
                                 <Image
                                     src={product.images.nodes[0].src}
-                                    alt={'Obrazek'}
+                                    alt={product.images.nodes[0].altText ?? product.title}
                                     width={500}
                                     height={500}
                                     className='w-full h-full object-cover duration-400'

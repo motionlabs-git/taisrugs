@@ -17,10 +17,10 @@ const AboutGalleryButton = ({
 
     return (
         <button
-            disabled={disabled ? !disabled : false}
+            disabled={disabled}
             type='button'
             aria-label='Předchozí obrázek'
-            className={`${className} text-black cursor-pointer pb-[5px] pl-[3px] duration-200 hover:pb-[2px] hover:pl-[2px] hover:pt-[3px] hover:pr-[1px] group ${
+            className={`${className} text-black cursor-pointer disabled:opacity-40 disabled:pointer-events-none pb-[5px] pl-[3px] duration-200 hover:pb-[2px] hover:pl-[2px] hover:pt-[3px] hover:pr-[1px] group ${
                 isClicked && '!pb-[0px] !pl-[0px] !pt-[5px] !pr-[3px]'
             }`}
             onClick={handleClick}

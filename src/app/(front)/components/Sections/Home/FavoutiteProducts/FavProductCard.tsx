@@ -43,7 +43,7 @@ const FavProductCard = ({ product }: { product: IProductQuery }) => {
                 {product?.images.nodes[0].src && (
                     <Image
                         src={product.images.nodes[0].src}
-                        alt={'Obrazek'}
+                        alt={product.images.nodes[0].altText ?? product.title}
                         width={500}
                         height={500}
                         className='w-full h-full object-cover select-none pointer-events-none'

@@ -58,8 +58,7 @@ const Cart: React.FC<IProps> = ({ cart, handleCloseCart, isOpened }) => {
                     </button>
                 </div>
 
-                {!cartData ||
-                    (!cartData.lines.nodes.length && (
+                {(!cartData || !cartData.lines.nodes.length) && (
                         <>
                             <div className='mt-8'>
                                 <p>Váš košík je prázdný...</p>
@@ -85,11 +84,13 @@ const Cart: React.FC<IProps> = ({ cart, handleCloseCart, isOpened }) => {
                                 </div>
                             </button>
                         </>
-                    ))}
+                    )}
 
                 {cartData && cartData.lines.nodes.length > 0 && (
                     <div className='flex flex-col gap-4 flex-1 min-h-0'>
-                        <ul className='mt-8 flex flex-col flex-1 min-h-0 overflow-y-auto overscroll-contain gap-4'>
+                        <ul
+                            data-lenis-prevent
+                            className='mt-8 flex flex-col flex-1 min-h-0 overflow-y-auto overscroll-contain gap-4'>
                             {cartData.lines.nodes.map((item) => (
                                 <CartItem item={item} key={item.id} />
                             ))}
