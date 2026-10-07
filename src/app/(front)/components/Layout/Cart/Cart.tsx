@@ -33,7 +33,7 @@ const Cart: React.FC<IProps> = ({ cart, handleCloseCart, isOpened }) => {
                 isOpened
                     ? 'opacity-100'
                     : 'opacity-0 pointer-events-none delay-300'
-            } bg-black/20 duration-200 z-50 fixed top-0 right-0 w-screen h-svh pointer-events-auto`}
+            } bg-black/20 duration-200 z-50 fixed inset-0 w-screen h-dvh pointer-events-auto`}
             onClick={(e) => {
                 if ((e.target as HTMLElement).id === 'cart') handleCloseCart()
             }}
@@ -44,9 +44,9 @@ const Cart: React.FC<IProps> = ({ cart, handleCloseCart, isOpened }) => {
                     isOpened
                         ? 'right-0 delay-150'
                         : '-right-full md:-right-2/3 lg:-right-1/3'
-                } duration-300 fixed top-0 bg-white h-screen w-full lg:w-2/3 xl:w-1/3 rounded-l-3xl border-1 border-black/30 tra border-r-none p-4 sm:p-10`}
+                } duration-300 fixed top-0 bg-white h-dvh flex flex-col w-full lg:w-2/3 xl:w-1/3 rounded-l-3xl border-1 border-black/30 tra border-r-none p-4 sm:p-10`}
             >
-                <div className='flex justify-between items-center'>
+                <div className='flex justify-between items-center shrink-0'>
                     <h2 className='text-xl'>Košík</h2>
 
                     <button
@@ -89,14 +89,14 @@ const Cart: React.FC<IProps> = ({ cart, handleCloseCart, isOpened }) => {
                     ))}
 
                 {cartData && cartData.lines.nodes.length > 0 && (
-                    <div className='flex flex-col gap-4 h-full'>
-                        <ul className='mt-8 flex flex-col h-full overflow-y-auto gap-4'>
+                    <div className='flex flex-col gap-4 flex-1 min-h-0'>
+                        <ul className='mt-8 flex flex-col flex-1 min-h-0 overflow-y-auto overscroll-contain gap-4'>
                             {cartData.lines.nodes.map((item) => (
                                 <CartItem item={item} key={item.id} />
                             ))}
                         </ul>
 
-                        <div className='flex gap-2 font-bold'>
+                        <div className='flex gap-2 font-bold shrink-0'>
                             <p>Celkem:</p>
                             <span>
                                 {Math.floor(
@@ -107,7 +107,7 @@ const Cart: React.FC<IProps> = ({ cart, handleCloseCart, isOpened }) => {
                         </div>
 
                         {!cartLoading && cartData.checkoutUrl ? (
-                            <div className='pb-8 sm:pb-10'>
+                            <div className='shrink-0 pb-[max(1rem,env(safe-area-inset-bottom))] sm:pb-6'>
                                 <Link
                                     href={cartData.checkoutUrl}
                                     type='button'
@@ -130,8 +130,8 @@ const Cart: React.FC<IProps> = ({ cart, handleCloseCart, isOpened }) => {
                                 </Link>
                             </div>
                         ) : (
-                            <div className='pb-8 sm:pb-10 h-26 sm:h-28 flex items-center'>
-                                <p>Načítání...</p>
+                            <div className='shrink-0 pb-[max(1rem,env(safe-area-inset-bottom))] sm:pb-6'>
+                                <p className='h-[58px] flex items-center'>Načítání...</p>
                             </div>
                         )}
                     </div>
